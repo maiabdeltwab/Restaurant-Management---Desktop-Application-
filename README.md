@@ -1,1 +1,1 @@
-# Restaurant-Management---Desktop-Application-
+# Restaurant Management - Desktop Application
