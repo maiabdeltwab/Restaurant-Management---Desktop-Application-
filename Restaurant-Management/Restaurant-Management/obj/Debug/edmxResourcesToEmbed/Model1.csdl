@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.Customer_id_fk" FromRole="Customer" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="FoodIngredient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoreItem_id" Type="Int32" Nullable="false" />
+    <Property Name="MenuItem_id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="MenuItem" Relationship="Self.Menu_item_id_FK" FromRole="FoodIngredients" ToRole="MenuItem" />
+    <NavigationProperty Name="StoreItem" Relationship="Self.store_item_id_FK" FromRole="FoodIngredients" ToRole="StoreItem" />
+  </EntityType>
+  <EntityType Name="ItemShipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArrivalTime" Type="DateTime" Precision="3" />
+    <Property Name="ExperiedTime" Type="DateTime" Precision="3" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="Supplier_id" Type="Int32" />
+    <Property Name="StoreItem_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="StoreItem" Relationship="Self.Store_item_Shipment_fk" FromRole="ItemShipment" ToRole="StoreItem" />
+    <NavigationProperty Name="Supplier" Relationship="Self.Suppliers_item_shipment_fk" FromRole="ItemShipment" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MenuItems" Relationship="Self.Menu_item_fk" FromRole="Menu" ToRole="MenuItem" />
+  </EntityType>
+  <EntityType Name="MenuItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Describtion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Menu_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FoodIngredients" Relationship="Self.Menu_item_id_FK" FromRole="MenuItem" ToRole="FoodIngredients" />
+    <NavigationProperty Name="Menu" Relationship="Self.Menu_item_fk" FromRole="MenuItem" ToRole="Menu" />
+    <NavigationProperty Name="RestaurantConsumptions" Relationship="Self.Menu_ite_id_fk" FromRole="MenuItem" ToRole="RestaurantConsumption" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.Menu_item_order_id_FK" FromRole="MenuItem" ToRole="OrderItems" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_id" Type="Int32" Nullable="false" />
+    <Property Name="MenuItem_id" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" />
+    <NavigationProperty Name="MenuItem" Relationship="Self.Menu_item_order_id_FK" FromRole="OrderItems" ToRole="MenuItem" />
+    <NavigationProperty Name="Order" Relationship="Self.Orders_id_FK" FromRole="OrderItems" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="OrderType_id" Type="Int32" />
+    <Property Name="Customer_id" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.Customer_id_fk" FromRole="Orders" ToRole="Customer" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.Orders_id_FK" FromRole="Orders" ToRole="OrderItems" />
+    <NavigationProperty Name="OrderType" Relationship="Self.Order_type_id_fk" FromRole="Orders" ToRole="OrderType" />
+  </EntityType>
+  <EntityType Name="OrderType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.Order_type_id_fk" FromRole="OrderType" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="RestaurantConsumption">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="MenuItem_id" Type="Int32" />
+    <NavigationProperty Name="MenuItem" Relationship="Self.Menu_ite_id_fk" FromRole="RestaurantConsumption" ToRole="MenuItem" />
+  </EntityType>
+  <EntityType Name="Screen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Describtion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserPrivileges" Relationship="Self.Screen_id_FK" FromRole="Screen" ToRole="UserPrivileges" />
+  </EntityType>
+  <EntityType Name="StoreConsumption">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Count" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="StoreItem_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="StoreItem" Relationship="Self.Store_item_consuumption_fk" FromRole="StoreConsumption" ToRole="StoreItem" />
+  </EntityType>
+  <EntityType Name="StoreItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CurrentCount" Type="Int32" />
+    <Property Name="RequiredCount" Type="Int32" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ItemType_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FoodIngredients" Relationship="Self.store_item_id_FK" FromRole="StoreItem" ToRole="FoodIngredients" />
+    <NavigationProperty Name="ItemShipments" Relationship="Self.Store_item_Shipment_fk" FromRole="StoreItem" ToRole="ItemShipment" />
+    <NavigationProperty Name="StoreConsumptions" Relationship="Self.Store_item_consuumption_fk" FromRole="StoreItem" ToRole="StoreConsumption" />
+    <NavigationProperty Name="StoreItemType" Relationship="Self.Store_item_type_fk" FromRole="StoreItem" ToRole="StoreItemType" />
+  </EntityType>
+  <EntityType Name="StoreItemType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="StoreItems" Relationship="Self.Store_item_type_fk" FromRole="StoreItemType" ToRole="StoreItem" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ItemShipments" Relationship="Self.Suppliers_item_shipment_fk" FromRole="Supplier" ToRole="ItemShipment" />
+    <NavigationProperty Name="SupplierPhones" Relationship="Self.Supplier_phone_FK" FromRole="Supplier" ToRole="SupplierPhone" />
+  </EntityType>
+  <EntityType Name="SupplierPhone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Supplier" Relationship="Self.Supplier_phone_FK" FromRole="SupplierPhone" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="UserPhone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.User_phone_FK" FromRole="UserPhone" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserPrivilege">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Screen_id" Type="Int32" />
+    <Property Name="UserType_id" Type="Int32" />
+    <NavigationProperty Name="Screen" Relationship="Self.Screen_id_FK" FromRole="UserPrivileges" ToRole="Screen" />
+    <NavigationProperty Name="UserType" Relationship="Self.User_typ_id_FK" FromRole="UserPrivileges" ToRole="UserType" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FristName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserType_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserPhones" Relationship="Self.User_phone_FK" FromRole="Users" ToRole="UserPhone" />
+    <NavigationProperty Name="UserType" Relationship="Self.User_type_id_fk" FromRole="Users" ToRole="UserType" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UserPrivileges" Relationship="Self.User_typ_id_FK" FromRole="UserType" ToRole="UserPrivileges" />
+    <NavigationProperty Name="Users" Relationship="Self.User_type_id_fk" FromRole="UserType" ToRole="Users" />
+  </EntityType>
+  <Association Name="Customer_id_fk">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_item_id_FK">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="1" />
+    <End Role="FoodIngredients" Type="Self.FoodIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FoodIngredients">
+        <PropertyRef Name="MenuItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="store_item_id_FK">
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="1" />
+    <End Role="FoodIngredients" Type="Self.FoodIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FoodIngredients">
+        <PropertyRef Name="StoreItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Store_item_Shipment_fk">
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="1" />
+    <End Role="ItemShipment" Type="Self.ItemShipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemShipment">
+        <PropertyRef Name="StoreItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Suppliers_item_shipment_fk">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="ItemShipment" Type="Self.ItemShipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemShipment">
+        <PropertyRef Name="Supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_item_fk">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MenuItem">
+        <PropertyRef Name="Menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_ite_id_fk">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="0..1" />
+    <End Role="RestaurantConsumption" Type="Self.RestaurantConsumption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RestaurantConsumption">
+        <PropertyRef Name="MenuItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_item_order_id_FK">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="MenuItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Orders_id_FK">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="Order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Order_type_id_fk">
+    <End Role="OrderType" Type="Self.OrderType" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Screen_id_FK">
+    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+    <End Role="UserPrivileges" Type="Self.UserPrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPrivileges">
+        <PropertyRef Name="Screen_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Store_item_consuumption_fk">
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="1" />
+    <End Role="StoreConsumption" Type="Self.StoreConsumption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StoreConsumption">
+        <PropertyRef Name="StoreItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Store_item_type_fk">
+    <End Role="StoreItemType" Type="Self.StoreItemType" Multiplicity="1" />
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItemType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StoreItem">
+        <PropertyRef Name="ItemType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Supplier_phone_FK">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SupplierPhone" Type="Self.SupplierPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupplierPhone">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_phone_FK">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPhone" Type="Self.UserPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPhone">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_typ_id_FK">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+    <End Role="UserPrivileges" Type="Self.UserPrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPrivileges">
+        <PropertyRef Name="UserType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_type_id_fk">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RestaurantManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="FoodIngredients" EntityType="Self.FoodIngredient" />
+    <EntitySet Name="ItemShipments" EntityType="Self.ItemShipment" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="MenuItems" EntityType="Self.MenuItem" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderTypes" EntityType="Self.OrderType" />
+    <EntitySet Name="RestaurantConsumptions" EntityType="Self.RestaurantConsumption" />
+    <EntitySet Name="Screens" EntityType="Self.Screen" />
+    <EntitySet Name="StoreConsumptions" EntityType="Self.StoreConsumption" />
+    <EntitySet Name="StoreItems" EntityType="Self.StoreItem" />
+    <EntitySet Name="StoreItemTypes" EntityType="Self.StoreItemType" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="SupplierPhones" EntityType="Self.SupplierPhone" />
+    <EntitySet Name="UserPhones" EntityType="Self.UserPhone" />
+    <EntitySet Name="UserPrivileges" EntityType="Self.UserPrivilege" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+    <AssociationSet Name="Customer_id_fk" Association="Self.Customer_id_fk">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_item_id_FK" Association="Self.Menu_item_id_FK">
+      <End Role="MenuItem" EntitySet="MenuItems" />
+      <End Role="FoodIngredients" EntitySet="FoodIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="store_item_id_FK" Association="Self.store_item_id_FK">
+      <End Role="StoreItem" EntitySet="StoreItems" />
+      <End Role="FoodIngredients" EntitySet="FoodIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="Store_item_Shipment_fk" Association="Self.Store_item_Shipment_fk">
+      <End Role="StoreItem" EntitySet="StoreItems" />
+      <End Role="ItemShipment" EntitySet="ItemShipments" />
+    </AssociationSet>
+    <AssociationSet Name="Suppliers_item_shipment_fk" Association="Self.Suppliers_item_shipment_fk">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="ItemShipment" EntitySet="ItemShipments" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_item_fk" Association="Self.Menu_item_fk">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="MenuItem" EntitySet="MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_ite_id_fk" Association="Self.Menu_ite_id_fk">
+      <End Role="MenuItem" EntitySet="MenuItems" />
+      <End Role="RestaurantConsumption" EntitySet="RestaurantConsumptions" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_item_order_id_FK" Association="Self.Menu_item_order_id_FK">
+      <End Role="MenuItem" EntitySet="MenuItems" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="Orders_id_FK" Association="Self.Orders_id_FK">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="Order_type_id_fk" Association="Self.Order_type_id_fk">
+      <End Role="OrderType" EntitySet="OrderTypes" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Screen_id_FK" Association="Self.Screen_id_FK">
+      <End Role="Screen" EntitySet="Screens" />
+      <End Role="UserPrivileges" EntitySet="UserPrivileges" />
+    </AssociationSet>
+    <AssociationSet Name="Store_item_consuumption_fk" Association="Self.Store_item_consuumption_fk">
+      <End Role="StoreItem" EntitySet="StoreItems" />
+      <End Role="StoreConsumption" EntitySet="StoreConsumptions" />
+    </AssociationSet>
+    <AssociationSet Name="Store_item_type_fk" Association="Self.Store_item_type_fk">
+      <End Role="StoreItemType" EntitySet="StoreItemTypes" />
+      <End Role="StoreItem" EntitySet="StoreItems" />
+    </AssociationSet>
+    <AssociationSet Name="Supplier_phone_FK" Association="Self.Supplier_phone_FK">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="SupplierPhone" EntitySet="SupplierPhones" />
+    </AssociationSet>
+    <AssociationSet Name="User_phone_FK" Association="Self.User_phone_FK">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPhone" EntitySet="UserPhones" />
+    </AssociationSet>
+    <AssociationSet Name="User_typ_id_FK" Association="Self.User_typ_id_FK">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="UserPrivileges" EntitySet="UserPrivileges" />
+    </AssociationSet>
+    <AssociationSet Name="User_type_id_fk" Association="Self.User_type_id_fk">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
