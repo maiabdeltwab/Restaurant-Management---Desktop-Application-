@@ -20,7 +20,8 @@ namespace Restaurant_Management
 
         private void Main_Load(object sender, EventArgs e)
         {
-            UserForm objForm = new UserForm();
+            //UserForm objForm = new UserForm();
+            CustomerForm objForm = new CustomerForm();
             objForm.TopLevel = false;
             mainPanel.Controls.Add(objForm);
             objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
