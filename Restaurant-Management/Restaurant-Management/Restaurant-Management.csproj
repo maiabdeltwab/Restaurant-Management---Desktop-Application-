@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basic.cs" />
+    <Compile Include="Controllers\StoreItemController.cs" />
+    <Compile Include="Controllers\StoreItemTypeController.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -131,6 +133,14 @@
     <Compile Include="SupplierPhone.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\StoreItemTypeVM.cs" />
+    <Compile Include="ViewModel\StoreItemVM .cs" />
+    <Compile Include="View\StoreItemTypesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StoreItemTypesForm.Designer.cs">
+      <DependentUpon>StoreItemTypesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +169,9 @@
     </Compile>
     <Compile Include="Controllers\ICRUD.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
+    <EmbeddedResource Include="View\StoreItemTypesForm.resx">
+      <DependentUpon>StoreItemTypesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
