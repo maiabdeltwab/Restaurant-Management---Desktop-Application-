@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basic.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\MenuItemController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -131,6 +134,27 @@
     <Compile Include="SupplierPhone.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MenuItemVM.cs" />
+    <Compile Include="ViewModel\MenuVM.cs" />
+    <Compile Include="ViewModel\SupplierVM.cs" />
+    <Compile Include="View\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuItem Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuItem Form.Designer.cs">
+      <DependentUpon>MenuItem Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Supplier Form.Designer.cs">
+      <DependentUpon>Supplier Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +183,15 @@
     </Compile>
     <Compile Include="Controllers\ICRUD.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
+    <EmbeddedResource Include="View\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MenuItem Form.resx">
+      <DependentUpon>MenuItem Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Supplier Form.resx">
+      <DependentUpon>Supplier Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
