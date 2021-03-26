@@ -15,6 +15,7 @@ namespace Restaurant_Management.View
     {
         private readonly OrderController controller = new OrderController();
         private readonly RestaurantEntities context = OrderController.context;
+
         public OrdersForm()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Restaurant_Management.View
             IdText.Enabled = false;
             ClearData();
         }
+
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
         {
             if (remove)
@@ -44,6 +46,7 @@ namespace Restaurant_Management.View
                     textBox.Text = defaultText;
             }
         }
+
         private void searchTextBox_Enter(object sender, EventArgs e)
         {
             DefaultText(sender, "What do you want to seach?", true);
@@ -63,10 +66,12 @@ namespace Restaurant_Management.View
         {
             searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
         }
+
         private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             ClearData();
         }
+
         private void dataGrid_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGrid.SelectedRows.Count != 0)
@@ -84,6 +89,7 @@ namespace Restaurant_Management.View
                 ClearData();
             }
         }
+
         private void search(object sender, EventArgs e)
         {
             string search = searchTextBox.Text;
@@ -92,6 +98,7 @@ namespace Restaurant_Management.View
             else
                 dataGrid.DataSource = controller.Search(search);
         }
+
         private void dataGrid_rowCountChange(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             rowCount.Text = $"Results: {dataGrid.Rows.Count} rows";
@@ -101,6 +108,7 @@ namespace Restaurant_Management.View
         {
             rowCount.Text = $"Results: {dataGrid.Rows.Count} rows";
         }
+
         private void gunaButton1_Click(object sender, EventArgs e)
         {
             ClearData();
@@ -110,6 +118,7 @@ namespace Restaurant_Management.View
         {
             SelectRow();
         }
+
         private void ClearData()
         {
             dataGrid.ClearSelection();
@@ -118,7 +127,7 @@ namespace Restaurant_Management.View
             DateText.Text = "Order Date";
             OTypeCombo.SelectedIndex = -1;
             CustomerText.Text = "Customer Name";
-           
+
             deleteBtn.Visible = false;
             ShowButton.Visible = false;
         }
@@ -141,11 +150,13 @@ namespace Restaurant_Management.View
                 //saveBtn.Text = "Update";
             }
         }
+
         private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
                 search(sender, e);
         }
+
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             //refresh table
@@ -159,10 +170,9 @@ namespace Restaurant_Management.View
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-
             OrderItem orderItem = new OrderItem();
-            
-            bool isnumeric = int.TryParse(IdText.Text, out int n); 
+
+            bool isnumeric = int.TryParse(IdText.Text, out int n);
             if (isnumeric)
             {
                 orderItem.ID = int.Parse(IdText.Text);
@@ -170,8 +180,8 @@ namespace Restaurant_Management.View
                 Form formBackground = new Form();
                 using (OrderItems orderItems = new OrderItems(id))
                 {
-                //dataGrid.DataSource = controller.DisplayItems();
-                formBackground.StartPosition = FormStartPosition.Manual;
+                    //dataGrid.DataSource = controller.DisplayItems();
+                    formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;
                     formBackground.Opacity = .50d;
                     formBackground.BackColor = Color.Black;
@@ -184,21 +194,16 @@ namespace Restaurant_Management.View
                     orderItems.ShowDialog();
                     formBackground.Dispose();
                 }
-
             }
             else
             {
                 MessageBox.Show(null, "Check Order to Display items", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             //try
             //{
-
-
             //}
             //catch (Exception ex)
             //{
-
             //    MessageBox.Show(ex.Message);
             //}
             //finally
@@ -206,19 +211,14 @@ namespace Restaurant_Management.View
             //    formBackground.Dispose();
 
             //}
-
-
-
         }
 
         private void groupBox_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -234,6 +234,7 @@ namespace Restaurant_Management.View
             else
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
         //private void saveBtn_Click(object sender, EventArgs e)
         //{
         //    User user = new User();
@@ -278,6 +279,5 @@ namespace Restaurant_Management.View
         //    user.UserType = context.UserTypes.Find(UTypeCombo.SelectedValue);
         //    user.Password = PasswordText.Text;
         //}
-
     }
 }

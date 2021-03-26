@@ -31,8 +31,8 @@ namespace Restaurant_Management.View
             UTypeCombo.SelectedIndex = -1;
             IdText.Enabled = false;
             ClearData();
-
         }
+
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
         {
             if (remove)
@@ -196,7 +196,7 @@ namespace Restaurant_Management.View
             menuItem.Name = NameText.Text;
             menuItem.Price = decimal.Parse(PriceText.Text);
             menuItem.Describtion = Descriptiontext.Text;
-            menuItem.Menu= context.Menus.Find(UTypeCombo.SelectedValue);
+            menuItem.Menu = context.Menus.Find(UTypeCombo.SelectedValue);
         }
 
         private void formText_Enter(object sender, EventArgs e)
@@ -215,7 +215,6 @@ namespace Restaurant_Management.View
             {
                 DefaultText(textBox, "Enter Description", true);
             }
-    
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -223,7 +222,6 @@ namespace Restaurant_Management.View
             //refresh table
             dataGrid.DataSource = controller.ViewAll();
         }
-
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
@@ -241,7 +239,6 @@ namespace Restaurant_Management.View
 
         private void dataGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
-
         }
     }
 }

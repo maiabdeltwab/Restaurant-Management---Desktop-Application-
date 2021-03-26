@@ -17,9 +17,9 @@ namespace Restaurant_Management.View
         {
             InitializeComponent();
         }
+
         private readonly MenuController controller = new MenuController();
         private readonly RestaurantEntities context = MenuController.context;
-
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
@@ -30,6 +30,7 @@ namespace Restaurant_Management.View
             IdText.Enabled = false;
             ClearData();
         }
+
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
         {
             if (remove)
@@ -189,10 +190,7 @@ namespace Restaurant_Management.View
             menu.Name = UsernameText.Text;
 
             //user.UserType = context.UserTypes.Find(UTypeCombo.SelectedValue);
-
         }
-
-
 
         //private void formText_Enter(object sender, EventArgs e)
         //{
@@ -225,6 +223,7 @@ namespace Restaurant_Management.View
             //refresh table
             dataGrid.DataSource = controller.ViewAll();
         }
+
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             int id = int.Parse(IdText.Text);
@@ -239,6 +238,4 @@ namespace Restaurant_Management.View
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-
 }
-

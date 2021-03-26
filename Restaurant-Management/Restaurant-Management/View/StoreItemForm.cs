@@ -154,7 +154,7 @@ namespace Restaurant_Management.View
                 QuantityText.Text = row.Cells["Quantity"].Value.ToString();
 
                 string type = row.Cells["TypeName"].Value.ToString();
-                 ITypeCombo.SelectedIndex = ITypeCombo.FindStringExact(type);
+                ITypeCombo.SelectedIndex = ITypeCombo.FindStringExact(type);
 
                 saveBtn.Text = "Update";
             }
@@ -204,7 +204,7 @@ namespace Restaurant_Management.View
         private void getDate(StoreItem storeItem)
         {
             storeItem.Name = ItemnameText.Text;
-            storeItem.CurrentCount =int.Parse( CurrentAmountText.Text);
+            storeItem.CurrentCount = int.Parse(CurrentAmountText.Text);
             storeItem.RequiredCount = int.Parse(RequiredAmountText.Text);
             storeItem.Price = int.Parse(PriceText.Text);
             storeItem.StoreItemType = context.StoreItemTypes.Find(ITypeCombo.SelectedValue);
@@ -315,7 +315,6 @@ namespace Restaurant_Management.View
 
         private void QuantityText_TextChanged(object sender, EventArgs e)
         {
-
             Regex emailReg = new Regex("^[0-9]*$");
 
             string input = QuantityText.Text.Trim();
@@ -348,7 +347,6 @@ namespace Restaurant_Management.View
 
         private void usersBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -361,27 +359,22 @@ namespace Restaurant_Management.View
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
         }
 
         private void IdText_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void ITypeCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void ItemnameLbl_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
