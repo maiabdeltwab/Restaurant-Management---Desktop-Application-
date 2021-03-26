@@ -33,3 +33,4 @@ D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant
 D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
 D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
 D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemTypesForm.resources
+D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemForm.resources

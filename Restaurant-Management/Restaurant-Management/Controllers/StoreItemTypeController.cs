@@ -77,18 +77,23 @@ namespace Restaurant_Management.Controllers
 
         public bool Insert(StoreItemType storeItem)
         {
-            try
-            {
-                context.StoreItemTypes.Add(storeItem);
-
-                context.SaveChanges();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+            if (storeItem.Name == "" || storeItem.Name== "Enter Name")
                 return false;
+            else
+            {
+                try
+                {
+                    context.StoreItemTypes.Add(storeItem);
+
+                    context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
             }
         }
     }

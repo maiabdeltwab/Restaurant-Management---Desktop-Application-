@@ -13,24 +13,24 @@ using System.Windows.Forms;
 
 namespace Restaurant_Management.View
 {
-    public partial class UserForm : Form
+    public partial class StoreItemForm : Form
     {
-        private readonly UserController controller = new UserController();
-        private readonly RestaurantEntities context = UserController.context;
+        private readonly StoreItemController controller = new StoreItemController();
+        private readonly RestaurantEntities context = StoreItemController.context;
 
-        public UserForm()
+        public StoreItemForm()
         {
             InitializeComponent();
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
+        private void StoreItemForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.UserType' table. You can move, or remove it, as needed.
-            this.userTypeTableAdapter.Fill(this.restaurantManagementDataSet.UserType);
+            this.itemTypeTableAdapter.Fill(this.restaurantManagementDataSet.StoreItemType);
 
             dataGrid.DataSource = controller.ViewAll();
 
-            UTypeCombo.SelectedIndex = -1;
+            ITypeCombo.SelectedIndex = -1;
             IdText.Enabled = false;
             ClearData();
         }
@@ -83,13 +83,13 @@ namespace Restaurant_Management.View
         {
             if (dataGrid.SelectedRows.Count != 0)
             {
-                groupBox.Text = "Update user";
+                groupBox.Text = "Update item";
                 deleteBtn.Visible = true;
                 SelectRow();
             }
             else
             {
-                groupBox.Text = "Create user";
+                groupBox.Text = "Create item";
                 deleteBtn.Visible = false;
                 ClearData();
             }
@@ -128,15 +128,15 @@ namespace Restaurant_Management.View
         {
             dataGrid.ClearSelection();
 
-            UsernameText.Text = "Enter username";
-            FNameText.Text = "Enter first name";
-            LNameText.Text = "Enter last name";
-            EmailText.Text = "Enter email";
+            ItemnameText.Text = "Enter itemname";
+            CurrentAmountText.Text = "Enter Current Amount";
+            RequiredAmountText.Text = "Enter Required Amount";
+            PriceText.Text = "Enter Price";
             IdText.Text = "ID";
-            PasswordText.Text = "Enter password";
-            UTypeCombo.SelectedIndex = -1;
+            QuantityText.Text = "Enter Quantity";
+            ITypeCombo.SelectedIndex = -1;
             saveBtn.Text = "Create";
-            groupBox.Text = "Create user";
+            groupBox.Text = "Create item";
             deleteBtn.Visible = false;
         }
 
@@ -147,13 +147,14 @@ namespace Restaurant_Management.View
                 var row = dataGrid.SelectedRows[0];
 
                 IdText.Text = row.Cells["ID"].Value.ToString();
-                UsernameText.Text = row.Cells["Username"].Value.ToString();
-                EmailText.Text = row.Cells["Email"].Value.ToString();
-                FNameText.Text = row.Cells["FristName"].Value.ToString();
-                LNameText.Text = row.Cells["LastName"].Value.ToString();
+                ItemnameText.Text = row.Cells["Name"].Value.ToString();
+                PriceText.Text = row.Cells["Price"].Value.ToString();
+                CurrentAmountText.Text = row.Cells["CurrentCount"].Value.ToString();
+                RequiredAmountText.Text = row.Cells["RequiredCount"].Value.ToString();
+                QuantityText.Text = row.Cells["Quantity"].Value.ToString();
 
                 string type = row.Cells["TypeName"].Value.ToString();
-                UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
+                 ITypeCombo.SelectedIndex = ITypeCombo.FindStringExact(type);
 
                 saveBtn.Text = "Update";
             }
@@ -167,16 +168,16 @@ namespace Restaurant_Management.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            getDate(user);
+            StoreItem storeItem = new StoreItem();
+            getDate(storeItem);
 
             if (saveBtn.Text == "Create")
             {
-                bool flag = controller.Insert(user);
+                bool flag = controller.Insert(storeItem);
 
                 if (flag)
                 {
-                    MessageBox.Show(null, "User inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(null, "item inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //refresh table
                     dataGrid.DataSource = controller.ViewAll();
                 }
@@ -185,13 +186,13 @@ namespace Restaurant_Management.View
             }
             else
             {
-                user.ID = int.Parse(IdText.Text);
+                storeItem.ID = int.Parse(IdText.Text);
 
-                bool flag = controller.Update(user);
+                bool flag = controller.Update(storeItem);
 
                 if (flag)
                 {
-                    MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(null, "item updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //refresh table
                     dataGrid.DataSource = controller.ViewAll();
                 }
@@ -200,30 +201,30 @@ namespace Restaurant_Management.View
             }
         }
 
-        private void getDate(User user)
+        private void getDate(StoreItem storeItem)
         {
-            user.Username = UsernameText.Text;
-            user.FristName = FNameText.Text;
-            user.LastName = LNameText.Text;
-            user.Email = EmailText.Text;
-            user.UserType = context.UserTypes.Find(UTypeCombo.SelectedValue);
-            user.Password = PasswordText.Text;
+            storeItem.Name = ItemnameText.Text;
+            storeItem.CurrentCount =int.Parse( CurrentAmountText.Text);
+            storeItem.RequiredCount = int.Parse(RequiredAmountText.Text);
+            storeItem.Price = int.Parse(PriceText.Text);
+            storeItem.StoreItemType = context.StoreItemTypes.Find(ITypeCombo.SelectedValue);
+            storeItem.Quantity = int.Parse(QuantityText.Text);
         }
 
         private void LNameText_TextChanged(object sender, EventArgs e)
         {
-            Regex nameReg = new Regex("^[A-Za-z -]{3,}$");
+            Regex nameReg = new Regex("^[0-9]*$");
 
-            string input = LNameText.Text.Trim();
-            if (!nameReg.IsMatch(input))
+            string input = RequiredAmountText.Text.Trim();
+            if (input != "Enter Required Amount" && !nameReg.IsMatch(input))
             {
-                LNameLbl.Text = "Invalid Name";
-                LNameLbl.ForeColor = Color.Red;
+                RequiredAmountLbl.Text = "Invalid Required Amount";
+                RequiredAmountLbl.ForeColor = Color.Red;
             }
             else
             {
-                LNameLbl.Text = "Last name";
-                LNameLbl.ForeColor = Color.Black;
+                RequiredAmountLbl.Text = "Enter Required Amount";
+                RequiredAmountLbl.ForeColor = Color.Black;
             }
         }
 
@@ -231,25 +232,25 @@ namespace Restaurant_Management.View
         {
             dynamic textBox = sender;
 
-            if (textBox.Name == "EmailText")
+            if (textBox.Name == "Itemname")
             {
-                DefaultText(textBox, "Enter email", true);
+                DefaultText(textBox, "Enter itemname", true);
             }
-            else if (textBox.Name == "FNameText")
+            else if (textBox.Name == "CurrentAmountText")
             {
-                DefaultText(textBox, "Enter first name", true);
+                DefaultText(textBox, "Enter Current Amount", true);
             }
-            else if (textBox.Name == "LNameText")
+            else if (textBox.Name == "RequiredAmountText")
             {
-                DefaultText(textBox, "Enter last name", true);
+                DefaultText(textBox, "Enter Required Amount", true);
             }
-            else if (textBox.Name == "PasswordText")
+            else if (textBox.Name == "PriceText")
             {
-                DefaultText(textBox, "Enter password", true);
+                DefaultText(textBox, "Enter Price", true);
             }
-            else if (textBox.Name == "UsernameText")
+            else if (textBox.Name == "QuantityText")
             {
-                DefaultText(textBox, "Enter username", true);
+                DefaultText(textBox, "Enter Quantity", true);
             }
         }
 
@@ -263,66 +264,71 @@ namespace Restaurant_Management.View
         {
             Regex usernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$");
 
-            string input = UsernameText.Text.Trim();
+            string input = ItemnameText.Text.Trim();
 
-            if (input != "Enter username" && !usernameReg.IsMatch(input))
+            if (input != "Enter itemname" && !usernameReg.IsMatch(input))
             {
-                UsernameLbl.Text = "Invalid username";
-                UsernameLbl.ForeColor = Color.Red;
+                ItemnameLbl.Text = "Invalid ItemName";
+                ItemnameLbl.ForeColor = Color.Red;
             }
             else
             {
-                UsernameLbl.Text = "Username";
-                UsernameLbl.ForeColor = Color.Black;
+                ItemnameLbl.Text = "Enter itemname";
+                ItemnameLbl.ForeColor = Color.Black;
             }
         }
 
         private void FNameText_TextChanged(object sender, EventArgs e)
         {
-            Regex nameReg = new Regex("^[A-Za-z -]{3,}$");
+            Regex nameReg = new Regex("^[0-9]*$");
 
-            string input = FNameText.Text.Trim();
-            if (!nameReg.IsMatch(input))
+            string input = CurrentAmountText.Text.Trim();
+            if (input != "Enter Current Amount" && !nameReg.IsMatch(input))
             {
-                FNameLbl.Text = "Invalid Name";
-                FNameLbl.ForeColor = Color.Red;
+                CurrentAmountLbl.Text = "Invalid Current Amount";
+                CurrentAmountLbl.ForeColor = Color.Red;
             }
             else
             {
-                FNameLbl.Text = "First name";
-                FNameLbl.ForeColor = Color.Black;
+                CurrentAmountLbl.Text = "Enter Current Amount";
+                CurrentAmountLbl.ForeColor = Color.Black;
             }
         }
 
-        private void EmailText_TextChanged(object sender, EventArgs e)
+        private void PriceText_TextChanged(object sender, EventArgs e)
         {
-            Regex emailReg = new Regex("^[\\w\\-\\.\\+]+\\@[a-zA-Z0-9\\.\\-]+\\.[a-zA-z0-9]{2,4}$");
+            Regex emailReg = new Regex("^[0-9]*$");
 
-            string input = EmailText.Text.Trim();
+            string input = PriceText.Text.Trim();
 
-            if (input != "Enter email" && !emailReg.IsMatch(input))
+            if (input != "Enter Price" && !emailReg.IsMatch(input))
             {
-                EmailLbl.Text = "Invalid Email";
-                EmailLbl.ForeColor = Color.Red;
+                PriceLbl.Text = "Invalid Price";
+                PriceLbl.ForeColor = Color.Red;
             }
             else
             {
-                EmailLbl.Text = "Email";
-                EmailLbl.ForeColor = Color.Black;
+                PriceLbl.Text = "Enter Price";
+                PriceLbl.ForeColor = Color.Black;
             }
         }
 
-        private void PasswordText_TextChanged(object sender, EventArgs e)
+        private void QuantityText_TextChanged(object sender, EventArgs e)
         {
-            if (PasswordText.Text != "Enter password" && PasswordText.Text.Length < 6)
+
+            Regex emailReg = new Regex("^[0-9]*$");
+
+            string input = QuantityText.Text.Trim();
+
+            if (input != "Enter Quantity" && !emailReg.IsMatch(input))
             {
-                PasswordLbl.Text = "Password length must at least 6 chars";
-                PasswordLbl.ForeColor = Color.Red;
+                QuantityLbl.Text = "Invalid Quantity";
+                QuantityLbl.ForeColor = Color.Red;
             }
             else
             {
-                PasswordLbl.Text = "Password";
-                PasswordLbl.ForeColor = Color.Black;
+                QuantityLbl.Text = "Enter Quantity";
+                QuantityLbl.ForeColor = Color.Black;
             }
         }
 
@@ -332,7 +338,7 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "item deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }
@@ -340,7 +346,40 @@ namespace Restaurant_Management.View
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void UTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        private void usersBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.storeItemTableAdapter.FillBy(this.restaurantManagementDataSet.StoreItem);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void IdText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ITypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ItemnameLbl_Click(object sender, EventArgs e)
         {
 
         }

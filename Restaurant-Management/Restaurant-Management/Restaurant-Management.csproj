@@ -141,6 +141,12 @@
     <Compile Include="View\StoreItemTypesForm.Designer.cs">
       <DependentUpon>StoreItemTypesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StoreItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StoreItemForm.Designer.cs">
+      <DependentUpon>StoreItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     <Compile Include="ViewModel\UserVM.cs" />
     <EmbeddedResource Include="View\StoreItemTypesForm.resx">
       <DependentUpon>StoreItemTypesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StoreItemForm.resx">
+      <DependentUpon>StoreItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

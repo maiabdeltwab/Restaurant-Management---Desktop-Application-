@@ -16,7 +16,7 @@ namespace Restaurant_Management.View
     public partial class StoreItemTypesForm : Form
     {
         private readonly StoreItemTypeController controller = new StoreItemTypeController();
-        private readonly RestaurantEntities context = UserController.context;
+        private readonly RestaurantEntities context = StoreItemTypeController.context;
 
         public StoreItemTypesForm()
         {
@@ -26,7 +26,6 @@ namespace Restaurant_Management.View
         private void StoreItemTypes_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.UserType' table. You can move, or remove it, as needed.
-           // this.userTypeTableAdapter.Fill(this.restaurantManagementDataSet.UserType);
 
             dataGrid.DataSource = controller.ViewAll();
 
@@ -216,9 +215,9 @@ namespace Restaurant_Management.View
             {
                 DefaultText(textBox, "Enter password", true);
             }
-            else if (textBox.Name == "UsernameText")
+            else if (textBox.Name == "Name")
             {
-                DefaultText(textBox, "Enter username", true);
+                DefaultText(textBox, "Enter Name", true);
             }
         }
 
@@ -234,14 +233,14 @@ namespace Restaurant_Management.View
 
             string input = NameText.Text.Trim();
 
-            if (input != "Enter username" && !usernameReg.IsMatch(input))
+            if (input != "Name" && !usernameReg.IsMatch(input))
             {
-                UsernameLbl.Text = "Invalid username";
+                UsernameLbl.Text = "Invalid Name";
                 UsernameLbl.ForeColor = Color.Red;
             }
             else
             {
-                UsernameLbl.Text = "Username";
+                UsernameLbl.Text = "Name";
                 UsernameLbl.ForeColor = Color.Black;
             }
         }
