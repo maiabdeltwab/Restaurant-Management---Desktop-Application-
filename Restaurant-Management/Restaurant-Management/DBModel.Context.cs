@@ -44,5 +44,6 @@ namespace Restaurant_Management
         public virtual DbSet<UserPrivilege> UserPrivileges { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<SaveLogin> SaveLogins { get; set; }
     }
 }

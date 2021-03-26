@@ -45,7 +45,7 @@ namespace Restaurant_Management
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Quality = 10;
-            this.mainPanel.Size = new System.Drawing.Size(1426, 696);
+            this.mainPanel.Size = new System.Drawing.Size(1497, 798);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
@@ -53,7 +53,7 @@ namespace Restaurant_Management
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1426, 696);
+            this.ClientSize = new System.Drawing.Size(1497, 798);
             this.Controls.Add(this.mainPanel);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;

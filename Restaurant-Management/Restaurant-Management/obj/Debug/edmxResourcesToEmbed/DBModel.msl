@@ -4,9 +4,11 @@
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="RestaurantManagementModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -35,6 +37,7 @@
     <EntitySetMapping Name="Menus">
       <EntityTypeMapping TypeName="RestaurantManagementModel.Menu">
         <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -182,8 +185,18 @@
     <EntitySetMapping Name="UserTypes">
       <EntityTypeMapping TypeName="RestaurantManagementModel.UserType">
         <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaveLogins">
+      <EntityTypeMapping TypeName="RestaurantManagementModel.SaveLogin">
+        <MappingFragment StoreEntitySet="SaveLogin">
+          <ScalarProperty Name="keepLogin" ColumnName="keepLogin" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

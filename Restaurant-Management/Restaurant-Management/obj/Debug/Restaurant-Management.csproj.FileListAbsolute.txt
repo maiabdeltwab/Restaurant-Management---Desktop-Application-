@@ -13,24 +13,6 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Main.resources
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Bunifu_UI_v1.52.dll
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Guna.UI.dll
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserForm.resources
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe.config
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.pdb
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.dll
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.dll
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.xml
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.xml
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csprojAssemblyReference.cache
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserForm.resources
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Main.resources
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.GenerateResource.cache
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CoreCompileInputs.cache
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CopyComplete
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemTypesForm.resources
-D:\iti\MINIA\REST\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserTypeForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.LoginForm.resources
