@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Restaurant_Management.View
 {
-    public partial class OrderItems : Form
+    public partial class OrderItemsForm : Form
     {
         public int id { get; set; }
         private readonly OrderController controller = new OrderController();
         private readonly RestaurantEntities context = OrderController.context;
-        public OrderItems(int id)
+        public OrderItemsForm(int id)
         {
             this.id = id;   
             InitializeComponent();

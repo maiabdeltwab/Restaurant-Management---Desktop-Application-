@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
@@ -31,6 +31,5 @@ namespace Restaurant_Management
         public virtual Menu Menu { get; set; }
         public virtual ICollection<RestaurantConsumption> RestaurantConsumptions { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
-       
     }
 }

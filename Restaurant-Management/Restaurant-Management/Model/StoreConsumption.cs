@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class UserPhone
+    public partial class StoreConsumption
     {
         public int ID { get; set; }
-        public string Phone { get; set; }
-        public int User_id { get; set; }
+        public Nullable<decimal> Count { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public int StoreItem_id { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual StoreItem StoreItem { get; set; }
     }
 }

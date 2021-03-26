@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Restaurant_Management.View
     {
         private readonly CustomerController controller = new CustomerController();
         private readonly RestaurantEntities context = CustomerController.context;
+
         public CustomerForm()
         {
             InitializeComponent();
@@ -34,13 +36,12 @@ namespace Restaurant_Management.View
 
         private void IdLbl_Click(object sender, EventArgs e)
         {
-
         }
 
         private void UsernameLbl_Click(object sender, EventArgs e)
         {
-
         }
+
         private void dataGrid_rowCountChange(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             rowCount.Text = $"Results: {dataGrid.Rows.Count} rows";
@@ -53,12 +54,13 @@ namespace Restaurant_Management.View
 
         private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
+
         private void dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectRow();
         }
+
         private void dataGrid_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGrid.SelectedRows.Count != 0)
@@ -94,6 +96,7 @@ namespace Restaurant_Management.View
                 saveBtn.Text = "Update";
             }
         }
+
         private void ClearData()
         {
             dataGrid.ClearSelection();
@@ -106,9 +109,10 @@ namespace Restaurant_Management.View
             groupBox.Text = "Create Customer";
             deleteBtn.Visible = false;
         }
+
         private void CustomernameText_TextChanged(object sender, EventArgs e)
         {
-            Regex CustomernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$"); 
+            Regex CustomernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$");
 
             string input = CustomernameText.Text.Trim();
 
@@ -141,6 +145,7 @@ namespace Restaurant_Management.View
                 PhoneLbl.ForeColor = Color.Black;
             }
         }
+
         private void formText_Enter(object sender, EventArgs e)
         {
             dynamic textBox = sender;
@@ -157,12 +162,10 @@ namespace Restaurant_Management.View
             {
                 DefaultText(textBox, "Enter Address", true);
             }
-
-
         }
+
         private void PhoneLbl_Click(object sender, EventArgs e)
         {
-
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -199,6 +202,7 @@ namespace Restaurant_Management.View
                     MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void getDate(Customer customer)
         {
             customer.Name = CustomernameText.Text;
@@ -213,7 +217,6 @@ namespace Restaurant_Management.View
 
         private void IdText_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void gunaButton1_Click(object sender, EventArgs e)
@@ -237,22 +240,23 @@ namespace Restaurant_Management.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
+
         private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             ClearData();
         }
+
         private void searchBtn_active(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search_active.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search_active.png");
         }
 
         private void searchBtn_disactive(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search.png");
         }
-       
+
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
         {
             if (remove)
@@ -266,6 +270,7 @@ namespace Restaurant_Management.View
                     textBox.Text = defaultText;
             }
         }
+
         private void searchTextBox_Enter(object sender, EventArgs e)
         {
             DefaultText(sender, "What do you want to seach?", true);
@@ -275,6 +280,7 @@ namespace Restaurant_Management.View
         {
             DefaultText(sender, "What do you want to seach?", false);
         }
+
         private void dataGrid_Leave(object sender, EventArgs e)
         {
             //dataGrid.ClearSelection();
@@ -285,9 +291,9 @@ namespace Restaurant_Management.View
             if (e.KeyChar == (char)Keys.Enter)
                 search(sender, e);
         }
+
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void search(object sender, EventArgs e)
@@ -301,7 +307,6 @@ namespace Restaurant_Management.View
 
         private void gunaLineTextBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void AddressText_TextChanged(object sender, EventArgs e)
@@ -322,12 +327,10 @@ namespace Restaurant_Management.View
         private void gunaAdvenceButton1_Click(object sender, EventArgs e)
         {
             dataGrid.DataSource = controller.ViewAll();
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

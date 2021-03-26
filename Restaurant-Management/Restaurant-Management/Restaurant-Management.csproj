@@ -76,46 +76,46 @@
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Controllers\UserTypeController.cs" />
-    <Compile Include="Customer.cs">
+    <Compile Include="Model\Customer.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel.Context.cs">
+    <Compile Include="Model\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel.cs">
+    <Compile Include="Model\DBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel.Designer.cs">
+    <Compile Include="Model\DBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="FoodIngredient.cs">
+    <Compile Include="Model\FoodIngredient.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemShipment.cs">
+    <Compile Include="Model\ItemShipment.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Model\Menu.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MenuItem.cs">
+    <Compile Include="Model\MenuItem.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs">
+    <Compile Include="Model\Order.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderItem.cs">
+    <Compile Include="Model\OrderItem.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderType.cs">
+    <Compile Include="Model\OrderType.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RestaurantConsumption.cs">
+    <Compile Include="Model\RestaurantConsumption.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RestaurantManagementDataSet.Designer.cs">
@@ -123,25 +123,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SaveLogin.cs">
+    <Compile Include="Model\SaveLogin.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Screen.cs">
+    <Compile Include="Model\Screen.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="StoreConsumption.cs">
+    <Compile Include="Model\StoreConsumption.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="StoreItem.cs">
+    <Compile Include="Model\StoreItem.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="StoreItemType.cs">
+    <Compile Include="Model\StoreItemType.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs">
+    <Compile Include="Model\Supplier.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SupplierPhone.cs">
+    <Compile Include="Model\SupplierPhone.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\StoreItemTypeVM.cs" />
@@ -166,16 +166,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="Model\User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserPhone.cs">
+    <Compile Include="Model\UserPhone.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserPrivilege.cs">
+    <Compile Include="Model\UserPrivilege.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserType.cs">
+    <Compile Include="Model\UserType.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CustomerVM.cs" />
@@ -193,11 +193,11 @@
     <Compile Include="View\DeliveryForm.Designer.cs">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\OrderItems.cs">
+    <Compile Include="View\OrderItemsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\OrderItems.Designer.cs">
-      <DependentUpon>OrderItems.cs</DependentUpon>
+    <Compile Include="View\OrderItemsForm.Designer.cs">
+      <DependentUpon>OrderItemsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OrdersForm.cs">
       <SubType>Form</SubType>
@@ -214,17 +214,17 @@
     <Compile Include="View\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuItem Form.cs">
+    <Compile Include="View\MenuItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MenuItem Form.Designer.cs">
-      <DependentUpon>MenuItem Form.cs</DependentUpon>
+    <Compile Include="View\MenuItemForm.Designer.cs">
+      <DependentUpon>MenuItemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Supplier Form.cs">
+    <Compile Include="View\SupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Supplier Form.Designer.cs">
-      <DependentUpon>Supplier Form.cs</DependentUpon>
+    <Compile Include="View\SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -254,8 +254,8 @@
     <EmbeddedResource Include="View\DeliveryForm.resx">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\OrderItems.resx">
-      <DependentUpon>OrderItems.cs</DependentUpon>
+    <EmbeddedResource Include="View\OrderItemsForm.resx">
+      <DependentUpon>OrderItemsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OrdersForm.resx">
       <DependentUpon>OrdersForm.cs</DependentUpon>
@@ -263,11 +263,11 @@
     <EmbeddedResource Include="View\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MenuItem Form.resx">
-      <DependentUpon>MenuItem Form.cs</DependentUpon>
+    <EmbeddedResource Include="View\MenuItemForm.resx">
+      <DependentUpon>MenuItemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Supplier Form.resx">
-      <DependentUpon>Supplier Form.cs</DependentUpon>
+    <EmbeddedResource Include="View\SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="View\UserTypeForm.cs">
       <SubType>Form</SubType>
@@ -297,11 +297,11 @@
     <EmbeddedResource Include="View\UserTypeForm.resx">
       <DependentUpon>UserTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DBModel.edmx">
+    <EntityDeploy Include="Model\DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DBModel.edmx.diagram">
+    <None Include="Model\DBModel.edmx.diagram">
       <DependentUpon>DBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -332,12 +332,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBModel.Context.tt">
+    <Content Include="Model\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DBModel.tt">
+    <Content Include="Model\DBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>

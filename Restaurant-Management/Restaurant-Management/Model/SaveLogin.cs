@@ -7,21 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ItemShipment
+    public partial class SaveLogin
     {
-        public int ID { get; set; }
-        public Nullable<System.DateTime> ArrivalTime { get; set; }
-        public Nullable<System.DateTime> ExperiedTime { get; set; }
-        public Nullable<int> Count { get; set; }
-        public Nullable<int> Supplier_id { get; set; }
-        public int StoreItem_id { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> userId { get; set; }
+        public Nullable<int> keepLogin { get; set; }
     
-        public virtual StoreItem StoreItem { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual User User { get; set; }
     }
 }

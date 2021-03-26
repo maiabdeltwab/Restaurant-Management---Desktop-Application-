@@ -7,18 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class StoreConsumption
+    public partial class Order
     {
-        public int ID { get; set; }
-        public Nullable<decimal> Count { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public int StoreItem_id { get; set; }
+        public Order()
+        {
+            this.OrderItems = new HashSet<OrderItem>();
+        }
     
-        public virtual StoreItem StoreItem { get; set; }
+        public int ID { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<int> OrderType_id { get; set; }
+        public Nullable<int> Customer_id { get; set; }
+    
+        public virtual Customer Customer { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual OrderType OrderType { get; set; }
     }
 }

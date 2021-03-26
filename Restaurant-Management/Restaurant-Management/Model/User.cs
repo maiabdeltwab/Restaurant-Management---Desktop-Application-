@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
@@ -30,7 +30,6 @@ namespace Restaurant_Management
     
         public virtual ICollection<UserPhone> UserPhones { get; set; }
         public virtual UserType UserType { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SaveLogin> SaveLogins { get; set; }
     }
 }

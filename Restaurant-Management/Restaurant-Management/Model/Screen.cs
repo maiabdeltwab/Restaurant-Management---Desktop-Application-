@@ -7,21 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class StoreItemType
+    public partial class Screen
     {
-        public StoreItemType()
+        public Screen()
         {
-            this.StoreItems = new HashSet<StoreItem>();
+            this.UserPrivileges = new HashSet<UserPrivilege>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
+        public string Describtion { get; set; }
     
-        public virtual ICollection<StoreItem> StoreItems { get; set; }
+        public virtual ICollection<UserPrivilege> UserPrivileges { get; set; }
     }
 }

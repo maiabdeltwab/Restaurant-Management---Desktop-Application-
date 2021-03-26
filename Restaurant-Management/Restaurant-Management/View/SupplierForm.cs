@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,9 @@ namespace Restaurant_Management.View
 {
     public partial class Supplier_Form : Form
     {
-
         private readonly SupplierController controller = new SupplierController();
         private readonly RestaurantEntities context = SupplierController.context;
+
         public Supplier_Form()
         {
             InitializeComponent();
@@ -27,10 +28,11 @@ namespace Restaurant_Management.View
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.Supplier' table. You can move, or remove it, as needed.
             this.supplierTableAdapter.Fill(this.restaurantManagementDataSet.Supplier);
             dataGrid.DataSource = controller.ViewAll();
-           // UTypeCombo.SelectedIndex = -1;
+            // UTypeCombo.SelectedIndex = -1;
             IdText.Enabled = false;
             ClearData();
         }
+
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
         {
             if (remove)
@@ -57,12 +59,12 @@ namespace Restaurant_Management.View
 
         private void searchBtn_active(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search_active.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search_active.png");
         }
 
         private void searchBtn_disactive(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search.png");
         }
 
         private void dataGrid_Leave(object sender, EventArgs e)
@@ -191,8 +193,6 @@ namespace Restaurant_Management.View
             supplier.Email = EmailText.Text;
         }
 
-
-
         private void formText_Enter(object sender, EventArgs e)
         {
             dynamic textBox = sender;
@@ -231,8 +231,6 @@ namespace Restaurant_Management.View
             }
         }
 
-      
-
         private void EmailText_TextChanged(object sender, EventArgs e)
         {
             Regex emailReg = new Regex("^[\\w\\-\\.\\+]+\\@[a-zA-Z0-9\\.\\-]+\\.[a-zA-z0-9]{2,4}$");
@@ -251,8 +249,6 @@ namespace Restaurant_Management.View
             }
         }
 
-       
-
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             int id = int.Parse(IdText.Text);
@@ -266,9 +262,9 @@ namespace Restaurant_Management.View
             else
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
         private void groupBox_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void dataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

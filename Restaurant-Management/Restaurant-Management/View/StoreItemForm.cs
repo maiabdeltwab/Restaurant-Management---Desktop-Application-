@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -61,12 +62,12 @@ namespace Restaurant_Management.View
 
         private void searchBtn_active(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search_active.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search_active.png");
         }
 
         private void searchBtn_disactive(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search.png");
         }
 
         private void dataGrid_Leave(object sender, EventArgs e)

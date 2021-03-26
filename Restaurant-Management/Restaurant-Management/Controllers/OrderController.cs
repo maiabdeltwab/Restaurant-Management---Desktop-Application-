@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.Controllers
 {
-    class OrderController : ICRUD<Order, OrderVM>
+    internal class OrderController : ICRUD<Order, OrderVM>
     {
         public static RestaurantEntities context;
+
         static OrderController()
         {
             context = new RestaurantEntities();
-
         }
+
         public List<OrderVM> ViewAll()
         {
             var orders = (from o in context.Orders
@@ -22,9 +24,9 @@ namespace Restaurant_Management.Controllers
                           {
                               ID = o.ID,
                               Price = o.Price,
-                              Date=o.Date,
+                              Date = o.Date,
                               OrderType = o.OrderType.Name,
-                              CustomerName=o.Customer.Name,
+                              CustomerName = o.Customer.Name,
                           }).ToList();
 
             return orders;
@@ -33,7 +35,7 @@ namespace Restaurant_Management.Controllers
         public List<OrderItemVM> DisplayItems(int id)
         {
             var items = (from i in context.OrderItems
-                         where i.Order_id==id
+                         where i.Order_id == id
                          select new OrderItemVM
                          {
                              Menuitem = i.MenuItem.Name,
@@ -41,9 +43,7 @@ namespace Restaurant_Management.Controllers
                          }
                          ).ToList();
             return items;
-
         }
-
 
         public List<OrderVM> Search(string searchTxt)
         {
@@ -53,9 +53,9 @@ namespace Restaurant_Management.Controllers
                              //o.Price.Equals(searchTxt)
                              //|| o.Date.Equals(searchTxt)
                              //||
-                             
+
                              o.OrderType.Name.Contains(searchTxt)
-                             ||o.Customer.Name.Contains(searchTxt))
+                             || o.Customer.Name.Contains(searchTxt))
                              select new OrderVM
                              {
                                  ID = o.ID,
@@ -119,7 +119,6 @@ namespace Restaurant_Management.Controllers
                 Console.WriteLine(ex.Message);
                 return false;
             }
-
         }
 
         public bool Update(Order order)
@@ -133,7 +132,6 @@ namespace Restaurant_Management.Controllers
                 editedOrder.Date = order.Date;
                 editedOrder.OrderType = order.OrderType;
                 editedOrder.Customer = order.Customer;
-                
 
                 context.SaveChanges();
 

@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,58 +8,60 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.Controllers
 {
-    class CustomerController : ICRUD<Customer, CustomerVM>
+    internal class CustomerController : ICRUD<Customer, CustomerVM>
     {
         public static RestaurantEntities context;
+
         static CustomerController()
         {
             context = new RestaurantEntities();
-
         }
+
         public List<CustomerVM> ViewAll()
         {
             var customers = (from C in context.Customers
-                         select new CustomerVM
-                         {
-                             ID = C.ID,
-                             Name = C.Name,
-                             Phone = C.Phone,
-                             Address=C.Address
-                             
-                         }).ToList();
+                             select new CustomerVM
+                             {
+                                 ID = C.ID,
+                                 Name = C.Name,
+                                 Phone = C.Phone,
+                                 Address = C.Address
+                             }).ToList();
 
             return customers;
         }
+
         public List<CustomerVM> Search(string searchTxt)
         {
             List<CustomerVM> customers = new List<CustomerVM>();
             customers.AddRange((from C in context.Customers
-                            where (C.Name.Contains(searchTxt)
-                            || C.Phone.Contains(searchTxt)
-                            ||C.Address.Contains(searchTxt))
-                            select new CustomerVM
-                            {
-                                ID = C.ID,
-                                Name = C.Name,
-                                Phone = C.Phone,
-                                Address = C.Address
-                            }).ToList());
-            try
-            {
-                int id = int.Parse(searchTxt);
-                customers.AddRange((from C in context.Customers
-                                where C.ID == id
+                                where (C.Name.Contains(searchTxt)
+                                || C.Phone.Contains(searchTxt)
+                                || C.Address.Contains(searchTxt))
                                 select new CustomerVM
                                 {
-                                    ID=C.ID,
+                                    ID = C.ID,
                                     Name = C.Name,
                                     Phone = C.Phone,
                                     Address = C.Address
                                 }).ToList());
+            try
+            {
+                int id = int.Parse(searchTxt);
+                customers.AddRange((from C in context.Customers
+                                    where C.ID == id
+                                    select new CustomerVM
+                                    {
+                                        ID = C.ID,
+                                        Name = C.Name,
+                                        Phone = C.Phone,
+                                        Address = C.Address
+                                    }).ToList());
             }
             catch { }
             return customers;
         }
+
         public bool Insert(Customer customer)
         {
             try
@@ -75,6 +78,7 @@ namespace Restaurant_Management.Controllers
                 return false;
             }
         }
+
         public bool Delete(int id)
         {
             try
@@ -88,6 +92,7 @@ namespace Restaurant_Management.Controllers
                 return false;
             }
         }
+
         public bool Update(Customer customer)
         {
             try

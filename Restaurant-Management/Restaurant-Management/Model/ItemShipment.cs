@@ -7,24 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class UserType
+    public partial class ItemShipment
     {
-        public UserType()
-        {
-            this.UserPrivileges = new HashSet<UserPrivilege>();
-            this.Users = new HashSet<User>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public Nullable<System.DateTime> ArrivalTime { get; set; }
+        public Nullable<System.DateTime> ExperiedTime { get; set; }
+        public Nullable<int> Count { get; set; }
+        public Nullable<int> Supplier_id { get; set; }
+        public int StoreItem_id { get; set; }
     
-        public virtual ICollection<UserPrivilege> UserPrivileges { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public virtual StoreItem StoreItem { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

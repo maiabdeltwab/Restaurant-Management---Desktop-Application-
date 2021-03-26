@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,11 +21,11 @@ namespace Restaurant_Management.Controllers
         public List<StoreItemTypeVM> ViewAll()
         {
             var StoreItems = (from sI in context.StoreItemTypes
-                         select new StoreItemTypeVM
-                         {
-                             ID = sI.ID,
-                             Name = sI.Name,
-                         }).ToList();
+                              select new StoreItemTypeVM
+                              {
+                                  ID = sI.ID,
+                                  Name = sI.Name,
+                              }).ToList();
             return StoreItems;
         }
 
@@ -33,13 +34,13 @@ namespace Restaurant_Management.Controllers
             List<StoreItemTypeVM> storeItemTypes = new List<StoreItemTypeVM>();
 
             storeItemTypes.AddRange((from sI in context.StoreItemTypes
-                                 where (sI.Name.Contains(searchTxt)                          
-                            || sI.ID.ToString()==searchTxt)
-                            select new StoreItemTypeVM
-                            {
-                               ID = sI.ID,
-                                Name = sI.Name,
-                            }).ToList());         
+                                     where (sI.Name.Contains(searchTxt)
+                                || sI.ID.ToString() == searchTxt)
+                                     select new StoreItemTypeVM
+                                     {
+                                         ID = sI.ID,
+                                         Name = sI.Name,
+                                     }).ToList());
             return storeItemTypes;
         }
 
@@ -64,7 +65,7 @@ namespace Restaurant_Management.Controllers
                 StoreItemType editedItem = context.StoreItemTypes.Find(storeItemType.ID);
 
                 editedItem.ID = storeItemType.ID;
-                editedItem.Name = storeItemType.Name;                          
+                editedItem.Name = storeItemType.Name;
                 context.SaveChanges();
 
                 return true;
@@ -77,7 +78,7 @@ namespace Restaurant_Management.Controllers
 
         public bool Insert(StoreItemType storeItem)
         {
-            if (storeItem.Name == "" || storeItem.Name== "Enter Name")
+            if (storeItem.Name == "" || storeItem.Name == "Enter Name")
                 return false;
             else
             {

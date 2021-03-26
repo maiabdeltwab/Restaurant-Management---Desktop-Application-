@@ -7,17 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SupplierPhone
+    public partial class Supplier
     {
-        public int ID { get; set; }
-        public string Phone { get; set; }
-        public int Supplier_ID { get; set; }
+        public Supplier()
+        {
+            this.ItemShipments = new HashSet<ItemShipment>();
+            this.SupplierPhones = new HashSet<SupplierPhone>();
+        }
     
-        public virtual Supplier Supplier { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+    
+        public virtual ICollection<ItemShipment> ItemShipments { get; set; }
+        public virtual ICollection<SupplierPhone> SupplierPhones { get; set; }
     }
 }

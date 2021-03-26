@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,15 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MenuItem = Restaurant_Management.Model.MenuItem;
 
 namespace Restaurant_Management.View
 {
-    public partial class MenuItem_Form : Form
+    public partial class MenuItemForm : Form
     {
         private readonly MenuItemController controller = new MenuItemController();
         private readonly RestaurantEntities context = MenuItemController.context;
 
-        public MenuItem_Form()
+        public MenuItemForm()
         {
             InitializeComponent();
         }
@@ -59,12 +61,12 @@ namespace Restaurant_Management.View
 
         private void searchBtn_active(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search_active.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search_active.png");
         }
 
         private void searchBtn_disactive(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search.png");
         }
 
         private void dataGrid_Leave(object sender, EventArgs e)

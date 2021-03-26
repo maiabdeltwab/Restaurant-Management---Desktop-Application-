@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.Controllers
 {
-    class SupplierController : ICRUD<Supplier, SupplierVM>
+    internal class SupplierController : ICRUD<Supplier, SupplierVM>
     {
         public static RestaurantEntities context;
 
@@ -24,8 +25,6 @@ namespace Restaurant_Management.Controllers
                                  ID = u.ID,
                                  Name = u.Name,
                                  Email = u.Email,
-                                 
-
                              }).ToList();
 
             return suppliers;
@@ -112,4 +111,3 @@ namespace Restaurant_Management.Controllers
         }
     }
 }
-

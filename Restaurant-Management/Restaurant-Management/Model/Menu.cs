@@ -7,18 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurant_Management
+namespace Restaurant_Management.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class UserPrivilege
+    public partial class Menu
     {
-        public int ID { get; set; }
-        public Nullable<int> Screen_id { get; set; }
-        public Nullable<int> UserType_id { get; set; }
+        public Menu()
+        {
+            this.MenuItems = new HashSet<MenuItem>();
+        }
     
-        public virtual Screen Screen { get; set; }
-        public virtual UserType UserType { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string ImagePath { get; set; }
+    
+        public virtual ICollection<MenuItem> MenuItems { get; set; }
     }
 }

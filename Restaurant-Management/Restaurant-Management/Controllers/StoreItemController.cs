@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,16 +21,16 @@ namespace Restaurant_Management.Controllers
         public List<StoreItemVM> ViewAll()
         {
             var StoreItems = (from sI in context.StoreItems
-                         select new StoreItemVM
-                         {
-                             ID = sI.ID,
-                             Name = sI.Name,
-                             Price = sI.Price,
-                             CurrentCount = sI.CurrentCount,
-                             RequiredCount = sI.RequiredCount,
-                             Quantity=sI.Quantity,
-                             TypeName = sI.StoreItemType.Name,
-                         }).ToList();
+                              select new StoreItemVM
+                              {
+                                  ID = sI.ID,
+                                  Name = sI.Name,
+                                  Price = sI.Price,
+                                  CurrentCount = sI.CurrentCount,
+                                  RequiredCount = sI.RequiredCount,
+                                  Quantity = sI.Quantity,
+                                  TypeName = sI.StoreItemType.Name,
+                              }).ToList();
 
             return StoreItems;
         }
@@ -39,24 +40,23 @@ namespace Restaurant_Management.Controllers
             List<StoreItemVM> storeItems = new List<StoreItemVM>();
 
             storeItems.AddRange((from sI in context.StoreItems
-                            where (sI.Name.Contains(searchTxt)
-                            || sI.Price.ToString()==searchTxt
-                            || sI.CurrentCount.ToString()==searchTxt
-                            || sI.Quantity.ToString()==searchTxt
-                            || sI.StoreItemType.Name.Contains(searchTxt)
-                            || sI.ID.ToString()==searchTxt)
-                            select new StoreItemVM
-                            {
-                                ID = sI.ID,
-                                Name = sI.Name,
-                                Price = sI.Price,
-                                CurrentCount = sI.CurrentCount,
-                                RequiredCount = sI.RequiredCount,
-                                Quantity = sI.Quantity,
-                                TypeName = sI.StoreItemType.Name,
-                            }).ToList());
+                                 where (sI.Name.Contains(searchTxt)
+                                 || sI.Price.ToString() == searchTxt
+                                 || sI.CurrentCount.ToString() == searchTxt
+                                 || sI.Quantity.ToString() == searchTxt
+                                 || sI.StoreItemType.Name.Contains(searchTxt)
+                                 || sI.ID.ToString() == searchTxt)
+                                 select new StoreItemVM
+                                 {
+                                     ID = sI.ID,
+                                     Name = sI.Name,
+                                     Price = sI.Price,
+                                     CurrentCount = sI.CurrentCount,
+                                     RequiredCount = sI.RequiredCount,
+                                     Quantity = sI.Quantity,
+                                     TypeName = sI.StoreItemType.Name,
+                                 }).ToList());
 
-            
             return storeItems;
         }
 
@@ -74,7 +74,7 @@ namespace Restaurant_Management.Controllers
             }
         }
 
-        public bool Update(StoreItem  storeItem)
+        public bool Update(StoreItem storeItem)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace Restaurant_Management.Controllers
                 editedItem.CurrentCount = storeItem.CurrentCount;
                 editedItem.RequiredCount = storeItem.RequiredCount;
                 editedItem.Quantity = storeItem.Quantity;
-                editedItem.StoreItemType = storeItem.StoreItemType;           
+                editedItem.StoreItemType = storeItem.StoreItemType;
                 context.SaveChanges();
 
                 return true;

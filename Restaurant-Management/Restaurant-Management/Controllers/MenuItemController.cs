@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,14 @@ namespace Restaurant_Management.Controllers
         public List<MenuItemVM> ViewAll()
         {
             var menuItems = (from u in context.MenuItems
-                         select new MenuItemVM
-                         {
-                             ID = u.ID,
-                             Name=u.Name,
-                             Price = u.Price,
-                             Describtion = u.Describtion,
-                             MenuName = u.Menu.Name,
-                         }).ToList();
+                             select new MenuItemVM
+                             {
+                                 ID = u.ID,
+                                 Name = u.Name,
+                                 Price = u.Price,
+                                 Describtion = u.Describtion,
+                                 MenuName = u.Menu.Name,
+                             }).ToList();
 
             return menuItems;
         }
@@ -36,7 +37,7 @@ namespace Restaurant_Management.Controllers
             List<MenuItemVM> menuItems = new List<MenuItemVM>();
 
             menuItems.AddRange((from u in context.MenuItems
-                                where (u.Price.ToString().Contains( searchTxt)
+                                where (u.Price.ToString().Contains(searchTxt)
                                 || u.Name.Contains(searchTxt)
                                 || u.Describtion.Contains(searchTxt)
                                 || u.Menu.Name.Contains(searchTxt))
@@ -119,4 +120,3 @@ namespace Restaurant_Management.Controllers
         }
     }
 }
-

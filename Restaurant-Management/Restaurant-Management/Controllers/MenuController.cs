@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.Controllers
 {
-    class MenuController : ICRUD<Menu, MenuVM>
+    internal class MenuController : ICRUD<Menu, MenuVM>
     {
         public static RestaurantEntities context;
 
@@ -22,8 +23,8 @@ namespace Restaurant_Management.Controllers
                          select new MenuVM
                          {
                              ID = M.ID,
-                             Name=M.Name,
-                           //  TypeName = M.MenuItems.Name,
+                             Name = M.Name,
+                             //  TypeName = M.MenuItems.Name,
                          }).ToList();
 
             return menus;
@@ -38,7 +39,7 @@ namespace Restaurant_Management.Controllers
                             select new MenuVM
                             {
                                 ID = M.ID,
-                                Name=M.Name
+                                Name = M.Name
                             }).ToList());
 
             try
@@ -49,7 +50,7 @@ namespace Restaurant_Management.Controllers
                                 select new MenuVM
                                 {
                                     ID = M.ID,
-                                    Name=M.Name
+                                    Name = M.Name
                                 }).ToList());
             }
             catch { }

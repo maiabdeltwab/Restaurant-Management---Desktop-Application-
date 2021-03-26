@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FoodIngredients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StoreItem_id" Type="int" Nullable="false" />
+    <Property Name="MenuItem_id" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ItemShipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArrivalTime" Type="datetime" />
+    <Property Name="ExperiedTime" Type="datetime" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Supplier_id" Type="int" />
+    <Property Name="StoreItem_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MenuItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Describtion" Type="nvarchar(max)" />
+    <Property Name="Menu_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_id" Type="int" Nullable="false" />
+    <Property Name="MenuItem_id" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="OrderType_id" Type="int" />
+    <Property Name="Customer_id" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RestaurantConsumption">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="int" />
+    <Property Name="MenuItem_id" Type="int" />
+  </EntityType>
+  <EntityType Name="SaveLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="keepLogin" Type="int" />
+  </EntityType>
+  <EntityType Name="Screen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Describtion" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StoreConsumption">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="StoreItem_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StoreItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CurrentCount" Type="int" />
+    <Property Name="RequiredCount" Type="int" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ItemType_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StoreItemType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="SupplierPhone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Supplier_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPhone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="User_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPrivileges">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Screen_id" Type="int" />
+    <Property Name="UserType_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FristName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserType_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="Customer_id_fk">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SaveLogin__userI__1EA48E88">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SaveLogin" Type="Self.SaveLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SaveLogin">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_ite_id_fk">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="0..1" />
+    <End Role="RestaurantConsumption" Type="Self.RestaurantConsumption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RestaurantConsumption">
+        <PropertyRef Name="MenuItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_item_fk">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MenuItem">
+        <PropertyRef Name="Menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_item_id_FK">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="1" />
+    <End Role="FoodIngredients" Type="Self.FoodIngredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FoodIngredients">
+        <PropertyRef Name="MenuItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menu_item_order_id_FK">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="MenuItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Order_type_id_fk">
+    <End Role="OrderType" Type="Self.OrderType" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Orders_id_FK">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="Order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Screen_id_FK">
+    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+    <End Role="UserPrivileges" Type="Self.UserPrivileges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPrivileges">
+        <PropertyRef Name="Screen_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Store_item_consuumption_fk">
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="1" />
+    <End Role="StoreConsumption" Type="Self.StoreConsumption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StoreConsumption">
+        <PropertyRef Name="StoreItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="store_item_id_FK">
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="1" />
+    <End Role="FoodIngredients" Type="Self.FoodIngredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FoodIngredients">
+        <PropertyRef Name="StoreItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Store_item_Shipment_fk">
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="1" />
+    <End Role="ItemShipment" Type="Self.ItemShipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemShipment">
+        <PropertyRef Name="StoreItem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Store_item_type_fk">
+    <End Role="StoreItemType" Type="Self.StoreItemType" Multiplicity="1" />
+    <End Role="StoreItem" Type="Self.StoreItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoreItemType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StoreItem">
+        <PropertyRef Name="ItemType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Supplier_phone_FK">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SupplierPhone" Type="Self.SupplierPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupplierPhone">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Suppliers_item_shipment_fk">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="ItemShipment" Type="Self.ItemShipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemShipment">
+        <PropertyRef Name="Supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_phone_FK">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPhone" Type="Self.UserPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPhone">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_typ_id_FK">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+    <End Role="UserPrivileges" Type="Self.UserPrivileges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPrivileges">
+        <PropertyRef Name="UserType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_type_id_fk">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RestaurantManagementModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FoodIngredients" EntityType="Self.FoodIngredients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemShipment" EntityType="Self.ItemShipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuItem" EntityType="Self.MenuItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderType" EntityType="Self.OrderType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RestaurantConsumption" EntityType="Self.RestaurantConsumption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaveLogin" EntityType="Self.SaveLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StoreConsumption" EntityType="Self.StoreConsumption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StoreItem" EntityType="Self.StoreItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StoreItemType" EntityType="Self.StoreItemType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierPhone" EntityType="Self.SupplierPhone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPhone" EntityType="Self.UserPhone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPrivileges" EntityType="Self.UserPrivileges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Customer_id_fk" Association="Self.Customer_id_fk">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SaveLogin__userI__1EA48E88" Association="Self.FK__SaveLogin__userI__1EA48E88">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SaveLogin" EntitySet="SaveLogin" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_ite_id_fk" Association="Self.Menu_ite_id_fk">
+      <End Role="MenuItem" EntitySet="MenuItem" />
+      <End Role="RestaurantConsumption" EntitySet="RestaurantConsumption" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_item_fk" Association="Self.Menu_item_fk">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuItem" EntitySet="MenuItem" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_item_id_FK" Association="Self.Menu_item_id_FK">
+      <End Role="MenuItem" EntitySet="MenuItem" />
+      <End Role="FoodIngredients" EntitySet="FoodIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="Menu_item_order_id_FK" Association="Self.Menu_item_order_id_FK">
+      <End Role="MenuItem" EntitySet="MenuItem" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="Order_type_id_fk" Association="Self.Order_type_id_fk">
+      <End Role="OrderType" EntitySet="OrderType" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Orders_id_FK" Association="Self.Orders_id_FK">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="Screen_id_FK" Association="Self.Screen_id_FK">
+      <End Role="Screen" EntitySet="Screen" />
+      <End Role="UserPrivileges" EntitySet="UserPrivileges" />
+    </AssociationSet>
+    <AssociationSet Name="Store_item_consuumption_fk" Association="Self.Store_item_consuumption_fk">
+      <End Role="StoreItem" EntitySet="StoreItem" />
+      <End Role="StoreConsumption" EntitySet="StoreConsumption" />
+    </AssociationSet>
+    <AssociationSet Name="store_item_id_FK" Association="Self.store_item_id_FK">
+      <End Role="StoreItem" EntitySet="StoreItem" />
+      <End Role="FoodIngredients" EntitySet="FoodIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="Store_item_Shipment_fk" Association="Self.Store_item_Shipment_fk">
+      <End Role="StoreItem" EntitySet="StoreItem" />
+      <End Role="ItemShipment" EntitySet="ItemShipment" />
+    </AssociationSet>
+    <AssociationSet Name="Store_item_type_fk" Association="Self.Store_item_type_fk">
+      <End Role="StoreItemType" EntitySet="StoreItemType" />
+      <End Role="StoreItem" EntitySet="StoreItem" />
+    </AssociationSet>
+    <AssociationSet Name="Supplier_phone_FK" Association="Self.Supplier_phone_FK">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="SupplierPhone" EntitySet="SupplierPhone" />
+    </AssociationSet>
+    <AssociationSet Name="Suppliers_item_shipment_fk" Association="Self.Suppliers_item_shipment_fk">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="ItemShipment" EntitySet="ItemShipment" />
+    </AssociationSet>
+    <AssociationSet Name="User_phone_FK" Association="Self.User_phone_FK">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPhone" EntitySet="UserPhone" />
+    </AssociationSet>
+    <AssociationSet Name="User_typ_id_FK" Association="Self.User_typ_id_FK">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="UserPrivileges" EntitySet="UserPrivileges" />
+    </AssociationSet>
+    <AssociationSet Name="User_type_id_fk" Association="Self.User_type_id_fk">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

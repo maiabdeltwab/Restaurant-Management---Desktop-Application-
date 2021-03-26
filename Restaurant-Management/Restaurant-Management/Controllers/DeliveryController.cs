@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.ViewModel;
+﻿using Restaurant_Management.Model;
+using Restaurant_Management.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,30 +8,28 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.Controllers
 {
-    class DeliveryController : ICRUD<Customer, CustomerVM>
+    internal class DeliveryController : ICRUD<Customer, CustomerVM>
     {
         public static RestaurantEntities context;
+
         public DeliveryController()
         {
             context = new RestaurantEntities();
-
         }
+
         public List<CustomerVM> PhoneSearch(string searchTxt)
         {
-            
-
             var PhoneCustomer = (from p in context.Customers
-                                where p.Phone == searchTxt
-                                select new CustomerVM {
-                                    Name=p.Name,
-                                    Address=p.Address
-                                }).ToList();
-          
-                return PhoneCustomer;
-           
+                                 where p.Phone == searchTxt
+                                 select new CustomerVM
+                                 {
+                                     Name = p.Name,
+                                     Address = p.Address
+                                 }).ToList();
 
-
+            return PhoneCustomer;
         }
+
         public bool Delete(int id)
         {
             throw new NotImplementedException();

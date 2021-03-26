@@ -1,6 +1,6 @@
 ﻿namespace Restaurant_Management.View
 {
-    partial class OrderItems
+    partial class OrderItemsForm
     {
         /// <summary>
         /// Required designer variable.

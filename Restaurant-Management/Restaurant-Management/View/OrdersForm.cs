@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,12 +60,12 @@ namespace Restaurant_Management.View
 
         private void searchBtn_active(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search_active.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search_active.png");
         }
 
         private void searchBtn_disactive(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search.png");
         }
 
         private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -178,7 +179,7 @@ namespace Restaurant_Management.View
                 orderItem.ID = int.Parse(IdText.Text);
                 int id = orderItem.ID;
                 Form formBackground = new Form();
-                using (OrderItems orderItems = new OrderItems(id))
+                using (OrderItemsForm orderItems = new OrderItemsForm(id))
                 {
                     //dataGrid.DataSource = controller.DisplayItems();
                     formBackground.StartPosition = FormStartPosition.Manual;
