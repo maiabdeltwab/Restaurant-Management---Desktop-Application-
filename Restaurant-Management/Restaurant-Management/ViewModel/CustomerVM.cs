@@ -18,5 +18,6 @@ namespace Restaurant_Management.ViewModel
 
         [RegularExpression("^[0-9]{11}$",ErrorMessage = "Invalid Phone Format")]
         public string Phone { get; set; }
+        public string Address { get; set; }
     }
 }

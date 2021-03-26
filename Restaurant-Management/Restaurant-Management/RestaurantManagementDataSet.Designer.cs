@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System;
+
 namespace Restaurant_Management {
     
     
@@ -16211,6 +16213,8 @@ SELECT ID, FristName, LastName, Username, Email, Password, UserType_id FROM User
         public virtual int Update(string name, int Original_ID, string Original_name) {
             return this.Update(name, Original_ID, Original_name, Original_ID);
         }
+
+       
     }
     
     /// <summary>

@@ -22,7 +22,9 @@ namespace Restaurant_Management.Controllers
                          {
                              ID = C.ID,
                              Name = C.Name,
-                             Phone = C.Phone
+                             Phone = C.Phone,
+                             Address=C.Address
+                             
                          }).ToList();
 
             return customers;
@@ -32,12 +34,14 @@ namespace Restaurant_Management.Controllers
             List<CustomerVM> customers = new List<CustomerVM>();
             customers.AddRange((from C in context.Customers
                             where (C.Name.Contains(searchTxt)
-                            || C.Phone.Contains(searchTxt))
+                            || C.Phone.Contains(searchTxt)
+                            ||C.Address.Contains(searchTxt))
                             select new CustomerVM
                             {
                                 ID = C.ID,
                                 Name = C.Name,
-                                Phone = C.Phone
+                                Phone = C.Phone,
+                                Address = C.Address
                             }).ToList());
             try
             {
@@ -48,7 +52,8 @@ namespace Restaurant_Management.Controllers
                                 {
                                     ID=C.ID,
                                     Name = C.Name,
-                                    Phone = C.Phone
+                                    Phone = C.Phone,
+                                    Address = C.Address
                                 }).ToList());
             }
             catch { }
@@ -92,11 +97,7 @@ namespace Restaurant_Management.Controllers
                 editedcustomer.ID = customer.ID;
                 editedcustomer.Name = customer.Name;
                 editedcustomer.Phone = customer.Phone;
-                //editedUser.Email = user.Email;
-                //editedUser.Username = user.Username;
-                //editedUser.UserType = user.UserType;
-                //editedUser.Password = user.Password;
-
+                editedcustomer.Address = customer.Address;
                 context.SaveChanges();
 
                 return true;

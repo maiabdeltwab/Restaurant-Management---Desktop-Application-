@@ -21,8 +21,6 @@ E:\Information technology institute\Resturant Project\Restaurant-Management-Desk
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.pdb
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.dll
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.dll
-E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.xml
-E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.xml
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csprojAssemblyReference.cache
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.CustomerForm.resources
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserForm.resources
@@ -33,3 +31,6 @@ E:\Information technology institute\Resturant Project\Restaurant-Management-Desk
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CopyComplete
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
 E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
+E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
+E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItems.resources
+E:\Information technology institute\Resturant Project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources

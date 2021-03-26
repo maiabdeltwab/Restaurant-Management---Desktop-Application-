@@ -83,7 +83,7 @@ namespace Restaurant_Management.View
                 IdText.Text = row.Cells["ID"].Value.ToString();
                 CustomernameText.Text = row.Cells["Name"].Value.ToString();
                 PhoneText.Text = row.Cells["Phone"].Value.ToString();
-
+                AddressText.Text = row.Cells["Address"].Value.ToString();
                 //EmailText.Text = row.Cells["Email"].Value.ToString();
                 //FNameText.Text = row.Cells["FristName"].Value.ToString();
                 //LNameText.Text = row.Cells["LastName"].Value.ToString();
@@ -100,6 +100,7 @@ namespace Restaurant_Management.View
 
             CustomernameText.Text = "Enter Customer name";
             PhoneText.Text = "Enter phone number";
+            AddressText.Text = "Enter Adrress";
             IdText.Text = "ID";
             saveBtn.Text = "Create";
             groupBox.Text = "Create Customer";
@@ -152,6 +153,12 @@ namespace Restaurant_Management.View
             {
                 DefaultText(textBox, "Enter phone number", true);
             }
+            else if(textBox.Name=="AddressText")
+            {
+                DefaultText(textBox, "Enter Address", true);
+            }
+
+
         }
         private void PhoneLbl_Click(object sender, EventArgs e)
         {
@@ -196,6 +203,7 @@ namespace Restaurant_Management.View
         {
             customer.Name = CustomernameText.Text;
             customer.Phone = PhoneText.Text;
+            customer.Address = AddressText.Text;
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -289,6 +297,37 @@ namespace Restaurant_Management.View
                 dataGrid.DataSource = controller.ViewAll();
             else
                 dataGrid.DataSource = controller.Search(search);
+        }
+
+        private void gunaLineTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddressText_TextChanged(object sender, EventArgs e)
+        {
+            //string input = CustomernameText.Text.Trim();
+            //if (input != "Enter Customer name" )
+            //{
+            //    AddresLbl.Text = "Invalid Address";
+            //    AddresLbl.ForeColor = Color.Red;
+            //}
+            //else
+            //{
+            //    AddresLbl.Text = "Address";
+            //    AddresLbl.ForeColor = Color.Black;
+            //}
+        }
+
+        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        {
+            dataGrid.DataSource = controller.ViewAll();
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

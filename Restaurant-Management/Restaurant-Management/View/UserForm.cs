@@ -181,7 +181,7 @@ namespace Restaurant_Management.View
                     dataGrid.DataSource = controller.ViewAll();
                 }
                 else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(null, "This phone number Already exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
