@@ -33,11 +33,12 @@ namespace Restaurant_Management.View
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchTextBox = new Guna.UI.WinForms.GunaLineTextBox();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restaurantManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantManagementDataSet = new Restaurant_Management.RestaurantManagementDataSet();
             this.usersTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UsersTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -65,14 +66,13 @@ namespace Restaurant_Management.View
             this.FNameText = new Guna.UI.WinForms.GunaTextBox();
             this.IdText = new Guna.UI.WinForms.GunaTextBox();
             this.userTypeTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UserTypeTableAdapter();
-            this.restaurantManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userTypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTextBox
@@ -93,6 +93,7 @@ namespace Restaurant_Management.View
             this.searchTextBox.TabStop = false;
             this.searchTextBox.Text = "What do you want to seach?";
             this.searchTextBox.TextOffsetX = 6;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             this.searchTextBox.Enter += new System.EventHandler(this.searchTextBox_Enter);
             this.searchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchTextBox_KeyPress);
             this.searchTextBox.Leave += new System.EventHandler(this.searchTextBox_Leave);
@@ -100,6 +101,14 @@ namespace Restaurant_Management.View
             // usersBindingSource
             // 
             this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
+            this.usersBindingSource.CurrentChanged += new System.EventHandler(this.usersBindingSource_CurrentChanged);
+            // 
+            // restaurantManagementDataSetBindingSource
+            // 
+            this.restaurantManagementDataSetBindingSource.DataSource = this.restaurantManagementDataSet;
+            this.restaurantManagementDataSetBindingSource.Position = 0;
+            this.restaurantManagementDataSetBindingSource.CurrentChanged += new System.EventHandler(this.restaurantManagementDataSetBindingSource_CurrentChanged);
             // 
             // restaurantManagementDataSet
             // 
@@ -122,6 +131,7 @@ namespace Restaurant_Management.View
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(787, 774);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // refreshBtn
             // 
@@ -167,6 +177,7 @@ namespace Restaurant_Management.View
             this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
             this.rowCount.Text = "row counts";
+            this.rowCount.Click += new System.EventHandler(this.rowCount_Click);
             // 
             // searchBtn
             // 
@@ -174,14 +185,14 @@ namespace Restaurant_Management.View
             this.searchBtn.color = System.Drawing.Color.White;
             this.searchBtn.colorActive = System.Drawing.Color.White;
             this.searchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.searchBtn.ForeColor = System.Drawing.Color.White;
             this.searchBtn.Image = ((System.Drawing.Image)(resources.GetObject("searchBtn.Image")));
             this.searchBtn.ImagePosition = 0;
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(549, 27);
+            this.searchBtn.Location = new System.Drawing.Point(553, 29);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(66, 35);
@@ -196,31 +207,31 @@ namespace Restaurant_Management.View
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.ColumnHeadersHeight = 35;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.Color.White;
             this.dataGrid.Location = new System.Drawing.Point(30, 95);
@@ -269,6 +280,7 @@ namespace Restaurant_Management.View
             this.groupBox.TabIndex = 2;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create user";
+            this.groupBox.Enter += new System.EventHandler(this.groupBox_Enter);
             // 
             // deleteBtn
             // 
@@ -308,6 +320,7 @@ namespace Restaurant_Management.View
             this.UTypeLbl.Size = new System.Drawing.Size(83, 23);
             this.UTypeLbl.TabIndex = 14;
             this.UTypeLbl.Text = "User Role";
+            this.UTypeLbl.Click += new System.EventHandler(this.UTypeLbl_Click);
             // 
             // PasswordLbl
             // 
@@ -319,6 +332,7 @@ namespace Restaurant_Management.View
             this.PasswordLbl.Size = new System.Drawing.Size(82, 23);
             this.PasswordLbl.TabIndex = 13;
             this.PasswordLbl.Text = "Password";
+            this.PasswordLbl.Click += new System.EventHandler(this.PasswordLbl_Click);
             // 
             // EmailLbl
             // 
@@ -330,6 +344,7 @@ namespace Restaurant_Management.View
             this.EmailLbl.Size = new System.Drawing.Size(51, 23);
             this.EmailLbl.TabIndex = 12;
             this.EmailLbl.Text = "Email";
+            this.EmailLbl.Click += new System.EventHandler(this.EmailLbl_Click);
             // 
             // LNameLbl
             // 
@@ -341,6 +356,7 @@ namespace Restaurant_Management.View
             this.LNameLbl.Size = new System.Drawing.Size(88, 23);
             this.LNameLbl.TabIndex = 11;
             this.LNameLbl.Text = "Last name";
+            this.LNameLbl.Click += new System.EventHandler(this.LNameLbl_Click);
             // 
             // FNameLbl
             // 
@@ -352,6 +368,7 @@ namespace Restaurant_Management.View
             this.FNameLbl.Size = new System.Drawing.Size(90, 23);
             this.FNameLbl.TabIndex = 10;
             this.FNameLbl.Text = "First name";
+            this.FNameLbl.Click += new System.EventHandler(this.FNameLbl_Click);
             // 
             // UsernameLbl
             // 
@@ -363,6 +380,7 @@ namespace Restaurant_Management.View
             this.UsernameLbl.Size = new System.Drawing.Size(87, 23);
             this.UsernameLbl.TabIndex = 9;
             this.UsernameLbl.Text = "Username";
+            this.UsernameLbl.Click += new System.EventHandler(this.UsernameLbl_Click);
             // 
             // IdLbl
             // 
@@ -374,6 +392,7 @@ namespace Restaurant_Management.View
             this.IdLbl.Size = new System.Drawing.Size(66, 23);
             this.IdLbl.TabIndex = 3;
             this.IdLbl.Text = "User ID";
+            this.IdLbl.Click += new System.EventHandler(this.IdLbl_Click);
             // 
             // PasswordText
             // 
@@ -463,10 +482,13 @@ namespace Restaurant_Management.View
             this.UTypeCombo.Size = new System.Drawing.Size(530, 36);
             this.UTypeCombo.TabIndex = 7;
             this.UTypeCombo.ValueMember = "ID";
+            this.UTypeCombo.SelectedIndexChanged += new System.EventHandler(this.UTypeCombo_SelectedIndexChanged);
             // 
             // userTypeBindingSource
             // 
             this.userTypeBindingSource.DataMember = "UserType";
+            this.userTypeBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
+            this.userTypeBindingSource.CurrentChanged += new System.EventHandler(this.userTypeBindingSource_CurrentChanged);
             // 
             // EmailText
             // 
@@ -565,16 +587,12 @@ namespace Restaurant_Management.View
             this.IdText.Size = new System.Drawing.Size(530, 41);
             this.IdText.TabIndex = 1;
             this.IdText.Text = "ID";
+            this.IdText.TextChanged += new System.EventHandler(this.IdText_TextChanged);
             this.IdText.Enter += new System.EventHandler(this.formText_Enter);
             // 
             // userTypeTableAdapter
             // 
             this.userTypeTableAdapter.ClearBeforeFill = true;
-            // 
-            // restaurantManagementDataSetBindingSource
-            // 
-            this.restaurantManagementDataSetBindingSource.DataSource = this.restaurantManagementDataSet;
-            this.restaurantManagementDataSetBindingSource.Position = 0;
             // 
             // UserForm
             // 
@@ -591,6 +609,7 @@ namespace Restaurant_Management.View
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -598,7 +617,6 @@ namespace Restaurant_Management.View
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -619,6 +637,7 @@ namespace Restaurant_Management.View
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private RestaurantManagementDataSet restaurantManagementDataSet;
+        private System.Windows.Forms.BindingSource restaurantManagementDataSetBindingSource;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private RestaurantManagementDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
         private System.Windows.Forms.Panel panel1;
@@ -647,6 +666,5 @@ namespace Restaurant_Management.View
         private Guna.UI.WinForms.GunaLabel IdLbl;
         private Guna.UI.WinForms.GunaAdvenceButton refreshBtn;
         private Guna.UI.WinForms.GunaButton deleteBtn;
-        private System.Windows.Forms.BindingSource restaurantManagementDataSetBindingSource;
     }
 }

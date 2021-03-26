@@ -20,13 +20,12 @@ namespace Restaurant_Management
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //UserForm objForm = new UserForm();
-            //CustomerForm objForm = new CustomerForm();
-            //OrdersForm objForm = new OrdersForm();
-            DeliveryForm objForm = new DeliveryForm();
+            this.WindowState = FormWindowState.Maximized;
+            // UserForm objForm = new UserForm();
+            UserTypeForm objForm = new UserTypeForm();
             objForm.TopLevel = false;
             mainPanel.Controls.Add(objForm);
-            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.FormBorderStyle = FormBorderStyle.None;
             objForm.Dock = DockStyle.Fill;
             objForm.Show();
         }

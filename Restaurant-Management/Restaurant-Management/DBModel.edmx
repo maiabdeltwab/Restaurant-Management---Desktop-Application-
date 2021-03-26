@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RestaurantManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RestaurantManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,7 +12,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="FoodIngredients">
           <Key>
@@ -40,6 +40,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="MenuItem">
           <Key>
@@ -85,6 +86,14 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="Count" Type="int" />
           <Property Name="MenuItem_id" Type="int" />
+        </EntityType>
+        <EntityType Name="SaveLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="keepLogin" Type="int" />
         </EntityType>
         <EntityType Name="Screen">
           <Key>
@@ -171,7 +180,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="Customer_id_fk">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
@@ -182,6 +192,18 @@
             </Principal>
             <Dependent Role="Orders">
               <PropertyRef Name="Customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SaveLogin__userI__1EA48E88">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="SaveLogin" Type="Self.SaveLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaveLogin">
+              <PropertyRef Name="userId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -391,6 +413,7 @@
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderType" EntityType="Self.OrderType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RestaurantConsumption" EntityType="Self.RestaurantConsumption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaveLogin" EntityType="Self.SaveLogin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StoreConsumption" EntityType="Self.StoreConsumption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StoreItem" EntityType="Self.StoreItem" Schema="dbo" store:Type="Tables" />
@@ -404,6 +427,10 @@
           <AssociationSet Name="Customer_id_fk" Association="Self.Customer_id_fk">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SaveLogin__userI__1EA48E88" Association="Self.FK__SaveLogin__userI__1EA48E88">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SaveLogin" EntitySet="SaveLogin" />
           </AssociationSet>
           <AssociationSet Name="Menu_ite_id_fk" Association="Self.Menu_ite_id_fk">
             <End Role="MenuItem" EntitySet="MenuItem" />
@@ -470,8 +497,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RestaurantManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -482,8 +508,8 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="Self.Customer_id_fk" FromRole="Customer" ToRole="Orders" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="FoodIngredient">
           <Key>
@@ -516,6 +542,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="MenuItems" Relationship="Self.Menu_item_fk" FromRole="Menu" ToRole="MenuItem" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MenuItem">
           <Key>
@@ -667,15 +694,17 @@
           <Property Name="UserType_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UserPhones" Relationship="Self.User_phone_FK" FromRole="Users" ToRole="UserPhone" />
           <NavigationProperty Name="UserType" Relationship="Self.User_type_id_fk" FromRole="Users" ToRole="UserType" />
+          <NavigationProperty Name="SaveLogins" Relationship="RestaurantManagementModel.FK__SaveLogin__userI__1BC821DD" FromRole="User" ToRole="SaveLogin" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserPrivileges" Relationship="Self.User_typ_id_FK" FromRole="UserType" ToRole="UserPrivileges" />
           <NavigationProperty Name="Users" Relationship="Self.User_type_id_fk" FromRole="UserType" ToRole="Users" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="Customer_id_fk">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
@@ -973,7 +1002,33 @@
             <End Role="UserType" EntitySet="UserTypes" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="SaveLogins" EntityType="RestaurantManagementModel.SaveLogin" />
+          <AssociationSet Name="FK__SaveLogin__userI__1BC821DD" Association="RestaurantManagementModel.FK__SaveLogin__userI__1BC821DD">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SaveLogin" EntitySet="SaveLogins" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SaveLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="RestaurantManagementModel.FK__SaveLogin__userI__1BC821DD" FromRole="SaveLogin" ToRole="User" />
+          <Property Name="keepLogin" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__SaveLogin__userI__1BC821DD">
+          <End Type="RestaurantManagementModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="RestaurantManagementModel.SaveLogin" Role="SaveLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaveLogin">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -983,10 +1038,10 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="RestaurantManagementModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1015,6 +1070,7 @@
           <EntitySetMapping Name="Menus">
             <EntityTypeMapping TypeName="RestaurantManagementModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -1162,8 +1218,18 @@
           <EntitySetMapping Name="UserTypes">
             <EntityTypeMapping TypeName="RestaurantManagementModel.UserType">
               <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaveLogins">
+            <EntityTypeMapping TypeName="RestaurantManagementModel.SaveLogin">
+              <MappingFragment StoreEntitySet="SaveLogin">
+                <ScalarProperty Name="keepLogin" ColumnName="keepLogin" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1183,7 +1249,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

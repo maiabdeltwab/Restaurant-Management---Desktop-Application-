@@ -21,7 +21,8 @@ namespace Restaurant_Management
         }
     
         public int ID { get; set; }
-        public string name { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     
         public virtual ICollection<UserPrivilege> UserPrivileges { get; set; }
         public virtual ICollection<User> Users { get; set; }

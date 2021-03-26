@@ -31,5 +31,6 @@ namespace Restaurant_Management
         public virtual Menu Menu { get; set; }
         public virtual ICollection<RestaurantConsumption> RestaurantConsumptions { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
+       
     }
 }
