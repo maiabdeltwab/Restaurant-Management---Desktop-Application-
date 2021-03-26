@@ -18,6 +18,7 @@ namespace Restaurant_Management
         public User()
         {
             this.UserPhones = new HashSet<UserPhone>();
+            this.SaveLogins = new HashSet<SaveLogin>();
         }
     
         public int ID { get; set; }
@@ -31,5 +32,7 @@ namespace Restaurant_Management
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserPhone> UserPhones { get; set; }
         public virtual UserType UserType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaveLogin> SaveLogins { get; set; }
     }
 }

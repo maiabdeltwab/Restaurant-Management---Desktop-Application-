@@ -17,6 +17,26 @@ namespace Restaurant_Management.Controllers
             context = new RestaurantEntities();
         }
 
+        public User GetUser(int id)
+        {
+            return context.Users.Find(id);
+        }
+
+        public List<UserVM> ViewUsersType(UserType type)
+        {
+            return (from u in context.Users
+                    where u.UserType.ID == type.ID
+                    select new UserVM
+                    {
+                        ID = u.ID,
+                        FristName = u.FristName,
+                        LastName = u.LastName,
+                        Username = u.Username,
+                        Email = u.Email,
+                        TypeName = u.UserType.Name,
+                    }).ToList();
+        }
+
         public List<UserVM> ViewAll()
         {
             var users = (from u in context.Users
@@ -27,7 +47,7 @@ namespace Restaurant_Management.Controllers
                              LastName = u.LastName,
                              Username = u.Username,
                              Email = u.Email,
-                             TypeName = u.UserType.name,
+                             TypeName = u.UserType.Name,
                          }).ToList();
 
             return users;
@@ -41,7 +61,7 @@ namespace Restaurant_Management.Controllers
                             where (u.FristName.Contains(searchTxt)
                             || u.LastName.Contains(searchTxt)
                             || u.Username.Contains(searchTxt)
-                            || u.UserType.name.Contains(searchTxt)
+                            || u.UserType.Name.Contains(searchTxt)
                             || u.Email.Contains(searchTxt))
                             select new UserVM
                             {
@@ -50,7 +70,7 @@ namespace Restaurant_Management.Controllers
                                 LastName = u.LastName,
                                 Username = u.Username,
                                 Email = u.Email,
-                                TypeName = u.UserType.name,
+                                TypeName = u.UserType.Name,
                             }).ToList());
 
             try
@@ -65,7 +85,7 @@ namespace Restaurant_Management.Controllers
                                     LastName = u.LastName,
                                     Username = u.Username,
                                     Email = u.Email,
-                                    TypeName = u.UserType.name,
+                                    TypeName = u.UserType.Name,
                                 }).ToList());
             }
             catch { }
@@ -92,7 +112,6 @@ namespace Restaurant_Management.Controllers
             {
                 User editedUser = context.Users.Find(user.ID);
 
-                editedUser.ID = user.ID;
                 editedUser.FristName = user.FristName;
                 editedUser.LastName = user.LastName;
                 editedUser.Email = user.Email;
@@ -124,6 +143,25 @@ namespace Restaurant_Management.Controllers
             {
                 Console.WriteLine(ex.Message);
                 return false;
+            }
+        }
+
+        public User Login(User user)
+        {
+            User user1 = (from u in context.Users
+                          where (u.Email == user.Email
+                          || u.Username == user.Username)
+                          select u).FirstOrDefault();
+
+            if (user1 == null)
+                return null;
+            else
+            {
+                if (user1.Password != user.Password)
+                {
+                    user.Password = null;
+                }
+                return user;
             }
         }
     }
