@@ -192,7 +192,7 @@ namespace Restaurant_Management.View
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(549, 27);
+            this.searchBtn.Location = new System.Drawing.Point(553, 29);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(66, 35);

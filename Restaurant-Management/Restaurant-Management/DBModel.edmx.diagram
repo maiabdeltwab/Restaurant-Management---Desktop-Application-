@@ -41,6 +41,8 @@
         <AssociationConnector Association="RestaurantManagementModel.User_phone_FK" ManuallyRouted="false" />
         <AssociationConnector Association="RestaurantManagementModel.User_typ_id_FK" ManuallyRouted="false" />
         <AssociationConnector Association="RestaurantManagementModel.User_type_id_fk" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RestaurantManagementModel.SaveLogin" Width="1.5" PointX="14.25" PointY="20.625" />
+        <AssociationConnector Association="RestaurantManagementModel.FK__SaveLogin__userI__1BC821DD" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

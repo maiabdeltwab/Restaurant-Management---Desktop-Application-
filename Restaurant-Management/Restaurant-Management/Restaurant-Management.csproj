@@ -68,6 +68,8 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MenuItemController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Controllers\UserTypeController.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -116,6 +118,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SaveLogin.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Screen.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -154,6 +159,11 @@
     </Compile>
     <Compile Include="View\Supplier Form.Designer.cs">
       <DependentUpon>Supplier Form.cs</DependentUpon>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserForm.cs">
       <SubType>Form</SubType>
@@ -161,11 +171,11 @@
     <Compile Include="View\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Main.cs">
+    <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,12 +201,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Supplier Form.resx">
       <DependentUpon>Supplier Form.cs</DependentUpon>
+    <Compile Include="View\UserTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserTypeForm.Designer.cs">
+      <DependentUpon>UserTypeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -207,6 +225,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\UserTypeForm.resx">
+      <DependentUpon>UserTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBModel.Designer.cs</LastGenOutput>

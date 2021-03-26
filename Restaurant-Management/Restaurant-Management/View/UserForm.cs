@@ -18,9 +18,17 @@ namespace Restaurant_Management.View
         private readonly UserController controller = new UserController();
         private readonly RestaurantEntities context = UserController.context;
 
-        public UserForm()
+        private readonly UserType userType = null;
+
+        private readonly Regex usernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$");
+        private readonly Regex nameReg = new Regex("^[A-Za-z -]{3,}$");
+        private readonly Regex emailReg = new Regex("^[\\w\\-\\.\\+]+\\@[a-zA-Z0-9\\.\\-]+\\.[a-zA-z0-9]{2,4}$");
+
+        public UserForm(UserType userType = null)
         {
             InitializeComponent();
+
+            this.userType = userType;
         }
 
         private void UserForm_Load(object sender, EventArgs e)
@@ -28,11 +36,19 @@ namespace Restaurant_Management.View
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.UserType' table. You can move, or remove it, as needed.
             this.userTypeTableAdapter.Fill(this.restaurantManagementDataSet.UserType);
 
-            dataGrid.DataSource = controller.ViewAll();
-
-            UTypeCombo.SelectedIndex = -1;
             IdText.Enabled = false;
             ClearData();
+
+            if (userType != null)
+            {
+                dataGrid.DataSource = controller.ViewUsersType(userType);
+                UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(userType.Name);
+                searchTextBox.Text = userType.Name;
+            }
+            else
+            {
+                dataGrid.DataSource = controller.ViewAll();
+            }
         }
 
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
@@ -61,12 +77,12 @@ namespace Restaurant_Management.View
 
         private void searchBtn_active(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search_active.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search_active.png");
         }
 
         private void searchBtn_disactive(object sender, EventArgs e)
         {
-            searchBtn.Image = Image.FromFile(Basic.ImagePath + @"\icon_search.png");
+            searchBtn.Image = Image.FromFile(App.ImagePath + @"\icon_search.png");
         }
 
         private void dataGrid_Leave(object sender, EventArgs e)
@@ -97,7 +113,7 @@ namespace Restaurant_Management.View
 
         private void search(object sender, EventArgs e)
         {
-            string search = searchTextBox.Text;
+            string search = searchTextBox.Text.Trim();
             if (search == "" || search == "What do you want to seach?")
                 dataGrid.DataSource = controller.ViewAll();
             else
@@ -135,9 +151,20 @@ namespace Restaurant_Management.View
             IdText.Text = "ID";
             PasswordText.Text = "Enter password";
             UTypeCombo.SelectedIndex = -1;
+            UTypeCombo.Text = "Select a type";
+
             saveBtn.Text = "Create";
             groupBox.Text = "Create user";
             deleteBtn.Visible = false;
+        }
+
+        public void ClearDefaults()
+        {
+            DefaultText(UsernameText, "Enter username", true);
+            DefaultText(FNameText, "Enter first name", true);
+            DefaultText(LNameText, "Enter last name", true);
+            DefaultText(EmailText, "Enter email", true);
+            DefaultText(PasswordText, "Enter password", true);
         }
 
         private void SelectRow()
@@ -151,8 +178,10 @@ namespace Restaurant_Management.View
                 EmailText.Text = row.Cells["Email"].Value.ToString();
                 FNameText.Text = row.Cells["FristName"].Value.ToString();
                 LNameText.Text = row.Cells["LastName"].Value.ToString();
+
                 string type = row.Cells["TypeName"].Value.ToString();
                 UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
+
                 saveBtn.Text = "Update";
             }
         }
@@ -166,36 +195,42 @@ namespace Restaurant_Management.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             User user = new User();
+            ClearDefaults();
             getDate(user);
 
-            if (saveBtn.Text == "Create")
+            if (DataValidation())
             {
-                bool flag = controller.Insert(user);
-
-                if (flag)
+                if (saveBtn.Text == "Create")
                 {
-                    MessageBox.Show(null, "User inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
+                    bool flag = controller.Insert(user);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "User inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    user.ID = int.Parse(IdText.Text);
+
+                    bool flag = controller.Update(user);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
-            {
-                user.ID = int.Parse(IdText.Text);
-
-                bool flag = controller.Update(user);
-
-                if (flag)
-                {
-                    MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
-                }
-                else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void getDate(User user)
@@ -208,20 +243,33 @@ namespace Restaurant_Management.View
             user.Password = PasswordText.Text;
         }
 
+        private bool DataValidation()
+        {
+            bool flag = validateUserType() && validateLName() && validateFName() && validateUsername()
+                && validateEmail() && validatePassword();
+
+            return flag;
+        }
+
         private void LNameText_TextChanged(object sender, EventArgs e)
         {
-            Regex nameReg = new Regex("^[A-Za-z -]{3,}$");
+            validateLName();
+        }
 
+        private bool validateLName()
+        {
             string input = LNameText.Text.Trim();
             if (!nameReg.IsMatch(input))
             {
                 LNameLbl.Text = "Invalid Name";
                 LNameLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 LNameLbl.Text = "Last name";
                 LNameLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
@@ -259,68 +307,90 @@ namespace Restaurant_Management.View
 
         private void UsernameText_TextChanged(object sender, EventArgs e)
         {
-            Regex usernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$");
+            validateUsername();
+        }
 
+        private bool validateUsername()
+        {
             string input = UsernameText.Text.Trim();
 
             if (input != "Enter username" && !usernameReg.IsMatch(input))
             {
                 UsernameLbl.Text = "Invalid username";
                 UsernameLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 UsernameLbl.Text = "Username";
                 UsernameLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
         private void FNameText_TextChanged(object sender, EventArgs e)
         {
-            Regex nameReg = new Regex("^[A-Za-z -]{3,}$");
+            validateFName();
+        }
 
+        private bool validateFName()
+        {
             string input = FNameText.Text.Trim();
             if (!nameReg.IsMatch(input))
             {
                 FNameLbl.Text = "Invalid Name";
                 FNameLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 FNameLbl.Text = "First name";
                 FNameLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
         private void EmailText_TextChanged(object sender, EventArgs e)
         {
-            Regex emailReg = new Regex("^[\\w\\-\\.\\+]+\\@[a-zA-Z0-9\\.\\-]+\\.[a-zA-z0-9]{2,4}$");
+            validateEmail();
+        }
 
+        private bool validateEmail()
+        {
             string input = EmailText.Text.Trim();
 
             if (input != "Enter email" && !emailReg.IsMatch(input))
             {
                 EmailLbl.Text = "Invalid Email";
                 EmailLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 EmailLbl.Text = "Email";
                 EmailLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
         private void PasswordText_TextChanged(object sender, EventArgs e)
         {
+            validatePassword();
+        }
+
+        private bool validatePassword()
+        {
             if (PasswordText.Text != "Enter password" && PasswordText.Text.Length < 6)
             {
                 PasswordLbl.Text = "Password length must at least 6 chars";
                 PasswordLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 PasswordLbl.Text = "Password";
                 PasswordLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
@@ -338,89 +408,22 @@ namespace Restaurant_Management.View
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private bool validateUserType()
         {
+            int selected = UTypeCombo.SelectedIndex;
 
-        }
-
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usersBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void restaurantManagementDataSetBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void rowCount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UTypeLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PasswordLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EmailLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LNameLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FNameLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UsernameLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void IdLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userTypeBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void IdText_TextChanged(object sender, EventArgs e)
-        {
-
+            if (selected == -1)
+            {
+                UTypeLbl.Text = "Select Role";
+                UTypeLbl.ForeColor = Color.Red;
+                return false;
+            }
+            else
+            {
+                UTypeLbl.Text = "User Role";
+                UTypeLbl.ForeColor = Color.Black;
+                return true;
+            }
         }
     }
 }
