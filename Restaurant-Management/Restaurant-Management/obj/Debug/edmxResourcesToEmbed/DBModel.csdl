@@ -197,9 +197,10 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="UserPrivileges" Relationship="Self.User_typ_id_FK" FromRole="UserType" ToRole="UserPrivileges" />
     <NavigationProperty Name="Users" Relationship="Self.User_type_id_fk" FromRole="UserType" ToRole="Users" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="Customer_id_fk">
     <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />

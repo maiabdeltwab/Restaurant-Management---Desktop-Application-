@@ -182,8 +182,9 @@
     <EntitySetMapping Name="UserTypes">
       <EntityTypeMapping TypeName="RestaurantManagementModel.UserType">
         <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

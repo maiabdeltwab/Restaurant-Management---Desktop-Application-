@@ -13,9 +13,9 @@ namespace Restaurant_Management
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RestaurantEntities : DbContext
+    public partial class RestaurantManagementEntities : DbContext
     {
-        public RestaurantEntities()
+        public RestaurantManagementEntities()
             : base("name=RestaurantManagementEntities")
         {
         }
@@ -44,5 +44,6 @@ namespace Restaurant_Management
         public virtual DbSet<UserPrivilege> UserPrivileges { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<SaveLogin> SaveLogins { get; set; }
     }
 }
