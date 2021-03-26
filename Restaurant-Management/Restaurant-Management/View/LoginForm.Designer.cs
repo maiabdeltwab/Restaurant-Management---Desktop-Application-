@@ -31,12 +31,12 @@ namespace Restaurant_Management.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
+            this.ErrorLbl = new Guna.UI.WinForms.GunaLabel();
             this.viewPassCheck = new Guna.UI.WinForms.GunaImageCheckBox();
             this.rememberCheck = new Guna.UI.WinForms.GunaCheckBox();
             this.loginBtn = new Guna.UI.WinForms.GunaButton();
             this.passwordText = new Guna.UI.WinForms.GunaLineTextBox();
             this.usernameText = new Guna.UI.WinForms.GunaLineTextBox();
-            this.ErrorLbl = new Guna.UI.WinForms.GunaLabel();
             this.gunaShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,17 @@ namespace Restaurant_Management.View
             this.gunaShadowPanel1.Size = new System.Drawing.Size(620, 500);
             this.gunaShadowPanel1.TabIndex = 3;
             this.gunaShadowPanel1.UseTransfarantBackground = true;
+            // 
+            // ErrorLbl
+            // 
+            this.ErrorLbl.AutoSize = true;
+            this.ErrorLbl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLbl.Location = new System.Drawing.Point(73, 60);
+            this.ErrorLbl.Name = "ErrorLbl";
+            this.ErrorLbl.Size = new System.Drawing.Size(55, 28);
+            this.ErrorLbl.TabIndex = 5;
+            this.ErrorLbl.Text = "Error";
             // 
             // viewPassCheck
             // 
@@ -129,7 +140,7 @@ namespace Restaurant_Management.View
             this.passwordText.SelectedText = "";
             this.passwordText.Size = new System.Drawing.Size(480, 39);
             this.passwordText.TabIndex = 1;
-            this.passwordText.Text = "Enter your password";
+            this.passwordText.Text = "Enter password";
             this.passwordText.UseSystemPasswordChar = true;
             this.passwordText.Enter += new System.EventHandler(this.passwordText_Enter);
             this.passwordText.Leave += new System.EventHandler(this.passwordText_Leave);
@@ -152,17 +163,6 @@ namespace Restaurant_Management.View
             this.usernameText.Text = "Enter email/username";
             this.usernameText.Enter += new System.EventHandler(this.usernameText_Enter);
             this.usernameText.Leave += new System.EventHandler(this.usernameText_Leave);
-            // 
-            // ErrorLbl
-            // 
-            this.ErrorLbl.AutoSize = true;
-            this.ErrorLbl.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ErrorLbl.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLbl.Location = new System.Drawing.Point(73, 60);
-            this.ErrorLbl.Name = "ErrorLbl";
-            this.ErrorLbl.Size = new System.Drawing.Size(55, 28);
-            this.ErrorLbl.TabIndex = 5;
-            this.ErrorLbl.Text = "Error";
             // 
             // LoginForm
             // 

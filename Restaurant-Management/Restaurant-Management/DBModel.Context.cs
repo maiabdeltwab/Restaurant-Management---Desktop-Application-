@@ -13,9 +13,9 @@ namespace Restaurant_Management
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RestaurantManagementEntities : DbContext
+    public partial class RestaurantEntities : DbContext
     {
-        public RestaurantManagementEntities()
+        public RestaurantEntities()
             : base("name=RestaurantManagementEntities")
         {
         }

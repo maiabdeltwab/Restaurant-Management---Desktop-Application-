@@ -114,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SaveLogin.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Screen.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
