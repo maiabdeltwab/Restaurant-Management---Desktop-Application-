@@ -93,7 +93,6 @@ namespace Restaurant_Management.View
             this.searchTextBox.TabStop = false;
             this.searchTextBox.Text = "What do you want to seach?";
             this.searchTextBox.TextOffsetX = 6;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             this.searchTextBox.Enter += new System.EventHandler(this.searchTextBox_Enter);
             this.searchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchTextBox_KeyPress);
             this.searchTextBox.Leave += new System.EventHandler(this.searchTextBox_Leave);
@@ -102,13 +101,11 @@ namespace Restaurant_Management.View
             // 
             this.usersBindingSource.DataMember = "Users";
             this.usersBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
-            this.usersBindingSource.CurrentChanged += new System.EventHandler(this.usersBindingSource_CurrentChanged);
             // 
             // restaurantManagementDataSetBindingSource
             // 
             this.restaurantManagementDataSetBindingSource.DataSource = this.restaurantManagementDataSet;
             this.restaurantManagementDataSetBindingSource.Position = 0;
-            this.restaurantManagementDataSetBindingSource.CurrentChanged += new System.EventHandler(this.restaurantManagementDataSetBindingSource_CurrentChanged);
             // 
             // restaurantManagementDataSet
             // 
@@ -131,7 +128,6 @@ namespace Restaurant_Management.View
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(787, 749);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // refreshBtn
             // 
@@ -174,10 +170,9 @@ namespace Restaurant_Management.View
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
             this.rowCount.Location = new System.Drawing.Point(672, 686);
             this.rowCount.Name = "rowCount";
-            this.rowCount.Size = new System.Drawing.Size(77, 19);
+            this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
             this.rowCount.Text = "row counts";
-            this.rowCount.Click += new System.EventHandler(this.rowCount_Click);
             // 
             // searchBtn
             // 
@@ -246,7 +241,6 @@ namespace Restaurant_Management.View
             this.dataGrid.TabIndex = 1;
             this.dataGrid.TabStop = false;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             this.dataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGrid_rowCountChange);
             this.dataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGrid_rowCountChange);
@@ -280,7 +274,6 @@ namespace Restaurant_Management.View
             this.groupBox.TabIndex = 2;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create user";
-            this.groupBox.Enter += new System.EventHandler(this.groupBox_Enter);
             // 
             // deleteBtn
             // 
@@ -317,10 +310,9 @@ namespace Restaurant_Management.View
             this.UTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.UTypeLbl.Location = new System.Drawing.Point(24, 419);
             this.UTypeLbl.Name = "UTypeLbl";
-            this.UTypeLbl.Size = new System.Drawing.Size(69, 19);
+            this.UTypeLbl.Size = new System.Drawing.Size(83, 23);
             this.UTypeLbl.TabIndex = 14;
             this.UTypeLbl.Text = "User Role";
-            this.UTypeLbl.Click += new System.EventHandler(this.UTypeLbl_Click);
             // 
             // PasswordLbl
             // 
@@ -329,10 +321,9 @@ namespace Restaurant_Management.View
             this.PasswordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.PasswordLbl.Location = new System.Drawing.Point(23, 347);
             this.PasswordLbl.Name = "PasswordLbl";
-            this.PasswordLbl.Size = new System.Drawing.Size(68, 19);
+            this.PasswordLbl.Size = new System.Drawing.Size(82, 23);
             this.PasswordLbl.TabIndex = 13;
             this.PasswordLbl.Text = "Password";
-            this.PasswordLbl.Click += new System.EventHandler(this.PasswordLbl_Click);
             // 
             // EmailLbl
             // 
@@ -341,10 +332,9 @@ namespace Restaurant_Management.View
             this.EmailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.EmailLbl.Location = new System.Drawing.Point(24, 276);
             this.EmailLbl.Name = "EmailLbl";
-            this.EmailLbl.Size = new System.Drawing.Size(43, 19);
+            this.EmailLbl.Size = new System.Drawing.Size(51, 23);
             this.EmailLbl.TabIndex = 12;
             this.EmailLbl.Text = "Email";
-            this.EmailLbl.Click += new System.EventHandler(this.EmailLbl_Click);
             // 
             // LNameLbl
             // 
@@ -353,10 +343,9 @@ namespace Restaurant_Management.View
             this.LNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.LNameLbl.Location = new System.Drawing.Point(294, 204);
             this.LNameLbl.Name = "LNameLbl";
-            this.LNameLbl.Size = new System.Drawing.Size(72, 19);
+            this.LNameLbl.Size = new System.Drawing.Size(88, 23);
             this.LNameLbl.TabIndex = 11;
             this.LNameLbl.Text = "Last name";
-            this.LNameLbl.Click += new System.EventHandler(this.LNameLbl_Click);
             // 
             // FNameLbl
             // 
@@ -365,10 +354,9 @@ namespace Restaurant_Management.View
             this.FNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.FNameLbl.Location = new System.Drawing.Point(22, 204);
             this.FNameLbl.Name = "FNameLbl";
-            this.FNameLbl.Size = new System.Drawing.Size(74, 19);
+            this.FNameLbl.Size = new System.Drawing.Size(90, 23);
             this.FNameLbl.TabIndex = 10;
             this.FNameLbl.Text = "First name";
-            this.FNameLbl.Click += new System.EventHandler(this.FNameLbl_Click);
             // 
             // UsernameLbl
             // 
@@ -377,10 +365,9 @@ namespace Restaurant_Management.View
             this.UsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.UsernameLbl.Location = new System.Drawing.Point(24, 125);
             this.UsernameLbl.Name = "UsernameLbl";
-            this.UsernameLbl.Size = new System.Drawing.Size(71, 19);
+            this.UsernameLbl.Size = new System.Drawing.Size(87, 23);
             this.UsernameLbl.TabIndex = 9;
             this.UsernameLbl.Text = "Username";
-            this.UsernameLbl.Click += new System.EventHandler(this.UsernameLbl_Click);
             // 
             // IdLbl
             // 
@@ -389,10 +376,9 @@ namespace Restaurant_Management.View
             this.IdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.IdLbl.Location = new System.Drawing.Point(23, 53);
             this.IdLbl.Name = "IdLbl";
-            this.IdLbl.Size = new System.Drawing.Size(55, 19);
+            this.IdLbl.Size = new System.Drawing.Size(66, 23);
             this.IdLbl.TabIndex = 3;
             this.IdLbl.Text = "User ID";
-            this.IdLbl.Click += new System.EventHandler(this.IdLbl_Click);
             // 
             // PasswordText
             // 
@@ -479,16 +465,14 @@ namespace Restaurant_Management.View
             this.UTypeCombo.FormattingEnabled = true;
             this.UTypeCombo.Location = new System.Drawing.Point(25, 441);
             this.UTypeCombo.Name = "UTypeCombo";
-            this.UTypeCombo.Size = new System.Drawing.Size(530, 29);
+            this.UTypeCombo.Size = new System.Drawing.Size(530, 36);
             this.UTypeCombo.TabIndex = 7;
             this.UTypeCombo.ValueMember = "ID";
-            this.UTypeCombo.SelectedIndexChanged += new System.EventHandler(this.UTypeCombo_SelectedIndexChanged);
             // 
             // userTypeBindingSource
             // 
             this.userTypeBindingSource.DataMember = "UserType";
             this.userTypeBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
-            this.userTypeBindingSource.CurrentChanged += new System.EventHandler(this.userTypeBindingSource_CurrentChanged);
             // 
             // EmailText
             // 
@@ -587,7 +571,6 @@ namespace Restaurant_Management.View
             this.IdText.Size = new System.Drawing.Size(530, 41);
             this.IdText.TabIndex = 1;
             this.IdText.Text = "ID";
-            this.IdText.TextChanged += new System.EventHandler(this.IdText_TextChanged);
             this.IdText.Enter += new System.EventHandler(this.formText_Enter);
             // 
             // userTypeTableAdapter
@@ -596,7 +579,7 @@ namespace Restaurant_Management.View
             // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
