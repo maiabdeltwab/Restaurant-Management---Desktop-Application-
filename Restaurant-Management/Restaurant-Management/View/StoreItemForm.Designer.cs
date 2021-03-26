@@ -33,9 +33,9 @@ namespace Restaurant_Management.View
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StoreItemForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchTextBox = new Guna.UI.WinForms.GunaLineTextBox();
             this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -125,7 +125,7 @@ namespace Restaurant_Management.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 732);
+            this.panel1.Size = new System.Drawing.Size(787, 728);
             this.panel1.TabIndex = 1;
             // 
             // refreshBtn
@@ -169,7 +169,7 @@ namespace Restaurant_Management.View
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
             this.rowCount.Location = new System.Drawing.Point(672, 686);
             this.rowCount.Name = "rowCount";
-            this.rowCount.Size = new System.Drawing.Size(77, 19);
+            this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
             this.rowCount.Text = "row counts";
             // 
@@ -201,31 +201,31 @@ namespace Restaurant_Management.View
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.ColumnHeadersHeight = 35;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.Color.White;
             this.dataGrid.Location = new System.Drawing.Point(30, 95);
@@ -310,7 +310,7 @@ namespace Restaurant_Management.View
             this.ITypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.ITypeLbl.Location = new System.Drawing.Point(24, 419);
             this.ITypeLbl.Name = "ITypeLbl";
-            this.ITypeLbl.Size = new System.Drawing.Size(69, 19);
+            this.ITypeLbl.Size = new System.Drawing.Size(84, 23);
             this.ITypeLbl.TabIndex = 14;
             this.ITypeLbl.Text = "Item Role";
             // 
@@ -321,7 +321,7 @@ namespace Restaurant_Management.View
             this.QuantityLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.QuantityLbl.Location = new System.Drawing.Point(23, 347);
             this.QuantityLbl.Name = "QuantityLbl";
-            this.QuantityLbl.Size = new System.Drawing.Size(64, 19);
+            this.QuantityLbl.Size = new System.Drawing.Size(77, 23);
             this.QuantityLbl.TabIndex = 13;
             this.QuantityLbl.Text = "Quantity";
             // 
@@ -332,7 +332,7 @@ namespace Restaurant_Management.View
             this.PriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.PriceLbl.Location = new System.Drawing.Point(26, 199);
             this.PriceLbl.Name = "PriceLbl";
-            this.PriceLbl.Size = new System.Drawing.Size(40, 19);
+            this.PriceLbl.Size = new System.Drawing.Size(47, 23);
             this.PriceLbl.TabIndex = 12;
             this.PriceLbl.Text = "Price";
             // 
@@ -343,7 +343,7 @@ namespace Restaurant_Management.View
             this.RequiredAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.RequiredAmountLbl.Location = new System.Drawing.Point(294, 274);
             this.RequiredAmountLbl.Name = "RequiredAmountLbl";
-            this.RequiredAmountLbl.Size = new System.Drawing.Size(119, 19);
+            this.RequiredAmountLbl.Size = new System.Drawing.Size(146, 23);
             this.RequiredAmountLbl.TabIndex = 11;
             this.RequiredAmountLbl.Text = "Required Amount";
             // 
@@ -354,7 +354,7 @@ namespace Restaurant_Management.View
             this.CurrentAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.CurrentAmountLbl.Location = new System.Drawing.Point(22, 274);
             this.CurrentAmountLbl.Name = "CurrentAmountLbl";
-            this.CurrentAmountLbl.Size = new System.Drawing.Size(110, 19);
+            this.CurrentAmountLbl.Size = new System.Drawing.Size(135, 23);
             this.CurrentAmountLbl.TabIndex = 10;
             this.CurrentAmountLbl.Text = "Current Amount";
             // 
@@ -365,7 +365,7 @@ namespace Restaurant_Management.View
             this.ItemnameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.ItemnameLbl.Location = new System.Drawing.Point(24, 125);
             this.ItemnameLbl.Name = "ItemnameLbl";
-            this.ItemnameLbl.Size = new System.Drawing.Size(71, 19);
+            this.ItemnameLbl.Size = new System.Drawing.Size(88, 23);
             this.ItemnameLbl.TabIndex = 9;
             this.ItemnameLbl.Text = "Itemname";
             this.ItemnameLbl.Click += new System.EventHandler(this.ItemnameLbl_Click);
@@ -377,7 +377,7 @@ namespace Restaurant_Management.View
             this.IdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.IdLbl.Location = new System.Drawing.Point(23, 53);
             this.IdLbl.Name = "IdLbl";
-            this.IdLbl.Size = new System.Drawing.Size(23, 19);
+            this.IdLbl.Size = new System.Drawing.Size(27, 23);
             this.IdLbl.TabIndex = 3;
             this.IdLbl.Text = "ID";
             // 
@@ -445,7 +445,7 @@ namespace Restaurant_Management.View
             this.ITypeCombo.FormattingEnabled = true;
             this.ITypeCombo.Location = new System.Drawing.Point(25, 442);
             this.ITypeCombo.Name = "ITypeCombo";
-            this.ITypeCombo.Size = new System.Drawing.Size(530, 29);
+            this.ITypeCombo.Size = new System.Drawing.Size(530, 36);
             this.ITypeCombo.TabIndex = 7;
             this.ITypeCombo.ValueMember = "ID";
             this.ITypeCombo.SelectedIndexChanged += new System.EventHandler(this.ITypeCombo_SelectedIndexChanged);
@@ -613,7 +613,7 @@ namespace Restaurant_Management.View
             // 
             // StoreItemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
