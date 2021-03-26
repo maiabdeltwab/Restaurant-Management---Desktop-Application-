@@ -3,8 +3,6 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.pdb
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.dll
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.dll
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.xml
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.xml
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csprojAssemblyReference.cache
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.GenerateResource.cache
@@ -20,8 +18,8 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.CustomerForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItems.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuForm.resources
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItem_Form.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Supplier_Form.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
