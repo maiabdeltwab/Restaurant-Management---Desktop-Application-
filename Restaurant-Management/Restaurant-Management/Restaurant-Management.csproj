@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="View\Supplier Form.Designer.cs">
       <DependentUpon>Supplier Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +202,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Supplier Form.resx">
       <DependentUpon>Supplier Form.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="View\UserTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
