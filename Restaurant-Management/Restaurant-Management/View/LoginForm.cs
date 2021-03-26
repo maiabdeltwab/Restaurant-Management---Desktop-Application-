@@ -83,14 +83,14 @@ namespace Restaurant_Management.View
 
         private void passwordText_Enter(object sender, EventArgs e)
         {
-            if (passwordText.Text == "Enter your password")
+            if (passwordText.Text == "Enter password")
                 passwordText.Text = "";
         }
 
         private void passwordText_Leave(object sender, EventArgs e)
         {
             if (passwordText.Text == "")
-                passwordText.Text = "Enter your password";
+                passwordText.Text = "Enter password";
         }
     }
 }
