@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WU/jjDAfHDEZfYkcvoSCNXHDdVOl9M0YvDzheaQ1AU7Lkq9afUIQpjjb8F4LgPe0/SNewvkKhzBCsjjIcowBHQ==",
+  "dgSpecHash": "83Zb0lfeDfongzHsJB0qTbM9/JSNlgvs7Th6y0qQoj3wgwg0nyDpaWBvJB1b1JZOEKsLhFFZFwiIBtLrvY4qow==",
   "success": true,
-  "projectFilePath": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+  "projectFilePath": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Mai-AbdEltwab\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
+    "C:\\Users\\Yomina\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
   ],
   "logs": []
 }

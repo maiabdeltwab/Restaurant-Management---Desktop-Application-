@@ -23,3 +23,29 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Supplier_Form.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe.config
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.pdb
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.dll
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.dll
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csprojAssemblyReference.cache
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemTypesForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.CustomerForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Supplier_Form.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.LoginForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Main.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserTypeForm.resources
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.GenerateResource.cache
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CoreCompileInputs.cache
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CopyComplete
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
+D:\iti\MINIA\ResturantInventory - Copy\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.ItrmShipmentForm.resources
