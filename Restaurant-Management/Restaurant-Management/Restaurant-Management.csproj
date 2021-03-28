@@ -158,8 +158,15 @@
     <Compile Include="UserControl2.Designer.cs">
       <DependentUpon>UserControl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ItemDailyNeedVM.cs" />
     <Compile Include="ViewModel\StoreItemTypeVM.cs" />
     <Compile Include="ViewModel\StoreItemVM .cs" />
+    <Compile Include="View\ItemDailyNeedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ItemDailyNeedForm.Designer.cs">
+      <DependentUpon>ItemDailyNeedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Menu Namess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,12 +186,18 @@
       <DependentUpon>DatabaseListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ItemShipmentVM.cs" />
+    <Compile Include="View\PullAmountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PullAmountForm.Designer.cs">
+      <DependentUpon>PullAmountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SelectedItemsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\SelectedItemsForm.Designer.cs">
       <DependentUpon>SelectedItemsForm.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="View\RoleScreensForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,18 +309,24 @@
     <EmbeddedResource Include="UserControl2.resx">
       <DependentUpon>UserControl2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ItemDailyNeedForm.resx">
+      <DependentUpon>ItemDailyNeedForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Menu Namess.resx">
       <DependentUpon>Menu Namess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MenuitemSlider.resx">
       <DependentUpon>MenuitemSlider.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DatabaseListForm.resx">
       <DependentUpon>DatabaseListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\PullAmountForm.resx">
+      <DependentUpon>PullAmountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SelectedItemsForm.resx">
       <DependentUpon>SelectedItemsForm.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\RoleScreensForm.resx">
       <DependentUpon>RoleScreensForm.cs</DependentUpon>
     </EmbeddedResource>

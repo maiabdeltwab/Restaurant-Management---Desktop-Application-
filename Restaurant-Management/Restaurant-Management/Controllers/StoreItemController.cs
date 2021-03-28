@@ -124,5 +124,24 @@ namespace Restaurant_Management.Controllers
                 return false;
             }
         }
+
+        public List<ItemDailyNeedVM> ViewDailyConsumption(Nullable<System.DateTime> Date)
+        {
+            var IDNs = (from Ic in context.StoreConsumptions
+                        where Ic.Date == Date
+                        group Ic.Count by Ic.StoreItem.ID into l
+                        join sI in context.StoreItems on l.Key equals sI.ID
+                        select new ItemDailyNeedVM
+                        {
+                            ID = sI.ID,
+                            Name = sI.Name,
+                            Count = l.Sum(),
+                            CurrentCount = sI.CurrentCount,
+                            RequiredCount = sI.RequiredCount,
+                            Date = Date,
+                        }).ToList();
+
+            return IDNs;
+        }
     }
 }

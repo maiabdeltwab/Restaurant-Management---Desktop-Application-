@@ -15,13 +15,14 @@ namespace Restaurant_Management.View
 {
     public partial class SelectedItemsForm : Form
     {
-        decimal totalprice = 0;
+        private decimal totalprice = 0;
 
-        MenuItem item = new MenuItem();
-        OrderItem orderItem = new OrderItem();
+        private MenuItem item = new MenuItem();
+        private OrderItem orderItem = new OrderItem();
 
         private readonly OrderController ordercontroller = new OrderController();
         public static RestaurantEntities context = new RestaurantEntities();
+
         public SelectedItemsForm()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace Restaurant_Management.View
         private void SelectedItemsForm_Load(object sender, EventArgs e)
         {
             var query = (from mi in context.MenuItems
+                         where mi.Menu_id == 1
                          select new
                          {
                              mi.ID,
@@ -47,8 +49,7 @@ namespace Restaurant_Management.View
             }
         }
 
-
-        Label addLabel(string name, decimal price, int i)
+        private Label addLabel(string name, decimal price, int i)
         {
             ++i;
 
@@ -66,12 +67,7 @@ namespace Restaurant_Management.View
             lbl.Margin = new Padding(30);
             ++i;
             return lbl;
-
-
         }
-        
-        
-      
 
         private void DelivaryBtn_Click(object sender, EventArgs e)
         {
@@ -102,8 +98,12 @@ namespace Restaurant_Management.View
                 context.SaveChanges();
             }
             DeliveryForm deliveryForm = new DeliveryForm();
+            deliveryForm.TopLevel = false;
+            this.Controls.Clear();
+            this.Controls.Add(deliveryForm);
+            deliveryForm.FormBorderStyle = FormBorderStyle.None;
+            deliveryForm.Dock = DockStyle.Fill;
             deliveryForm.Show();
-            this.Hide();
         }
 
         private void FoodCourtBtn_Click(object sender, EventArgs e)
@@ -118,7 +118,6 @@ namespace Restaurant_Management.View
             if (flag)
             {
                 MessageBox.Show(null, "order Added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             else
                 MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -154,7 +153,6 @@ namespace Restaurant_Management.View
             if (flag)
             {
                 MessageBox.Show(null, "order Added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             else
                 MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -178,12 +176,12 @@ namespace Restaurant_Management.View
                 context.SaveChanges();
             }
         }
+
         private void getDate(Order order)
         {
             order.Date = DateTime.Now;
 
             order.Price = totalprice;
-
         }
     }
 }

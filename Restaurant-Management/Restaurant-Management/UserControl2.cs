@@ -18,6 +18,7 @@ namespace Restaurant_Management
         {
             InitializeComponent();
         }
+
         public int Id { get; set; }
 
         public UserControl2(int id)
@@ -25,6 +26,7 @@ namespace Restaurant_Management
             this.Id = id;
             InitializeComponent();
         }
+
         private void UserControl2_Load(object sender, EventArgs e)
         {
             List<Label> labels = new List<Label>();
@@ -37,7 +39,7 @@ namespace Restaurant_Management
             labels.Add(MenuItemName7);
             labels.Add(MenuItemName8);
             var MenuitmName = (from type in context.MenuItems
-                               where type.Menu_id == Id
+                               where type.Menu_id == 2
                                select type.Name).ToList();
             if (labels.Count > MenuitmName.Count)
             {
@@ -59,15 +61,17 @@ namespace Restaurant_Management
                 }
             }
         }
+
         private readonly MenuItemController controller = new MenuItemController();
         private readonly RestaurantEntities context = MenuItemController.context;
-    
 
-        int x = 0;
+        private int x = 0;
+
         public void Increase(Label label)
         {
             label.Text = (++x).ToString();
         }
+
         public void Decrease(Label label)
         {
             if (x > 0) { label.Text = (--x).ToString(); }
@@ -95,7 +99,6 @@ namespace Restaurant_Management
 
         private void MenuItemName4_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btn5increase_Click(object sender, EventArgs e)
@@ -159,4 +162,3 @@ namespace Restaurant_Management
         }
     }
 }
-
