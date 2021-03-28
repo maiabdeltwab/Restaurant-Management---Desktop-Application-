@@ -18,6 +18,8 @@ namespace Restaurant_Management.View
         public MenuForm()
         {
             InitializeComponent();
+
+            dataGrid.Columns["ID"].Width = 200;
         }
 
         private readonly MenuController controller = new MenuController();
@@ -28,7 +30,7 @@ namespace Restaurant_Management.View
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.Menu' table. You can move, or remove it, as needed.
             this.menuTableAdapter.Fill(this.restaurantManagementDataSet.Menu);
             dataGrid.DataSource = controller.ViewAll();
-            //UTypeCombo.SelectedIndex = -1;
+
             IdText.Enabled = false;
             ClearData();
         }
@@ -82,13 +84,19 @@ namespace Restaurant_Management.View
             if (dataGrid.SelectedRows.Count != 0)
             {
                 groupBox.Text = "Update menu category";
+
                 deleteBtn.Visible = true;
+                itemBtn.Visible = true;
+
                 SelectRow();
             }
             else
             {
                 groupBox.Text = "Create menu category";
+
                 deleteBtn.Visible = false;
+                itemBtn.Visible = false;
+
                 ClearData();
             }
         }
@@ -251,6 +259,8 @@ namespace Restaurant_Management.View
             };
             this.Controls.Clear();
             this.Controls.Add(menuItemForm);
+            menuItemForm.FormBorderStyle = FormBorderStyle.None;
+            menuItemForm.Dock = DockStyle.Fill;
             menuItemForm.Show();
         }
     }

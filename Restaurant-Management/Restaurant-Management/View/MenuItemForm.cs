@@ -34,6 +34,11 @@ namespace Restaurant_Management.View
             this.menuTableAdapter1.Fill(this.restaurantManagementDataSet.Menu);
             dataGrid.DataSource = controller.ViewAll();
 
+            dataGrid.Columns["ID"].Width = 100;
+            dataGrid.Columns["Name"].Width = 180;
+            dataGrid.Columns["MenuName"].Width = 150;
+            dataGrid.Columns["Describtion"].Visible = false;
+
             MenuTypeCombo.ValueMember = "ID";
             IdText.Enabled = false;
             ClearData();
@@ -146,6 +151,7 @@ namespace Restaurant_Management.View
             NameText.Text = "Enter Name";
             PriceText.Text = "Enter price";
             MenuTypeCombo.SelectedIndex = -1;
+            MenuTypeCombo.Text = "Choose menu category";
             IdText.Text = "ID";
             Descriptiontext.Text = "Enter description for this item";
             saveBtn.Text = "Create";

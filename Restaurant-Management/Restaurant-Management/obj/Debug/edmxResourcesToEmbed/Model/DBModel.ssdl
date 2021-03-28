@@ -133,6 +133,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="SupplierPhone">
     <Key>

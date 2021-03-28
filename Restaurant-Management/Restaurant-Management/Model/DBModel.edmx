@@ -138,6 +138,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="SupplierPhone">
           <Key>
@@ -652,6 +653,7 @@
           <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ItemShipments" Relationship="Self.Suppliers_item_shipment_fk" FromRole="Supplier" ToRole="ItemShipment" />
           <NavigationProperty Name="SupplierPhones" Relationship="Self.Supplier_phone_FK" FromRole="Supplier" ToRole="SupplierPhone" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SupplierPhone">
           <Key>
@@ -1169,6 +1171,7 @@
           <EntitySetMapping Name="Suppliers">
             <EntityTypeMapping TypeName="RestaurantManagementModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

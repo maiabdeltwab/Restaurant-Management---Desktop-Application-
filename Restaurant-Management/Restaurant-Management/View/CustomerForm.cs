@@ -27,6 +27,9 @@ namespace Restaurant_Management.View
         {
             dataGrid.DataSource = controller.ViewAll();
             dataGrid.AllowUserToOrderColumns = true;
+
+            dataGrid.Columns["ID"].Width = 100;
+
             IdText.Enabled = false;
             ClearData();
         }

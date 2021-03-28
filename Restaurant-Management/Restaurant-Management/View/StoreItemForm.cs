@@ -31,6 +31,7 @@ namespace Restaurant_Management.View
         {
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.StoreItemType' table. You can move, or remove it, as needed.
             this.storeItemTypeTableAdapter.Fill(this.restaurantManagementDataSet.StoreItemType);
+
             IdText.Enabled = false;
             CurrentAmountText.Enabled = false;
             ClearData();
@@ -46,6 +47,9 @@ namespace Restaurant_Management.View
                 ITypeCombo.SelectedIndex = -1;
                 dataGrid.DataSource = controller.ViewAll();
             }
+
+            dataGrid.Columns["ID"].Width = 80;
+            dataGrid.Columns["Name"].Width = 200;
         }
 
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
@@ -146,7 +150,10 @@ namespace Restaurant_Management.View
             CurrentAmountText.Text = "Current Amount";
             PriceText.Text = "Enter Price";
             IdText.Text = "ID";
+
             ITypeCombo.SelectedIndex = -1;
+            ITypeCombo.Text = "Choose item type";
+
             saveBtn.Text = "Create";
             groupBox.Text = "Create item";
             deleteBtn.Visible = false;

@@ -151,6 +151,7 @@
     <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ItemShipments" Relationship="Self.Suppliers_item_shipment_fk" FromRole="Supplier" ToRole="ItemShipment" />
     <NavigationProperty Name="SupplierPhones" Relationship="Self.Supplier_phone_FK" FromRole="Supplier" ToRole="SupplierPhone" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SupplierPhone">
     <Key>

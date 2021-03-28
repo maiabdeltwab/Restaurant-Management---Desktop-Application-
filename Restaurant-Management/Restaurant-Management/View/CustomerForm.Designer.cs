@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.rowCount = new System.Windows.Forms.Label();
             this.dataGrid = new System.Windows.Forms.DataGridView();
@@ -51,6 +51,7 @@
             this.saveBtn = new Guna.UI.WinForms.GunaButton();
             this.NameText = new Guna.UI.WinForms.GunaTextBox();
             this.PhoneText = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaImageButton5 = new Guna.UI.WinForms.GunaImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -61,7 +62,7 @@
             this.rowCount.AutoSize = true;
             this.rowCount.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
-            this.rowCount.Location = new System.Drawing.Point(647, 712);
+            this.rowCount.Location = new System.Drawing.Point(763, 712);
             this.rowCount.Name = "rowCount";
             this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 19;
@@ -73,31 +74,31 @@
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToOrderColumns = true;
             this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGrid.ColumnHeadersHeight = 35;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.Color.White;
             this.dataGrid.Location = new System.Drawing.Point(71, 113);
@@ -108,7 +109,7 @@
             this.dataGrid.RowTemplate.Height = 32;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(720, 596);
+            this.dataGrid.Size = new System.Drawing.Size(832, 596);
             this.dataGrid.TabIndex = 3;
             this.dataGrid.TabStop = false;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
@@ -127,7 +128,7 @@
             this.searchTextBox.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.LineColor = System.Drawing.Color.Gainsboro;
-            this.searchTextBox.Location = new System.Drawing.Point(187, 45);
+            this.searchTextBox.Location = new System.Drawing.Point(241, 44);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.SelectedText = "";
@@ -150,7 +151,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 821);
+            this.panel1.Size = new System.Drawing.Size(934, 806);
             this.panel1.TabIndex = 20;
             // 
             // gunaAdvenceButton1
@@ -173,7 +174,7 @@
             this.gunaAdvenceButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceButton1.Image")));
             this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaAdvenceButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(71, 727);
+            this.gunaAdvenceButton1.Location = new System.Drawing.Point(71, 721);
             this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
             this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -182,7 +183,7 @@
             this.gunaAdvenceButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.gunaAdvenceButton1.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.gunaAdvenceButton1.Radius = 2;
-            this.gunaAdvenceButton1.Size = new System.Drawing.Size(149, 42);
+            this.gunaAdvenceButton1.Size = new System.Drawing.Size(163, 42);
             this.gunaAdvenceButton1.TabIndex = 9;
             this.gunaAdvenceButton1.Text = "Refresh";
             this.gunaAdvenceButton1.Click += new System.EventHandler(this.gunaAdvenceButton1_Click);
@@ -200,7 +201,7 @@
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(590, 50);
+            this.searchBtn.Location = new System.Drawing.Point(644, 50);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(66, 35);
@@ -259,9 +260,9 @@
             this.groupBox.Controls.Add(this.PhoneText);
             this.groupBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.groupBox.Location = new System.Drawing.Point(895, 155);
+            this.groupBox.Location = new System.Drawing.Point(980, 175);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(614, 501);
+            this.groupBox.Size = new System.Drawing.Size(652, 501);
             this.groupBox.TabIndex = 20;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create Customer";
@@ -291,7 +292,7 @@
             this.AddressText.Name = "AddressText";
             this.AddressText.PasswordChar = '\0';
             this.AddressText.SelectedText = "";
-            this.AddressText.Size = new System.Drawing.Size(530, 41);
+            this.AddressText.Size = new System.Drawing.Size(568, 41);
             this.AddressText.TabIndex = 5;
             this.AddressText.Text = "Enter address";
             this.AddressText.Enter += new System.EventHandler(this.formText_Enter);
@@ -310,7 +311,7 @@
             this.IdText.Name = "IdText";
             this.IdText.PasswordChar = '\0';
             this.IdText.SelectedText = "";
-            this.IdText.Size = new System.Drawing.Size(530, 41);
+            this.IdText.Size = new System.Drawing.Size(568, 41);
             this.IdText.TabIndex = 17;
             this.IdText.Text = "ID";
             this.IdText.TextChanged += new System.EventHandler(this.IdText_TextChanged);
@@ -392,7 +393,7 @@
             this.clearBtn.ForeColor = System.Drawing.Color.White;
             this.clearBtn.Image = null;
             this.clearBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.clearBtn.Location = new System.Drawing.Point(468, 406);
+            this.clearBtn.Location = new System.Drawing.Point(481, 406);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.clearBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -400,7 +401,7 @@
             this.clearBtn.OnHoverImage = null;
             this.clearBtn.OnPressedColor = System.Drawing.Color.Black;
             this.clearBtn.Radius = 2;
-            this.clearBtn.Size = new System.Drawing.Size(104, 44);
+            this.clearBtn.Size = new System.Drawing.Size(129, 44);
             this.clearBtn.TabIndex = 8;
             this.clearBtn.Text = "Clear";
             this.clearBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -448,7 +449,7 @@
             this.NameText.Name = "NameText";
             this.NameText.PasswordChar = '\0';
             this.NameText.SelectedText = "";
-            this.NameText.Size = new System.Drawing.Size(530, 41);
+            this.NameText.Size = new System.Drawing.Size(568, 41);
             this.NameText.TabIndex = 3;
             this.NameText.TabStop = false;
             this.NameText.Text = "Enter customer name";
@@ -469,18 +470,31 @@
             this.PhoneText.Name = "PhoneText";
             this.PhoneText.PasswordChar = '\0';
             this.PhoneText.SelectedText = "";
-            this.PhoneText.Size = new System.Drawing.Size(530, 41);
+            this.PhoneText.Size = new System.Drawing.Size(568, 41);
             this.PhoneText.TabIndex = 4;
             this.PhoneText.Text = "Enter phone number";
             this.PhoneText.TextChanged += new System.EventHandler(this.PhoneText_TextChanged);
             this.PhoneText.Enter += new System.EventHandler(this.formText_Enter);
+            // 
+            // gunaImageButton5
+            // 
+            this.gunaImageButton5.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton5.Image")));
+            this.gunaImageButton5.ImageSize = new System.Drawing.Size(100, 100);
+            this.gunaImageButton5.Location = new System.Drawing.Point(1223, 44);
+            this.gunaImageButton5.Name = "gunaImageButton5";
+            this.gunaImageButton5.OnHoverImage = null;
+            this.gunaImageButton5.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton5.Size = new System.Drawing.Size(155, 120);
+            this.gunaImageButton5.TabIndex = 21;
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1573, 821);
+            this.ClientSize = new System.Drawing.Size(1794, 806);
+            this.Controls.Add(this.gunaImageButton5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.groupBox);
@@ -517,5 +531,6 @@
         private Guna.UI.WinForms.GunaButton saveBtn;
         private Guna.UI.WinForms.GunaTextBox NameText;
         private Guna.UI.WinForms.GunaTextBox PhoneText;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton5;
     }
 }

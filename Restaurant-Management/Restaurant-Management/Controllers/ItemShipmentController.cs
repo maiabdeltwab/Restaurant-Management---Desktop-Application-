@@ -26,17 +26,18 @@ namespace Restaurant_Management.Controllers
         public List<ItemShipmentVM> ViewshipmentDetails(Supplier supplier, StoreItem storeItem)
         {
             return (from u in context.ItemShipments
-                    where u.StoreItem.ID == storeItem.ID && u.Supplier.ID==supplier.ID
+                    where u.StoreItem.ID == storeItem.ID && u.Supplier.ID == supplier.ID
                     select new ItemShipmentVM
                     {
                         ID = u.ID,
-                        ArrivalTime=u.ArrivalTime,
-                        ExperiedTime=u.ExperiedTime,
-                        StoreItem_Name=u.StoreItem.Name,
-                        Supplier_Name=u.Supplier.Name,
-                        Count=u.Count,
+                        ArrivalTime = u.ArrivalTime,
+                        ExperiedTime = u.ExperiedTime,
+                        StoreItem_Name = u.StoreItem.Name,
+                        Supplier_Name = u.Supplier.Name,
+                        Count = u.Count,
                     }).ToList();
         }
+
         public List<ItemShipmentVM> Viewshipmentsupplier(Supplier supplier)
         {
             return (from u in context.ItemShipments
@@ -48,9 +49,10 @@ namespace Restaurant_Management.Controllers
                         ExperiedTime = u.ExperiedTime,
                         StoreItem_Name = null,
                         Supplier_Name = u.Supplier.Name,
-                        Count=u.Count,
+                        Count = u.Count,
                     }).ToList();
         }
+
         public List<ItemShipmentVM> ViewshipmentstoreItem(StoreItem storeItem)
         {
             return (from u in context.ItemShipments
@@ -65,32 +67,10 @@ namespace Restaurant_Management.Controllers
                         Count = u.Count,
                     }).ToList();
         }
+
         public List<ItemShipmentVM> ViewAll()
         {
-            //var shipment = (from u in context.ItemShipments
-            //             select new ItemShipmentVM
-            //             {
-            //                 ID = u.ID,
-            //                 ArrivalTime = u.ArrivalTime,
-            //                 ExperiedTime = u.ExperiedTime,
-            //                 Count = u.Count,
-            //                 StoreItem_Name = u.StoreItem.Name,
-            //                 Supplier_Name = u.Supplier.Name,
-            //             }).ToList();
-
-            return null;
-        }
-
-        public List<ItemShipmentVM> Search(string searchTxt)
-        {
-            List<ItemShipmentVM> shiments = new List<ItemShipmentVM>();
-
-            shiments.AddRange((from u in context.ItemShipments
-                            where (u.ArrivalTime.ToString().Contains(searchTxt)
-                            || u.ExperiedTime.ToString().Contains(searchTxt)
-                            || u.Count.ToString().Contains(searchTxt)
-                            || u.Supplier.Name.Contains(searchTxt)
-                            || u.StoreItem.Name.Contains(searchTxt))
+            var shipment = (from u in context.ItemShipments
                             select new ItemShipmentVM
                             {
                                 ID = u.ID,
@@ -99,22 +79,45 @@ namespace Restaurant_Management.Controllers
                                 Count = u.Count,
                                 StoreItem_Name = u.StoreItem.Name,
                                 Supplier_Name = u.Supplier.Name,
-                            }).ToList());
+                            }).ToList();
+
+            return shipment;
+        }
+
+        public List<ItemShipmentVM> Search(string searchTxt)
+        {
+            List<ItemShipmentVM> shiments = new List<ItemShipmentVM>();
+
+            shiments.AddRange((from u in context.ItemShipments
+                               where (u.ArrivalTime.ToString().Contains(searchTxt)
+                               || u.ExperiedTime.ToString().Contains(searchTxt)
+                               || u.Count.ToString().Contains(searchTxt)
+                               || u.Supplier.Name.Contains(searchTxt)
+                               || u.StoreItem.Name.Contains(searchTxt))
+                               select new ItemShipmentVM
+                               {
+                                   ID = u.ID,
+                                   ArrivalTime = u.ArrivalTime,
+                                   ExperiedTime = u.ExperiedTime,
+                                   Count = u.Count,
+                                   StoreItem_Name = u.StoreItem.Name,
+                                   Supplier_Name = u.Supplier.Name,
+                               }).ToList());
 
             try
             {
                 int id = int.Parse(searchTxt);
                 shiments.AddRange((from u in context.ItemShipments
-                                where u.ID == id
-                                select new ItemShipmentVM
-                                {
-                                    ID = u.ID,
-                                    ArrivalTime = u.ArrivalTime,
-                                    ExperiedTime = u.ExperiedTime,
-                                    Count = u.Count,
-                                    StoreItem_Name = u.StoreItem.Name,
-                                    Supplier_Name = u.Supplier.Name
-                                }).ToList());
+                                   where u.ID == id
+                                   select new ItemShipmentVM
+                                   {
+                                       ID = u.ID,
+                                       ArrivalTime = u.ArrivalTime,
+                                       ExperiedTime = u.ExperiedTime,
+                                       Count = u.Count,
+                                       StoreItem_Name = u.StoreItem.Name,
+                                       Supplier_Name = u.Supplier.Name
+                                   }).ToList());
             }
             catch { }
             return shiments;
@@ -144,7 +147,7 @@ namespace Restaurant_Management.Controllers
                 editedShipment.ExperiedTime = shipment.ExperiedTime;
                 editedShipment.Count = shipment.Count;
                 editedShipment.StoreItem = shipment.StoreItem;
-                editedShipment.Supplier = shipment.Supplier;             
+                editedShipment.Supplier = shipment.Supplier;
                 context.SaveChanges();
 
                 return true;
@@ -161,6 +164,9 @@ namespace Restaurant_Management.Controllers
             {
                 context.ItemShipments.Add(shipment);
 
+                StoreItem storeItem = context.StoreItems.Find(shipment.StoreItem.ID);
+                storeItem.CurrentCount += (int)shipment.Count;
+
                 context.SaveChanges();
 
                 return true;
@@ -171,6 +177,5 @@ namespace Restaurant_Management.Controllers
                 return false;
             }
         }
-
     }
 }

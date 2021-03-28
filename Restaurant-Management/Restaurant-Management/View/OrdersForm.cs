@@ -28,6 +28,7 @@ namespace Restaurant_Management.View
             this.orderTypeTableAdapter.Fill(this.restaurantManagementDataSet.OrderType);
 
             dataGrid.DataSource = controller.ViewAll();
+            dataGrid.Columns["ID"].Width = 100;
 
             OTypeCombo.SelectedIndex = -1;
             IdText.Enabled = false;
@@ -214,10 +215,6 @@ namespace Restaurant_Management.View
             //}
         }
 
-        private void groupBox_Enter(object sender, EventArgs e)
-        {
-        }
-
         private void saveBtn_Click(object sender, EventArgs e)
         {
         }
@@ -234,6 +231,15 @@ namespace Restaurant_Management.View
             }
             else
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void gunaImageButton5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void groupBox_Enter(object sender, EventArgs e)
+        {
+
         }
 
         //private void saveBtn_Click(object sender, EventArgs e)

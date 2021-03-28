@@ -135,6 +135,7 @@
     <EntitySetMapping Name="Suppliers">
       <EntityTypeMapping TypeName="RestaurantManagementModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />

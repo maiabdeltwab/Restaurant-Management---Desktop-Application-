@@ -31,9 +31,9 @@ namespace Restaurant_Management.View
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.userTypeTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UserTypeTableAdapter();
             this.userTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,6 +58,9 @@ namespace Restaurant_Management.View
             this.usersTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UsersTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.supplierTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.SupplierTableAdapter();
+            this.phoneLbl = new Guna.UI.WinForms.GunaLabel();
+            this.phoneText = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.userTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).BeginInit();
@@ -101,7 +104,7 @@ namespace Restaurant_Management.View
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
             this.deleteBtn.Image = null;
             this.deleteBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.deleteBtn.Location = new System.Drawing.Point(154, 335);
+            this.deleteBtn.Location = new System.Drawing.Point(154, 391);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.deleteBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -117,6 +120,8 @@ namespace Restaurant_Management.View
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.phoneLbl);
+            this.groupBox.Controls.Add(this.phoneText);
             this.groupBox.Controls.Add(this.deleteBtn);
             this.groupBox.Controls.Add(this.EmailLbl);
             this.groupBox.Controls.Add(this.nameLbl);
@@ -128,9 +133,9 @@ namespace Restaurant_Management.View
             this.groupBox.Controls.Add(this.IdText);
             this.groupBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.groupBox.Location = new System.Drawing.Point(827, 175);
+            this.groupBox.Location = new System.Drawing.Point(944, 172);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(623, 428);
+            this.groupBox.Size = new System.Drawing.Size(643, 474);
             this.groupBox.TabIndex = 4;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create Supplier";
@@ -140,7 +145,7 @@ namespace Restaurant_Management.View
             this.EmailLbl.AutoSize = true;
             this.EmailLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.EmailLbl.Location = new System.Drawing.Point(28, 220);
+            this.EmailLbl.Location = new System.Drawing.Point(28, 214);
             this.EmailLbl.Name = "EmailLbl";
             this.EmailLbl.Size = new System.Drawing.Size(51, 23);
             this.EmailLbl.TabIndex = 12;
@@ -151,7 +156,7 @@ namespace Restaurant_Management.View
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.nameLbl.Location = new System.Drawing.Point(28, 150);
+            this.nameLbl.Location = new System.Drawing.Point(28, 142);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(113, 23);
             this.nameLbl.TabIndex = 9;
@@ -182,7 +187,7 @@ namespace Restaurant_Management.View
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = null;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(495, 335);
+            this.gunaButton1.Location = new System.Drawing.Point(519, 391);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -210,7 +215,7 @@ namespace Restaurant_Management.View
             this.saveBtn.ForeColor = System.Drawing.Color.White;
             this.saveBtn.Image = null;
             this.saveBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.saveBtn.Location = new System.Drawing.Point(31, 335);
+            this.saveBtn.Location = new System.Drawing.Point(31, 391);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.saveBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -234,11 +239,11 @@ namespace Restaurant_Management.View
             this.EmailText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.EmailText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.EmailText.ForeColor = System.Drawing.Color.Black;
-            this.EmailText.Location = new System.Drawing.Point(29, 246);
+            this.EmailText.Location = new System.Drawing.Point(29, 240);
             this.EmailText.Name = "EmailText";
             this.EmailText.PasswordChar = '\0';
             this.EmailText.SelectedText = "";
-            this.EmailText.Size = new System.Drawing.Size(555, 41);
+            this.EmailText.Size = new System.Drawing.Size(579, 41);
             this.EmailText.TabIndex = 4;
             this.EmailText.Text = "Email";
             this.EmailText.TextChanged += new System.EventHandler(this.EmailText_TextChanged);
@@ -254,11 +259,11 @@ namespace Restaurant_Management.View
             this.SupNameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.SupNameText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.SupNameText.ForeColor = System.Drawing.Color.Black;
-            this.SupNameText.Location = new System.Drawing.Point(29, 176);
+            this.SupNameText.Location = new System.Drawing.Point(29, 168);
             this.SupNameText.Name = "SupNameText";
             this.SupNameText.PasswordChar = '\0';
             this.SupNameText.SelectedText = "";
-            this.SupNameText.Size = new System.Drawing.Size(555, 41);
+            this.SupNameText.Size = new System.Drawing.Size(579, 41);
             this.SupNameText.TabIndex = 3;
             this.SupNameText.Text = "Supplier Name";
             this.SupNameText.TextChanged += new System.EventHandler(this.NameText_TextChanged);
@@ -278,7 +283,7 @@ namespace Restaurant_Management.View
             this.IdText.Name = "IdText";
             this.IdText.PasswordChar = '\0';
             this.IdText.SelectedText = "";
-            this.IdText.Size = new System.Drawing.Size(555, 41);
+            this.IdText.Size = new System.Drawing.Size(579, 41);
             this.IdText.TabIndex = 1;
             this.IdText.Text = "ID";
             // 
@@ -287,7 +292,7 @@ namespace Restaurant_Management.View
             this.rowCount.AutoSize = true;
             this.rowCount.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
-            this.rowCount.Location = new System.Drawing.Point(627, 678);
+            this.rowCount.Location = new System.Drawing.Point(722, 678);
             this.rowCount.Name = "rowCount";
             this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
@@ -306,7 +311,7 @@ namespace Restaurant_Management.View
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(603, 33);
+            this.searchBtn.Location = new System.Drawing.Point(648, 40);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(67, 34);
@@ -336,7 +341,7 @@ namespace Restaurant_Management.View
             this.refreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshBtn.Image")));
             this.refreshBtn.ImageSize = new System.Drawing.Size(20, 20);
             this.refreshBtn.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.refreshBtn.Location = new System.Drawing.Point(34, 695);
+            this.refreshBtn.Location = new System.Drawing.Point(34, 687);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.refreshBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -345,7 +350,7 @@ namespace Restaurant_Management.View
             this.refreshBtn.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.refreshBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.refreshBtn.Radius = 2;
-            this.refreshBtn.Size = new System.Drawing.Size(156, 42);
+            this.refreshBtn.Size = new System.Drawing.Size(164, 42);
             this.refreshBtn.TabIndex = 8;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
@@ -354,32 +359,33 @@ namespace Restaurant_Management.View
             // 
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToOrderColumns = true;
             this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGrid.ColumnHeadersHeight = 35;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.Color.White;
             this.dataGrid.Location = new System.Drawing.Point(34, 95);
@@ -390,10 +396,11 @@ namespace Restaurant_Management.View
             this.dataGrid.RowTemplate.Height = 32;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(734, 580);
-            this.dataGrid.TabIndex = 25;
+            this.dataGrid.Size = new System.Drawing.Size(820, 580);
+            this.dataGrid.TabIndex = 1;
             this.dataGrid.TabStop = false;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
+            this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete_1);
             this.dataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGrid_RowsAdded);
             this.dataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGrid_rowCountChange);
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
@@ -412,7 +419,7 @@ namespace Restaurant_Management.View
             this.searchTextBox.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.LineColor = System.Drawing.Color.Gainsboro;
-            this.searchTextBox.Location = new System.Drawing.Point(134, 28);
+            this.searchTextBox.Location = new System.Drawing.Point(179, 35);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.SelectedText = "";
@@ -422,6 +429,7 @@ namespace Restaurant_Management.View
             this.searchTextBox.Text = "What do you want to seach?";
             this.searchTextBox.TextOffsetX = 6;
             this.searchTextBox.Enter += new System.EventHandler(this.searchTextBox_Enter);
+            this.searchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchTextBox_KeyPress_1);
             this.searchTextBox.Leave += new System.EventHandler(this.searchTextBox_Leave);
             // 
             // usersBindingSource
@@ -444,18 +452,62 @@ namespace Restaurant_Management.View
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 774);
+            this.panel1.Size = new System.Drawing.Size(887, 774);
             this.panel1.TabIndex = 3;
             // 
             // supplierTableAdapter
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
             // 
+            // phoneLbl
+            // 
+            this.phoneLbl.AutoSize = true;
+            this.phoneLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.phoneLbl.Location = new System.Drawing.Point(28, 290);
+            this.phoneLbl.Name = "phoneLbl";
+            this.phoneLbl.Size = new System.Drawing.Size(59, 23);
+            this.phoneLbl.TabIndex = 14;
+            this.phoneLbl.Text = "Phone";
+            // 
+            // phoneText
+            // 
+            this.phoneText.BaseColor = System.Drawing.Color.White;
+            this.phoneText.BorderColor = System.Drawing.Color.Silver;
+            this.phoneText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.phoneText.FocusedBaseColor = System.Drawing.Color.White;
+            this.phoneText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
+            this.phoneText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            this.phoneText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.phoneText.ForeColor = System.Drawing.Color.Black;
+            this.phoneText.Location = new System.Drawing.Point(29, 316);
+            this.phoneText.Name = "phoneText";
+            this.phoneText.PasswordChar = '\0';
+            this.phoneText.SelectedText = "";
+            this.phoneText.Size = new System.Drawing.Size(579, 41);
+            this.phoneText.TabIndex = 13;
+            this.phoneText.Text = "phone";
+            this.phoneText.TextChanged += new System.EventHandler(this.phoneText_TextChanged);
+            this.phoneText.Enter += new System.EventHandler(this.formText_Enter);
+            // 
+            // gunaImageButton2
+            // 
+            this.gunaImageButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
+            this.gunaImageButton2.ImageSize = new System.Drawing.Size(100, 100);
+            this.gunaImageButton2.Location = new System.Drawing.Point(1131, 50);
+            this.gunaImageButton2.Name = "gunaImageButton2";
+            this.gunaImageButton2.OnHoverImage = null;
+            this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton2.Size = new System.Drawing.Size(214, 126);
+            this.gunaImageButton2.TabIndex = 13;
+            // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1488, 774);
+            this.ClientSize = new System.Drawing.Size(1702, 774);
+            this.Controls.Add(this.gunaImageButton2);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -502,5 +554,8 @@ namespace Restaurant_Management.View
         private Guna.UI.WinForms.GunaLabel nameLbl;
         private Guna.UI.WinForms.GunaTextBox EmailText;
         private Guna.UI.WinForms.GunaTextBox SupNameText;
+        private Guna.UI.WinForms.GunaLabel phoneLbl;
+        private Guna.UI.WinForms.GunaTextBox phoneText;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton2;
     }
 }

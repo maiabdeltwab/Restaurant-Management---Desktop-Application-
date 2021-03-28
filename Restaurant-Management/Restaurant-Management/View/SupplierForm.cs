@@ -26,6 +26,7 @@ namespace Restaurant_Management.View
         private void Supplier_Form_Load(object sender, EventArgs e)
         {
             dataGrid.DataSource = controller.ViewAll();
+            dataGrid.Columns["ID"].Width = 70;
 
             IdText.Enabled = false;
             ClearData();
@@ -126,10 +127,18 @@ namespace Restaurant_Management.View
 
             SupNameText.Text = "Enter name";
             EmailText.Text = "Enter email";
+            phoneText.Text = "Enter phone";
             IdText.Text = "ID";
             saveBtn.Text = "Create";
             groupBox.Text = "Create Supplier";
             deleteBtn.Visible = false;
+        }
+
+        private void ClearDefault()
+        {
+            DefaultText(SupNameText, "Enter name", true);
+            DefaultText(phoneText, "Enter phone", true);
+            DefaultText(EmailText, "Enter email", true);
         }
 
         private void SelectRow()
@@ -141,6 +150,8 @@ namespace Restaurant_Management.View
                 IdText.Text = row.Cells["ID"].Value.ToString();
                 SupNameText.Text = row.Cells["Name"].Value.ToString();
                 EmailText.Text = row.Cells["Email"].Value.ToString();
+                phoneText.Text = row.Cells["Phone"].Value.ToString();
+
                 saveBtn.Text = "Update";
             }
         }
@@ -153,15 +164,13 @@ namespace Restaurant_Management.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            DefaultText(SupNameText, "Enter name", true);
-
-            DefaultText(EmailText, "Enter email", true);
-
             Supplier supplier = new Supplier();
-            getDate(supplier);
+            ClearDefault();
 
-            if (Validation.IsName(SupNameText.Text) && Validation.IsEmail(EmailText.Text))
+            if (ValidateData())
             {
+                getDate(supplier);
+
                 if (saveBtn.Text == "Create")
                 {
                     bool flag = controller.Insert(supplier);
@@ -195,10 +204,16 @@ namespace Restaurant_Management.View
                 MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private bool ValidateData()
+        {
+            return ValidateName() && ValidateEmail() && ValidatePhone();
+        }
+
         private void getDate(Supplier supplier)
         {
             supplier.Name = SupNameText.Text;
             supplier.Email = EmailText.Text;
+            supplier.Phone = phoneText.Text;
         }
 
         private void formText_Enter(object sender, EventArgs e)
@@ -213,15 +228,23 @@ namespace Restaurant_Management.View
             {
                 DefaultText(textBox, "Enter email", true);
             }
+            else if (textBox.Name == "phoneText")
+            {
+                DefaultText(textBox, "Enter phone", true);
+            }
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            //refresh table
             dataGrid.DataSource = controller.ViewAll();
         }
 
         private void NameText_TextChanged(object sender, EventArgs e)
+        {
+            ValidateName();
+        }
+
+        private bool ValidateName()
         {
             string input = SupNameText.Text.Trim();
 
@@ -229,15 +252,22 @@ namespace Restaurant_Management.View
             {
                 nameLbl.Text = "Invalid Name";
                 nameLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 nameLbl.Text = "Supplier Name";
                 nameLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
         private void EmailText_TextChanged(object sender, EventArgs e)
+        {
+            ValidateEmail();
+        }
+
+        private bool ValidateEmail()
         {
             string input = EmailText.Text.Trim();
 
@@ -245,11 +275,13 @@ namespace Restaurant_Management.View
             {
                 EmailLbl.Text = "Invalid Email";
                 EmailLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 EmailLbl.Text = "Email";
                 EmailLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
@@ -270,6 +302,40 @@ namespace Restaurant_Management.View
         private void dataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             rowCount.Text = $"Results: {dataGrid.Rows.Count} rows";
+        }
+
+        private void phoneText_TextChanged(object sender, EventArgs e)
+        {
+            ValidatePhone();
+        }
+
+        private bool ValidatePhone()
+        {
+            string input = phoneText.Text.Trim();
+
+            if (input != "Enter phone" && !Validation.IsPhone(input))
+            {
+                phoneLbl.Text = "Invalid phone number";
+                phoneLbl.ForeColor = Color.Red;
+                return false;
+            }
+            else
+            {
+                phoneLbl.Text = "Phone";
+                phoneLbl.ForeColor = Color.Black;
+                return true;
+            }
+        }
+
+        private void dataGrid_DataBindingComplete_1(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            ClearData();
+        }
+
+        private void searchTextBox_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                search(sender, e);
         }
     }
 }
