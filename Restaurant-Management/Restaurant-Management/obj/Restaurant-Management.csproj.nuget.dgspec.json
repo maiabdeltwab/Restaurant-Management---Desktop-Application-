@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {}
+    "C:\\Users\\Elamen Soft\\Documents\\GitHub\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {}
   },
   "projects": {
-    "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {
+    "C:\\Users\\Elamen Soft\\Documents\\GitHub\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+        "projectUniqueName": "C:\\Users\\Elamen Soft\\Documents\\GitHub\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
         "projectName": "Restaurant-Management",
-        "projectPath": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
-        "packagesPath": "C:\\Users\\Mai-AbdEltwab\\.nuget\\packages\\",
-        "outputPath": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\obj\\",
+        "projectPath": "C:\\Users\\Elamen Soft\\Documents\\GitHub\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+        "packagesPath": "C:\\Users\\Elamen Soft\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elamen Soft\\Documents\\GitHub\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Mai-AbdEltwab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Elamen Soft\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

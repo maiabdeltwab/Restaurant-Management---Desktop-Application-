@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WU/jjDAfHDEZfYkcvoSCNXHDdVOl9M0YvDzheaQ1AU7Lkq9afUIQpjjb8F4LgPe0/SNewvkKhzBCsjjIcowBHQ==",
+  "dgSpecHash": "XaLWcKYU5gvJMpO5zGzqQf7/Q6Ly+ECT0wKzXcohBFaklP2XHal3siW7wH5eU945XoTBd8ERMNZii2Kzl3z8BQ==",
   "success": true,
-  "projectFilePath": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+  "projectFilePath": "C:\\Users\\Elamen Soft\\Documents\\GitHub\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Mai-AbdEltwab\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
+    "C:\\Users\\Elamen Soft\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
   ],
   "logs": []
 }

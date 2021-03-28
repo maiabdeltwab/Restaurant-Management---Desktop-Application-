@@ -144,8 +144,32 @@
     <Compile Include="Model\SupplierPhone.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl2.Designer.cs">
+      <DependentUpon>UserControl2.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\StoreItemTypeVM.cs" />
     <Compile Include="ViewModel\StoreItemVM .cs" />
+    <Compile Include="View\Menu Namess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu Namess.Designer.cs">
+      <DependentUpon>Menu Namess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuitemSlider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuitemSlider.Designer.cs">
+      <DependentUpon>MenuitemSlider.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StoreItemTypesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +265,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\ICRUD.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl2.resx">
+      <DependentUpon>UserControl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu Namess.resx">
+      <DependentUpon>Menu Namess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MenuitemSlider.resx">
+      <DependentUpon>MenuitemSlider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StoreItemTypesForm.resx">
       <DependentUpon>StoreItemTypesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +377,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="View\images\download %282%29.jfif" />
     <Content Include="View\images\icon_search.png" />
     <Content Include="View\images\icon_search_active.png" />
     <Content Include="View\images\Logo.jpg" />

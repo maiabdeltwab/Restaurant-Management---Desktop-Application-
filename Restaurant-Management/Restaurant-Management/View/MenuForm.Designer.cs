@@ -40,32 +40,32 @@ namespace Restaurant_Management.View
             this.restaurantManagementDataSet = new Restaurant_Management.RestaurantManagementDataSet();
             this.deleteBtn = new Guna.UI.WinForms.GunaButton();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.UsernameLbl = new Guna.UI.WinForms.GunaLabel();
+            this.IdLbl = new Guna.UI.WinForms.GunaLabel();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.saveBtn = new Guna.UI.WinForms.GunaButton();
+            this.UsernameText = new Guna.UI.WinForms.GunaTextBox();
+            this.IdText = new Guna.UI.WinForms.GunaTextBox();
             this.rowCount = new System.Windows.Forms.Label();
             this.searchBtn = new Bunifu.Framework.UI.BunifuTileButton();
             this.refreshBtn = new Guna.UI.WinForms.GunaAdvenceButton();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchTextBox = new Guna.UI.WinForms.GunaLineTextBox();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UsersTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.IdLbl = new Guna.UI.WinForms.GunaLabel();
-            this.IdText = new Guna.UI.WinForms.GunaTextBox();
-            this.UsernameLbl = new Guna.UI.WinForms.GunaLabel();
-            this.UsernameText = new Guna.UI.WinForms.GunaTextBox();
-            this.menuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.MenuTableAdapter();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.userTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // userTypeTableAdapter
@@ -133,6 +133,28 @@ namespace Restaurant_Management.View
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create Menu";
             // 
+            // UsernameLbl
+            // 
+            this.UsernameLbl.AutoSize = true;
+            this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.UsernameLbl.Location = new System.Drawing.Point(24, 143);
+            this.UsernameLbl.Name = "UsernameLbl";
+            this.UsernameLbl.Size = new System.Drawing.Size(56, 23);
+            this.UsernameLbl.TabIndex = 9;
+            this.UsernameLbl.Text = "Name";
+            // 
+            // IdLbl
+            // 
+            this.IdLbl.AutoSize = true;
+            this.IdLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.IdLbl.Location = new System.Drawing.Point(23, 53);
+            this.IdLbl.Name = "IdLbl";
+            this.IdLbl.Size = new System.Drawing.Size(27, 23);
+            this.IdLbl.TabIndex = 3;
+            this.IdLbl.Text = "ID";
+            // 
             // gunaButton1
             // 
             this.gunaButton1.Animated = true;
@@ -188,6 +210,42 @@ namespace Restaurant_Management.View
             this.saveBtn.Text = "Save";
             this.saveBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // UsernameText
+            // 
+            this.UsernameText.BaseColor = System.Drawing.Color.White;
+            this.UsernameText.BorderColor = System.Drawing.Color.Silver;
+            this.UsernameText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.UsernameText.FocusedBaseColor = System.Drawing.Color.White;
+            this.UsernameText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
+            this.UsernameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            this.UsernameText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UsernameText.ForeColor = System.Drawing.Color.Black;
+            this.UsernameText.Location = new System.Drawing.Point(25, 169);
+            this.UsernameText.Name = "UsernameText";
+            this.UsernameText.PasswordChar = '\0';
+            this.UsernameText.SelectedText = "";
+            this.UsernameText.Size = new System.Drawing.Size(458, 41);
+            this.UsernameText.TabIndex = 2;
+            this.UsernameText.Text = "username";
+            // 
+            // IdText
+            // 
+            this.IdText.BaseColor = System.Drawing.Color.White;
+            this.IdText.BorderColor = System.Drawing.Color.Silver;
+            this.IdText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.IdText.FocusedBaseColor = System.Drawing.Color.White;
+            this.IdText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
+            this.IdText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            this.IdText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.IdText.ForeColor = System.Drawing.Color.Black;
+            this.IdText.Location = new System.Drawing.Point(25, 76);
+            this.IdText.Name = "IdText";
+            this.IdText.PasswordChar = '\0';
+            this.IdText.SelectedText = "";
+            this.IdText.Size = new System.Drawing.Size(458, 41);
+            this.IdText.TabIndex = 1;
+            this.IdText.Text = "ID";
             // 
             // rowCount
             // 
@@ -278,8 +336,8 @@ namespace Restaurant_Management.View
             this.dataGrid.ColumnHeadersHeight = 35;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Names});
+            this.iDDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.menuBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -308,6 +366,27 @@ namespace Restaurant_Management.View
             this.dataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGrid_rowCountChange);
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
             this.dataGrid.Leave += new System.EventHandler(this.dataGrid_Leave);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // menuBindingSource
+            // 
+            this.menuBindingSource.DataMember = "Menu";
+            this.menuBindingSource.DataSource = this.restaurantManagementDataSet;
             // 
             // searchTextBox
             // 
@@ -353,89 +432,9 @@ namespace Restaurant_Management.View
             this.panel1.Size = new System.Drawing.Size(639, 667);
             this.panel1.TabIndex = 3;
             // 
-            // IdLbl
-            // 
-            this.IdLbl.AutoSize = true;
-            this.IdLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.IdLbl.Location = new System.Drawing.Point(23, 53);
-            this.IdLbl.Name = "IdLbl";
-            this.IdLbl.Size = new System.Drawing.Size(66, 23);
-            this.IdLbl.TabIndex = 3;
-            this.IdLbl.Text = "User ID";
-            // 
-            // IdText
-            // 
-            this.IdText.BaseColor = System.Drawing.Color.White;
-            this.IdText.BorderColor = System.Drawing.Color.Silver;
-            this.IdText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.IdText.FocusedBaseColor = System.Drawing.Color.White;
-            this.IdText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
-            this.IdText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.IdText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.IdText.ForeColor = System.Drawing.Color.Black;
-            this.IdText.Location = new System.Drawing.Point(25, 76);
-            this.IdText.Name = "IdText";
-            this.IdText.PasswordChar = '\0';
-            this.IdText.SelectedText = "";
-            this.IdText.Size = new System.Drawing.Size(458, 41);
-            this.IdText.TabIndex = 1;
-            this.IdText.Text = "ID";
-            // 
-            // UsernameLbl
-            // 
-            this.UsernameLbl.AutoSize = true;
-            this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.UsernameLbl.Location = new System.Drawing.Point(24, 143);
-            this.UsernameLbl.Name = "UsernameLbl";
-            this.UsernameLbl.Size = new System.Drawing.Size(56, 23);
-            this.UsernameLbl.TabIndex = 9;
-            this.UsernameLbl.Text = "Name";
-            // 
-            // UsernameText
-            // 
-            this.UsernameText.BaseColor = System.Drawing.Color.White;
-            this.UsernameText.BorderColor = System.Drawing.Color.Silver;
-            this.UsernameText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.UsernameText.FocusedBaseColor = System.Drawing.Color.White;
-            this.UsernameText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
-            this.UsernameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.UsernameText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UsernameText.ForeColor = System.Drawing.Color.Black;
-            this.UsernameText.Location = new System.Drawing.Point(25, 169);
-            this.UsernameText.Name = "UsernameText";
-            this.UsernameText.PasswordChar = '\0';
-            this.UsernameText.SelectedText = "";
-            this.UsernameText.Size = new System.Drawing.Size(458, 41);
-            this.UsernameText.TabIndex = 2;
-            this.UsernameText.Text = "username";
-       
-            // 
-            // menuBindingSource
-            // 
-            this.menuBindingSource.DataMember = "Menu";
-            this.menuBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
-            // 
             // menuTableAdapter
             // 
             this.menuTableAdapter.ClearBeforeFill = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Names
-            // 
-            this.Names.DataPropertyName = "Name";
-            this.Names.HeaderText = "Name";
-            this.Names.MinimumWidth = 6;
-            this.Names.Name = "Names";
-            this.Names.ReadOnly = true;
             // 
             // MenuForm
             // 
@@ -453,10 +452,10 @@ namespace Restaurant_Management.View
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -485,7 +484,7 @@ namespace Restaurant_Management.View
         private Guna.UI.WinForms.GunaTextBox UsernameText;
         private System.Windows.Forms.BindingSource menuBindingSource;
         private RestaurantManagementDataSetTableAdapters.MenuTableAdapter menuTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }
