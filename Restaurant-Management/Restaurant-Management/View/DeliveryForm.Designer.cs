@@ -36,9 +36,9 @@
             this.AddresLbl = new Guna.UI.WinForms.GunaLabel();
             this.AddressText = new Guna.UI.WinForms.GunaTextBox();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.PhoneLbl = new Guna.UI.WinForms.GunaLabel();
-            this.PhoneText = new Guna.UI.WinForms.GunaTextBox();
             this.UpdateBtn = new Guna.UI.WinForms.GunaButton();
+            this.PhoneText = new Guna.UI.WinForms.GunaTextBox();
+            this.PhoneLbl = new Guna.UI.WinForms.GunaLabel();
             this.FinishBtn = new Guna.UI.WinForms.GunaButton();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.searchTextBox.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.LineColor = System.Drawing.Color.Gainsboro;
-            this.searchTextBox.Location = new System.Drawing.Point(90, 69);
+            this.searchTextBox.Location = new System.Drawing.Point(188, 48);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.SelectedText = "";
@@ -79,7 +79,7 @@
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(493, 69);
+            this.searchBtn.Location = new System.Drawing.Point(591, 51);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(66, 35);
@@ -93,7 +93,7 @@
             this.CustomernameLbl.AutoSize = true;
             this.CustomernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
             this.CustomernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.CustomernameLbl.Location = new System.Drawing.Point(3, 79);
+            this.CustomernameLbl.Location = new System.Drawing.Point(41, 78);
             this.CustomernameLbl.Name = "CustomernameLbl";
             this.CustomernameLbl.Size = new System.Drawing.Size(72, 30);
             this.CustomernameLbl.TabIndex = 21;
@@ -109,11 +109,11 @@
             this.CustomernameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.CustomernameText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.CustomernameText.ForeColor = System.Drawing.Color.Black;
-            this.CustomernameText.Location = new System.Drawing.Point(98, 112);
+            this.CustomernameText.Location = new System.Drawing.Point(136, 78);
             this.CustomernameText.Name = "CustomernameText";
             this.CustomernameText.PasswordChar = '\0';
             this.CustomernameText.SelectedText = "";
-            this.CustomernameText.Size = new System.Drawing.Size(448, 41);
+            this.CustomernameText.Size = new System.Drawing.Size(513, 41);
             this.CustomernameText.TabIndex = 22;
             this.CustomernameText.Text = "Customername";
             // 
@@ -122,7 +122,7 @@
             this.AddresLbl.AutoSize = true;
             this.AddresLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
             this.AddresLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.AddresLbl.Location = new System.Drawing.Point(3, 162);
+            this.AddresLbl.Location = new System.Drawing.Point(41, 161);
             this.AddresLbl.Name = "AddresLbl";
             this.AddresLbl.Size = new System.Drawing.Size(92, 30);
             this.AddresLbl.TabIndex = 23;
@@ -139,11 +139,11 @@
             this.AddressText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.AddressText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.AddressText.ForeColor = System.Drawing.Color.Black;
-            this.AddressText.Location = new System.Drawing.Point(98, 199);
+            this.AddressText.Location = new System.Drawing.Point(136, 161);
             this.AddressText.Name = "AddressText";
             this.AddressText.PasswordChar = '\0';
             this.AddressText.SelectedText = "";
-            this.AddressText.Size = new System.Drawing.Size(448, 41);
+            this.AddressText.Size = new System.Drawing.Size(513, 41);
             this.AddressText.TabIndex = 24;
             this.AddressText.Text = "CustomerAddress";
             // 
@@ -158,44 +158,13 @@
             this.groupBox.Controls.Add(this.CustomernameText);
             this.groupBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.groupBox.Location = new System.Drawing.Point(737, 69);
+            this.groupBox.Location = new System.Drawing.Point(114, 124);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(568, 410);
+            this.groupBox.Size = new System.Drawing.Size(676, 421);
             this.groupBox.TabIndex = 30;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Customer Details";
-            // 
-            // PhoneLbl
-            // 
-            this.PhoneLbl.AutoSize = true;
-            this.PhoneLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.PhoneLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.PhoneLbl.Location = new System.Drawing.Point(3, 246);
-            this.PhoneLbl.Name = "PhoneLbl";
-            this.PhoneLbl.Size = new System.Drawing.Size(77, 30);
-            this.PhoneLbl.TabIndex = 27;
-            this.PhoneLbl.Text = "Phone";
-            this.PhoneLbl.Visible = false;
-            // 
-            // PhoneText
-            // 
-            this.PhoneText.BaseColor = System.Drawing.Color.White;
-            this.PhoneText.BorderColor = System.Drawing.Color.Silver;
-            this.PhoneText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PhoneText.FocusedBaseColor = System.Drawing.Color.White;
-            this.PhoneText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
-            this.PhoneText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.PhoneText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.PhoneText.ForeColor = System.Drawing.Color.Black;
-            this.PhoneText.Location = new System.Drawing.Point(98, 276);
-            this.PhoneText.Name = "PhoneText";
-            this.PhoneText.PasswordChar = '\0';
-            this.PhoneText.SelectedText = "";
-            this.PhoneText.Size = new System.Drawing.Size(448, 41);
-            this.PhoneText.TabIndex = 31;
-            this.PhoneText.Text = "Phone Number";
-            this.PhoneText.Visible = false;
-            this.PhoneText.TextChanged += new System.EventHandler(this.PhoneText_TextChanged);
+            this.groupBox.Enter += new System.EventHandler(this.groupBox_Enter);
             // 
             // UpdateBtn
             // 
@@ -211,7 +180,7 @@
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateBtn.Image = null;
             this.UpdateBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.UpdateBtn.Location = new System.Drawing.Point(98, 331);
+            this.UpdateBtn.Location = new System.Drawing.Point(535, 311);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.UpdateBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -219,11 +188,43 @@
             this.UpdateBtn.OnHoverImage = null;
             this.UpdateBtn.OnPressedColor = System.Drawing.Color.Black;
             this.UpdateBtn.Radius = 2;
-            this.UpdateBtn.Size = new System.Drawing.Size(156, 50);
+            this.UpdateBtn.Size = new System.Drawing.Size(114, 50);
             this.UpdateBtn.TabIndex = 31;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // PhoneText
+            // 
+            this.PhoneText.BaseColor = System.Drawing.Color.White;
+            this.PhoneText.BorderColor = System.Drawing.Color.Silver;
+            this.PhoneText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PhoneText.FocusedBaseColor = System.Drawing.Color.White;
+            this.PhoneText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
+            this.PhoneText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            this.PhoneText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.PhoneText.ForeColor = System.Drawing.Color.Black;
+            this.PhoneText.Location = new System.Drawing.Point(136, 238);
+            this.PhoneText.Name = "PhoneText";
+            this.PhoneText.PasswordChar = '\0';
+            this.PhoneText.SelectedText = "";
+            this.PhoneText.Size = new System.Drawing.Size(513, 41);
+            this.PhoneText.TabIndex = 31;
+            this.PhoneText.Text = "Phone Number";
+            this.PhoneText.Visible = false;
+            this.PhoneText.TextChanged += new System.EventHandler(this.PhoneText_TextChanged);
+            // 
+            // PhoneLbl
+            // 
+            this.PhoneLbl.AutoSize = true;
+            this.PhoneLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.PhoneLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.PhoneLbl.Location = new System.Drawing.Point(41, 245);
+            this.PhoneLbl.Name = "PhoneLbl";
+            this.PhoneLbl.Size = new System.Drawing.Size(77, 30);
+            this.PhoneLbl.TabIndex = 27;
+            this.PhoneLbl.Text = "Phone";
+            this.PhoneLbl.Visible = false;
             // 
             // FinishBtn
             // 
@@ -239,7 +240,7 @@
             this.FinishBtn.ForeColor = System.Drawing.Color.White;
             this.FinishBtn.Image = null;
             this.FinishBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.FinishBtn.Location = new System.Drawing.Point(1184, 702);
+            this.FinishBtn.Location = new System.Drawing.Point(159, 595);
             this.FinishBtn.Name = "FinishBtn";
             this.FinishBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.FinishBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -247,7 +248,7 @@
             this.FinishBtn.OnHoverImage = null;
             this.FinishBtn.OnPressedColor = System.Drawing.Color.Black;
             this.FinishBtn.Radius = 2;
-            this.FinishBtn.Size = new System.Drawing.Size(121, 44);
+            this.FinishBtn.Size = new System.Drawing.Size(568, 44);
             this.FinishBtn.TabIndex = 32;
             this.FinishBtn.Text = "Finish";
             this.FinishBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -258,7 +259,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1464, 801);
+            this.ClientSize = new System.Drawing.Size(1387, 745);
             this.Controls.Add(this.FinishBtn);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.searchBtn);

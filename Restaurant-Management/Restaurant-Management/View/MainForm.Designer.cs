@@ -98,6 +98,7 @@ namespace Restaurant_Management
             this.orderBtn.Size = new System.Drawing.Size(253, 54);
             this.orderBtn.TabIndex = 12;
             this.orderBtn.Text = "Order";
+            this.orderBtn.Click += new System.EventHandler(this.orderBtn_Click);
             // 
             // dbBtn
             // 

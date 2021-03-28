@@ -102,12 +102,14 @@ namespace Restaurant_Management.View
             {
                 groupBox.Text = "Update item";
                 deleteBtn.Visible = true;
+                PullBtn.Visible = true;
                 SelectRow();
             }
             else
             {
                 groupBox.Text = "Create item";
                 deleteBtn.Visible = false;
+                PullBtn.Visible = false;
                 ClearData();
             }
         }
@@ -239,8 +241,9 @@ namespace Restaurant_Management.View
 
         private void getDate(StoreItem storeItem)
         {
+            storeItem.ID = int.Parse(IdText.Text);
             storeItem.Name = NameText.Text;
-            //storeItem.CurrentCount = int.Parse(CurrentAmountText.Text);
+            storeItem.CurrentCount = int.Parse(CurrentAmountText.Text);
             storeItem.RequiredCount = int.Parse(RequiredAmountText.Text);
             storeItem.Price = int.Parse(PriceText.Text);
             storeItem.StoreItemType = context.StoreItemTypes.Find(ITypeCombo.SelectedValue);
@@ -397,6 +400,19 @@ namespace Restaurant_Management.View
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CurrentAmountText_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void PullBtn_Click(object sender, EventArgs e)
+        {
+            StoreItem storeItem = new StoreItem();
+            getDate(storeItem);
+
+            PullAmountForm pullAmount = new PullAmountForm(storeItem);
+            pullAmount.Show();
         }
     }
 }

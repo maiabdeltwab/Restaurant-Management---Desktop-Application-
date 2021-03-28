@@ -52,7 +52,7 @@ namespace Restaurant_Management
 
         private void storeBtn_Click(object sender, EventArgs e)
         {
-            UserTypeForm objForm = new UserTypeForm();
+            ItemDailyNeedForm objForm = new ItemDailyNeedForm();
             objForm.TopLevel = false;
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(objForm);
@@ -70,6 +70,17 @@ namespace Restaurant_Management
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Hide();
+        }
+
+        private void orderBtn_Click(object sender, EventArgs e)
+        {
+            Menu_Namess objForm = new Menu_Namess();
+            objForm.TopLevel = false;
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(objForm);
+            objForm.FormBorderStyle = FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
         }
     }
 }

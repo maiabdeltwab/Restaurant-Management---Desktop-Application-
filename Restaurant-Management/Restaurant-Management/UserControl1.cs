@@ -14,23 +14,21 @@ namespace Restaurant_Management
 {
     public partial class UserControl1 : UserControl
     {
-
         public UserControl1()
         {
             InitializeComponent();
         }
 
         public int id { get; set; }
+
         public UserControl1(int id)
         {
-           
             this.id = id;
             InitializeComponent();
         }
-      
+
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            
             List<Label> labels = new List<Label>();
             labels.Add(MenuItemName1);
             labels.Add(MenuItemName2);
@@ -43,16 +41,14 @@ namespace Restaurant_Management
 
             //var MenuitmName = (from Name in context.MenuItems
             //                   select Name.Name).ToList();
-           
+
             var MenuitmName = (from type in context.MenuItems
-                       where type.Menu_id == x
-                        select type.Name).ToList();
+                               where type.Menu_id == 1
+                               select type.Name).ToList();
             if (labels.Count > MenuitmName.Count)
             {
-              
                 for (int i = 0; i < MenuitmName.Count; i++)
                 {
-                  
                     labels[i].Text = MenuitmName[i];
                 }
             }
@@ -64,14 +60,17 @@ namespace Restaurant_Management
                 }
             }
         }
+
         private readonly MenuItemController controller = new MenuItemController();
         private readonly RestaurantEntities context = MenuItemController.context;
-     
-        int x = 0;
+
+        private int x = 0;
+
         public void Increase(Label label)
         {
             label.Text = (++x).ToString();
         }
+
         public void Decrease(Label label)
         {
             if (x > 0) { label.Text = (--x).ToString(); }
@@ -85,9 +84,8 @@ namespace Restaurant_Management
         private void btn1decrease_Click(object sender, EventArgs e)
         {
             Decrease(amount1);
-            
         }
-        
+
         private void btn2increase_Click(object sender, EventArgs e)
         {
             Increase(amount2);
@@ -100,7 +98,6 @@ namespace Restaurant_Management
 
         private void MenuItemName4_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btn5increase_Click(object sender, EventArgs e)
@@ -164,4 +161,3 @@ namespace Restaurant_Management
         }
     }
 }
-

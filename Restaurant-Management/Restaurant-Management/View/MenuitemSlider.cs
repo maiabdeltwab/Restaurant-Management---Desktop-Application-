@@ -18,7 +18,9 @@ namespace Restaurant_Management.View
         {
             InitializeComponent();
         }
+
         public int id { get; set; }
+
         public MenuitemSlider(int id)
         {
             this.id = id;
@@ -28,12 +30,10 @@ namespace Restaurant_Management.View
         private void MenuitemSlider_Load(object sender, EventArgs e)
         {
             userControl11.BringToFront();
-            
         }
 
         private void userControl21_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Pervious_Click(object sender, EventArgs e)
@@ -45,6 +45,16 @@ namespace Restaurant_Management.View
         {
             userControl21.BringToFront();
         }
+
+        private void Countious_Click(object sender, EventArgs e)
+        {
+            Menu_Namess objForm = new Menu_Namess();
+            objForm.TopLevel = false;
+            this.Controls.Clear();
+            this.Controls.Add(objForm);
+            objForm.FormBorderStyle = FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
     }
 }
-

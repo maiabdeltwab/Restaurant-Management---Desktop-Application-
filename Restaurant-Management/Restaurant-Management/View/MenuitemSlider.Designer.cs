@@ -40,18 +40,18 @@ namespace Restaurant_Management.View
             // 
             this.userControl21.BackColor = System.Drawing.SystemColors.Control;
             this.userControl21.Id = 0;
-            this.userControl21.Location = new System.Drawing.Point(12, 12);
+            this.userControl21.Location = new System.Drawing.Point(14, 12);
             this.userControl21.Name = "userControl21";
-            this.userControl21.Size = new System.Drawing.Size(1090, 508);
+            this.userControl21.Size = new System.Drawing.Size(1246, 508);
             this.userControl21.TabIndex = 1;
             this.userControl21.Load += new System.EventHandler(this.userControl21_Load);
             // 
             // userControl11
             // 
             this.userControl11.id = 0;
-            this.userControl11.Location = new System.Drawing.Point(12, 12);
+            this.userControl11.Location = new System.Drawing.Point(14, 12);
             this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1056, 521);
+            this.userControl11.Size = new System.Drawing.Size(1207, 521);
             this.userControl11.TabIndex = 0;
             // 
             // Pervious
@@ -68,7 +68,7 @@ namespace Restaurant_Management.View
             this.Pervious.ForeColor = System.Drawing.Color.White;
             this.Pervious.Image = null;
             this.Pervious.ImageSize = new System.Drawing.Size(20, 20);
-            this.Pervious.Location = new System.Drawing.Point(374, 578);
+            this.Pervious.Location = new System.Drawing.Point(398, 578);
             this.Pervious.Name = "Pervious";
             this.Pervious.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.Pervious.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -76,7 +76,7 @@ namespace Restaurant_Management.View
             this.Pervious.OnHoverImage = null;
             this.Pervious.OnPressedColor = System.Drawing.Color.Black;
             this.Pervious.Radius = 2;
-            this.Pervious.Size = new System.Drawing.Size(123, 51);
+            this.Pervious.Size = new System.Drawing.Size(141, 51);
             this.Pervious.TabIndex = 16;
             this.Pervious.Text = "Pervious";
             this.Pervious.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -96,7 +96,7 @@ namespace Restaurant_Management.View
             this.Next.ForeColor = System.Drawing.Color.White;
             this.Next.Image = null;
             this.Next.ImageSize = new System.Drawing.Size(20, 20);
-            this.Next.Location = new System.Drawing.Point(640, 578);
+            this.Next.Location = new System.Drawing.Point(731, 578);
             this.Next.Name = "Next";
             this.Next.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.Next.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -104,7 +104,7 @@ namespace Restaurant_Management.View
             this.Next.OnHoverImage = null;
             this.Next.OnPressedColor = System.Drawing.Color.Black;
             this.Next.Radius = 2;
-            this.Next.Size = new System.Drawing.Size(128, 51);
+            this.Next.Size = new System.Drawing.Size(146, 51);
             this.Next.TabIndex = 17;
             this.Next.Text = "Next";
             this.Next.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -124,7 +124,7 @@ namespace Restaurant_Management.View
             this.Countious.ForeColor = System.Drawing.Color.White;
             this.Countious.Image = null;
             this.Countious.ImageSize = new System.Drawing.Size(20, 20);
-            this.Countious.Location = new System.Drawing.Point(861, 660);
+            this.Countious.Location = new System.Drawing.Point(1007, 659);
             this.Countious.Name = "Countious";
             this.Countious.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.Countious.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -132,21 +132,23 @@ namespace Restaurant_Management.View
             this.Countious.OnHoverImage = null;
             this.Countious.OnPressedColor = System.Drawing.Color.Black;
             this.Countious.Radius = 2;
-            this.Countious.Size = new System.Drawing.Size(165, 52);
+            this.Countious.Size = new System.Drawing.Size(189, 52);
             this.Countious.TabIndex = 18;
             this.Countious.Text = "Countious";
             this.Countious.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Countious.Click += new System.EventHandler(this.Countious_Click);
             // 
             // MenuitemSlider
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 740);
+            this.ClientSize = new System.Drawing.Size(1261, 740);
             this.Controls.Add(this.Countious);
             this.Controls.Add(this.Next);
             this.Controls.Add(this.Pervious);
             this.Controls.Add(this.userControl21);
             this.Controls.Add(this.userControl11);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuitemSlider";
             this.Text = "MenuitemSlider";
             this.Load += new System.EventHandler(this.MenuitemSlider_Load);

@@ -18,10 +18,12 @@ namespace Restaurant_Management.View
         {
             InitializeComponent();
         }
-        int[] MenuID=new int[2];
+
+        private int[] MenuID = new int[2];
 
         private readonly MenuController controller = new MenuController();
         private readonly RestaurantEntities context = MenuController.context;
+
         private void Menu_Namess_Load(object sender, EventArgs e)
         {
             List<Label> labels = new List<Label>();
@@ -31,15 +33,13 @@ namespace Restaurant_Management.View
             labels.Add(label3);
             labels.Add(label4);
             labels.Add(label5);
-            
-             var Menuname = (from menu in context.Menus
-                             select menu.Name).ToList();
+
+            var Menuname = (from menu in context.Menus
+                            select menu.Name).ToList();
             if (labels.Count > Menuname.Count)
             {
-
                 for (int i = 0; i < Menuname.Count; i++)
                 {
-
                     labels[i].Text = Menuname[i];
                 }
             }
@@ -59,25 +59,22 @@ namespace Restaurant_Management.View
             pictureBoxes.Add(pictureBox6);
 
             var Menupic = (from Pic in context.Menus
-                            select new { Pic.ImagePath ,Pic.ID}).ToList();
-            
+                           select new { Pic.ImagePath, Pic.ID }).ToList();
+
             if (pictureBoxes.Count > Menupic.Count)
             {
                 for (int i = 0; i < Menupic.Count; i++)
                 {
-                    
                     if (Menupic[i].ImagePath == null)
                     {
                         int x = Menupic[i].ID;
-                        MenuID[i] = x;
-                        pictureBoxes[i].Image = Image.FromFile(@"C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\View\images\download (2).jfif");
+                        // MenuID[i] = x;
+                        pictureBoxes[i].Image = Image.FromFile(App.ImagePath + "\\download (2).jfif");
                     }
                     else
                     {
-                        
                         pictureBoxes[i].Image = Image.FromFile(Menupic[i].ImagePath);
                     }
-                    
                 }
             }
             else
@@ -87,16 +84,36 @@ namespace Restaurant_Management.View
                     pictureBoxes[i].Image = Image.FromFile(Menupic[i].ImagePath);
                 }
             }
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
             UserControl1 userControl1 = new UserControl1(MenuID[0]);
             UserControl2 userControl2 = new UserControl2(MenuID[0]);
-            MenuitemSlider menuitem = new MenuitemSlider(MenuID[0]);
-            this.Hide();
+
+            MenuitemSlider menuitem = new MenuitemSlider(MenuID[0])
+            {
+                TopLevel = false
+            };
+
+            this.Controls.Clear();
+            this.Controls.Add(menuitem);
+            menuitem.FormBorderStyle = FormBorderStyle.None;
+            menuitem.Dock = DockStyle.Fill;
+            menuitem.Show();
+        }
+
+        private void FinishBtn_Click(object sender, EventArgs e)
+        {
+            SelectedItemsForm menuitem = new SelectedItemsForm()
+            {
+                TopLevel = false
+            };
+
+            this.Controls.Clear();
+            this.Controls.Add(menuitem);
+            menuitem.FormBorderStyle = FormBorderStyle.None;
+            menuitem.Dock = DockStyle.Fill;
             menuitem.Show();
         }
     }
