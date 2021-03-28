@@ -126,7 +126,7 @@ namespace Restaurant_Management.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 749);
+            this.panel1.Size = new System.Drawing.Size(787, 806);
             this.panel1.TabIndex = 1;
             // 
             // refreshBtn
@@ -463,7 +463,7 @@ namespace Restaurant_Management.View
             this.UTypeCombo.DisplayMember = "name";
             this.UTypeCombo.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.UTypeCombo.FormattingEnabled = true;
-            this.UTypeCombo.Location = new System.Drawing.Point(25, 441);
+            this.UTypeCombo.Location = new System.Drawing.Point(25, 445);
             this.UTypeCombo.Name = "UTypeCombo";
             this.UTypeCombo.Size = new System.Drawing.Size(530, 36);
             this.UTypeCombo.TabIndex = 7;
@@ -582,7 +582,7 @@ namespace Restaurant_Management.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1521, 806);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

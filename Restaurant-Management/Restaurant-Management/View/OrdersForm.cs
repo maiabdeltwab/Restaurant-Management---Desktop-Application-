@@ -26,7 +26,7 @@ namespace Restaurant_Management.View
         {
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.OrderType' table. You can move, or remove it, as needed.
             this.orderTypeTableAdapter.Fill(this.restaurantManagementDataSet.OrderType);
-            //this.customerTableAdapter.Fill(this.restaurantManagementDataSet.Customer);
+
             dataGrid.DataSource = controller.ViewAll();
 
             OTypeCombo.SelectedIndex = -1;
@@ -228,7 +228,7 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "Order deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }

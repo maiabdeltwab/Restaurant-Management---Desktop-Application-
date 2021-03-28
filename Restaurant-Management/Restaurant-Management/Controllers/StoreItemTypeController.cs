@@ -35,7 +35,7 @@ namespace Restaurant_Management.Controllers
 
             storeItemTypes.AddRange((from sI in context.StoreItemTypes
                                      where (sI.Name.Contains(searchTxt)
-                                || sI.ID.ToString() == searchTxt)
+                                         || sI.ID.ToString() == searchTxt)
                                      select new StoreItemTypeVM
                                      {
                                          ID = sI.ID,
@@ -48,7 +48,7 @@ namespace Restaurant_Management.Controllers
         {
             try
             {
-                context.StoreItems.Remove(context.StoreItems.Find(id));
+                context.StoreItemTypes.Remove(context.StoreItemTypes.Find(id));
                 context.SaveChanges();
                 return true;
             }
@@ -96,6 +96,11 @@ namespace Restaurant_Management.Controllers
                     return false;
                 }
             }
+        }
+
+        public StoreItemType GetStoreType(int id)
+        {
+            return context.StoreItemTypes.Find(id);
         }
     }
 }

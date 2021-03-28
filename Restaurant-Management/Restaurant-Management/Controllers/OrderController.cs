@@ -48,27 +48,19 @@ namespace Restaurant_Management.Controllers
         public List<OrderVM> Search(string searchTxt)
         {
             List<OrderVM> orders = new List<OrderVM>();
-            orders.AddRange((from o in context.Orders
-                             where (
-                             //o.Price.Equals(searchTxt)
-                             //|| o.Date.Equals(searchTxt)
-                             //||
 
-                             o.OrderType.Name.Contains(searchTxt)
-                             || o.Customer.Name.Contains(searchTxt))
-                             select new OrderVM
-                             {
-                                 ID = o.ID,
-                                 Price = o.Price,
-                                 Date = o.Date,
-                                 OrderType = o.OrderType.Name,
-                                 CustomerName = o.Customer.Name,
-                             }).ToList());
             try
             {
-                int id = int.Parse(searchTxt);
+                decimal.TryParse(searchTxt, out decimal number);
+
+                DateTime.TryParse(searchTxt, out DateTime date);
+
                 orders.AddRange((from o in context.Orders
-                                 where o.ID == id
+                                 where (o.OrderType.Name.Contains(searchTxt)
+                                 || o.Customer.Name.Contains(searchTxt)
+                                 || o.ID == number
+                                 || o.Price == number
+                                 || o.Date == date)
                                  select new OrderVM
                                  {
                                      ID = o.ID,

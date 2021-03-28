@@ -28,11 +28,25 @@ namespace Restaurant_Management.Controllers
                                   Price = sI.Price,
                                   CurrentCount = sI.CurrentCount,
                                   RequiredCount = sI.RequiredCount,
-                                  Quantity = sI.Quantity,
                                   TypeName = sI.StoreItemType.Name,
                               }).ToList();
 
             return StoreItems;
+        }
+
+        public List<StoreItemVM> ViewItemsType(StoreItemType type)
+        {
+            return (from sI in context.StoreItems
+                    where sI.ItemType_ID == type.ID
+                    select new StoreItemVM
+                    {
+                        ID = sI.ID,
+                        Name = sI.Name,
+                        Price = sI.Price,
+                        CurrentCount = sI.CurrentCount,
+                        RequiredCount = sI.RequiredCount,
+                        TypeName = sI.StoreItemType.Name,
+                    }).ToList();
         }
 
         public List<StoreItemVM> Search(string searchTxt)
@@ -43,7 +57,6 @@ namespace Restaurant_Management.Controllers
                                  where (sI.Name.Contains(searchTxt)
                                  || sI.Price.ToString() == searchTxt
                                  || sI.CurrentCount.ToString() == searchTxt
-                                 || sI.Quantity.ToString() == searchTxt
                                  || sI.StoreItemType.Name.Contains(searchTxt)
                                  || sI.ID.ToString() == searchTxt)
                                  select new StoreItemVM
@@ -53,7 +66,6 @@ namespace Restaurant_Management.Controllers
                                      Price = sI.Price,
                                      CurrentCount = sI.CurrentCount,
                                      RequiredCount = sI.RequiredCount,
-                                     Quantity = sI.Quantity,
                                      TypeName = sI.StoreItemType.Name,
                                  }).ToList());
 
@@ -85,7 +97,6 @@ namespace Restaurant_Management.Controllers
                 editedItem.Price = storeItem.Price;
                 editedItem.CurrentCount = storeItem.CurrentCount;
                 editedItem.RequiredCount = storeItem.RequiredCount;
-                editedItem.Quantity = storeItem.Quantity;
                 editedItem.StoreItemType = storeItem.StoreItemType;
                 context.SaveChanges();
 

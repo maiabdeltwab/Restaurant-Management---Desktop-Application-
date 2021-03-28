@@ -33,9 +33,9 @@ namespace Restaurant_Management.View
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StoreItemTypesForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchTextBox = new Guna.UI.WinForms.GunaLineTextBox();
             this.StoreItemTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,7 +48,7 @@ namespace Restaurant_Management.View
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.deleteBtn = new Guna.UI.WinForms.GunaButton();
-            this.UsernameLbl = new Guna.UI.WinForms.GunaLabel();
+            this.nameLbl = new Guna.UI.WinForms.GunaLabel();
             this.IdLbl = new Guna.UI.WinForms.GunaLabel();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.saveBtn = new Guna.UI.WinForms.GunaButton();
@@ -56,6 +56,7 @@ namespace Restaurant_Management.View
             this.IdText = new Guna.UI.WinForms.GunaTextBox();
             this.userTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTypeTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UserTypeTableAdapter();
+            this.itemsBtn = new Guna.UI.WinForms.GunaAdvenceButton();
             ((System.ComponentModel.ISupportInitialize)(this.StoreItemTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).BeginInit();
@@ -116,7 +117,7 @@ namespace Restaurant_Management.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 749);
+            this.panel1.Size = new System.Drawing.Size(787, 781);
             this.panel1.TabIndex = 1;
             // 
             // refreshBtn
@@ -160,7 +161,7 @@ namespace Restaurant_Management.View
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
             this.rowCount.Location = new System.Drawing.Point(672, 686);
             this.rowCount.Name = "rowCount";
-            this.rowCount.Size = new System.Drawing.Size(77, 19);
+            this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
             this.rowCount.Text = "row counts";
             // 
@@ -192,31 +193,31 @@ namespace Restaurant_Management.View
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGrid.ColumnHeadersHeight = 35;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.Color.White;
             this.dataGrid.Location = new System.Drawing.Point(30, 95);
@@ -240,7 +241,7 @@ namespace Restaurant_Management.View
             // groupBox
             // 
             this.groupBox.Controls.Add(this.deleteBtn);
-            this.groupBox.Controls.Add(this.UsernameLbl);
+            this.groupBox.Controls.Add(this.nameLbl);
             this.groupBox.Controls.Add(this.IdLbl);
             this.groupBox.Controls.Add(this.gunaButton1);
             this.groupBox.Controls.Add(this.saveBtn);
@@ -248,9 +249,9 @@ namespace Restaurant_Management.View
             this.groupBox.Controls.Add(this.IdText);
             this.groupBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.groupBox.Location = new System.Drawing.Point(870, 95);
+            this.groupBox.Location = new System.Drawing.Point(846, 216);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(581, 343);
+            this.groupBox.Size = new System.Drawing.Size(581, 392);
             this.groupBox.TabIndex = 2;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create Store Item Type";
@@ -269,7 +270,7 @@ namespace Restaurant_Management.View
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
             this.deleteBtn.Image = null;
             this.deleteBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.deleteBtn.Location = new System.Drawing.Point(129, 231);
+            this.deleteBtn.Location = new System.Drawing.Point(134, 297);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.deleteBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -283,27 +284,27 @@ namespace Restaurant_Management.View
             this.deleteBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
-            // UsernameLbl
+            // nameLbl
             // 
-            this.UsernameLbl.AutoSize = true;
-            this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.UsernameLbl.Location = new System.Drawing.Point(24, 125);
-            this.UsernameLbl.Name = "UsernameLbl";
-            this.UsernameLbl.Size = new System.Drawing.Size(148, 19);
-            this.UsernameLbl.TabIndex = 9;
-            this.UsernameLbl.Text = "Item Store Type Name";
+            this.nameLbl.AutoSize = true;
+            this.nameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.nameLbl.Location = new System.Drawing.Point(23, 168);
+            this.nameLbl.Name = "nameLbl";
+            this.nameLbl.Size = new System.Drawing.Size(56, 23);
+            this.nameLbl.TabIndex = 9;
+            this.nameLbl.Text = "Name";
             // 
             // IdLbl
             // 
             this.IdLbl.AutoSize = true;
             this.IdLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.IdLbl.Location = new System.Drawing.Point(23, 53);
+            this.IdLbl.Location = new System.Drawing.Point(23, 71);
             this.IdLbl.Name = "IdLbl";
-            this.IdLbl.Size = new System.Drawing.Size(125, 19);
+            this.IdLbl.Size = new System.Drawing.Size(27, 23);
             this.IdLbl.TabIndex = 3;
-            this.IdLbl.Text = "Item Store Type ID";
+            this.IdLbl.Text = "ID";
             // 
             // gunaButton1
             // 
@@ -319,7 +320,7 @@ namespace Restaurant_Management.View
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = null;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(479, 231);
+            this.gunaButton1.Location = new System.Drawing.Point(477, 297);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -347,7 +348,7 @@ namespace Restaurant_Management.View
             this.saveBtn.ForeColor = System.Drawing.Color.White;
             this.saveBtn.Image = null;
             this.saveBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.saveBtn.Location = new System.Drawing.Point(27, 231);
+            this.saveBtn.Location = new System.Drawing.Point(27, 297);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.saveBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -371,15 +372,15 @@ namespace Restaurant_Management.View
             this.NameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.NameText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.NameText.ForeColor = System.Drawing.Color.Black;
-            this.NameText.Location = new System.Drawing.Point(25, 149);
+            this.NameText.Location = new System.Drawing.Point(25, 200);
             this.NameText.Name = "NameText";
             this.NameText.PasswordChar = '\0';
             this.NameText.SelectedText = "";
             this.NameText.Size = new System.Drawing.Size(530, 41);
             this.NameText.TabIndex = 2;
             this.NameText.Text = "Name";
-            this.NameText.TextChanged += new System.EventHandler(this.UsernameText_TextChanged);
-            this.NameText.Enter += new System.EventHandler(this.formText_Enter);
+            this.NameText.TextChanged += new System.EventHandler(this.nameText_TextChanged);
+            this.NameText.Enter += new System.EventHandler(this.NameText_Enter);
             // 
             // IdText
             // 
@@ -391,14 +392,13 @@ namespace Restaurant_Management.View
             this.IdText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.IdText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.IdText.ForeColor = System.Drawing.Color.Black;
-            this.IdText.Location = new System.Drawing.Point(25, 76);
+            this.IdText.Location = new System.Drawing.Point(25, 99);
             this.IdText.Name = "IdText";
             this.IdText.PasswordChar = '\0';
             this.IdText.SelectedText = "";
             this.IdText.Size = new System.Drawing.Size(530, 41);
             this.IdText.TabIndex = 1;
             this.IdText.Text = "ID";
-            this.IdText.Enter += new System.EventHandler(this.formText_Enter);
             // 
             // userTypeBindingSource
             // 
@@ -409,12 +409,45 @@ namespace Restaurant_Management.View
             // 
             this.userTypeTableAdapter.ClearBeforeFill = true;
             // 
+            // itemsBtn
+            // 
+            this.itemsBtn.Animated = true;
+            this.itemsBtn.AnimationHoverSpeed = 0.07F;
+            this.itemsBtn.AnimationSpeed = 0.03F;
+            this.itemsBtn.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.itemsBtn.BorderColor = System.Drawing.Color.Black;
+            this.itemsBtn.CheckedBaseColor = System.Drawing.SystemColors.GrayText;
+            this.itemsBtn.CheckedBorderColor = System.Drawing.Color.Black;
+            this.itemsBtn.CheckedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.itemsBtn.CheckedImage = ((System.Drawing.Image)(resources.GetObject("itemsBtn.CheckedImage")));
+            this.itemsBtn.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.itemsBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.itemsBtn.FocusedColor = System.Drawing.Color.Transparent;
+            this.itemsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemsBtn.ForeColor = System.Drawing.Color.White;
+            this.itemsBtn.Image = ((System.Drawing.Image)(resources.GetObject("itemsBtn.Image")));
+            this.itemsBtn.ImageSize = new System.Drawing.Size(20, 20);
+            this.itemsBtn.LineColor = System.Drawing.Color.Transparent;
+            this.itemsBtn.Location = new System.Drawing.Point(1257, 186);
+            this.itemsBtn.Name = "itemsBtn";
+            this.itemsBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
+            this.itemsBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.itemsBtn.OnHoverForeColor = System.Drawing.Color.White;
+            this.itemsBtn.OnHoverImage = null;
+            this.itemsBtn.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.itemsBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
+            this.itemsBtn.Size = new System.Drawing.Size(170, 42);
+            this.itemsBtn.TabIndex = 16;
+            this.itemsBtn.Text = "Create item";
+            this.itemsBtn.Click += new System.EventHandler(this.itemsBtn_Click);
+            // 
             // StoreItemTypesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1498, 781);
+            this.Controls.Add(this.itemsBtn);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -467,9 +500,10 @@ namespace Restaurant_Management.View
         private RestaurantManagementDataSetTableAdapters.UserTypeTableAdapter userTypeTableAdapter;
         private Guna.UI.WinForms.GunaButton saveBtn;
         private Guna.UI.WinForms.GunaButton gunaButton1;
-        private Guna.UI.WinForms.GunaLabel UsernameLbl;
+        private Guna.UI.WinForms.GunaLabel nameLbl;
         private Guna.UI.WinForms.GunaLabel IdLbl;
         private Guna.UI.WinForms.GunaAdvenceButton refreshBtn;
         private Guna.UI.WinForms.GunaButton deleteBtn;
+        private Guna.UI.WinForms.GunaAdvenceButton itemsBtn;
     }
 }

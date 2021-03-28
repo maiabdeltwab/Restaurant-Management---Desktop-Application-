@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.ViewModel
 {
-   internal class MenuItemVM
+    internal class MenuItemVM
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public string Describtion { get; set; }
 
-        [DisplayName("MenuName")]
+        [DisplayName("Category")]
         public string MenuName { get; set; }
+
+        public string Describtion { get; set; }
     }
 }

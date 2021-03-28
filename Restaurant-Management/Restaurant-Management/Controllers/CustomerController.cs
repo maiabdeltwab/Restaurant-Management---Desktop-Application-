@@ -34,22 +34,17 @@ namespace Restaurant_Management.Controllers
         public List<CustomerVM> Search(string searchTxt)
         {
             List<CustomerVM> customers = new List<CustomerVM>();
-            customers.AddRange((from C in context.Customers
-                                where (C.Name.Contains(searchTxt)
-                                || C.Phone.Contains(searchTxt)
-                                || C.Address.Contains(searchTxt))
-                                select new CustomerVM
-                                {
-                                    ID = C.ID,
-                                    Name = C.Name,
-                                    Phone = C.Phone,
-                                    Address = C.Address
-                                }).ToList());
+
             try
             {
-                int id = int.Parse(searchTxt);
+                int id;
+                int.TryParse(searchTxt, out id);
+
                 customers.AddRange((from C in context.Customers
-                                    where C.ID == id
+                                    where (C.Name.Contains(searchTxt)
+                                    || C.Phone.Contains(searchTxt)
+                                    || C.Address.Contains(searchTxt)
+                                    || C.ID == id)
                                     select new CustomerVM
                                     {
                                         ID = C.ID,

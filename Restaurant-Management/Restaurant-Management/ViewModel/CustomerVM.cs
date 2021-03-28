@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.ViewModel
 {
-    class CustomerVM
+    internal class CustomerVM
     {
         public int ID { get; set; }
 
@@ -16,8 +16,9 @@ namespace Restaurant_Management.ViewModel
         [RegularExpression("^[A-Za-z -]{3,}$", ErrorMessage = "Please enter a valid name format")]
         public string Name { get; set; }
 
-        [RegularExpression("^[0-9]{11}$",ErrorMessage = "Invalid Phone Format")]
+        [RegularExpression("^[0-9]{11}$", ErrorMessage = "Invalid Phone Format")]
         public string Phone { get; set; }
+
         public string Address { get; set; }
     }
 }

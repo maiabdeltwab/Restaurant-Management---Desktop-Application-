@@ -157,6 +157,9 @@ namespace Restaurant_Management.View
             saveBtn.Text = "Create";
             groupBox.Text = "Create user";
             deleteBtn.Visible = false;
+
+            UTypeLbl.Text = "User Role";
+            UTypeLbl.ForeColor = Color.Black;
         }
 
         public void ClearDefaults()
@@ -236,12 +239,12 @@ namespace Restaurant_Management.View
 
         private void getDate(User user)
         {
-            user.Username = UsernameText.Text;
-            user.FristName = FNameText.Text;
-            user.LastName = LNameText.Text;
-            user.Email = EmailText.Text;
+            user.Username = UsernameText.Text.Trim();
+            user.FristName = FNameText.Text.Trim();
+            user.LastName = LNameText.Text.Trim();
+            user.Email = EmailText.Text.Trim();
             user.UserType = context.UserTypes.Find(UTypeCombo.SelectedValue);
-            user.Password = PasswordText.Text;
+            user.Password = PasswordText.Text.Trim();
         }
 
         private bool DataValidation()

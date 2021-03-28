@@ -20,6 +20,7 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuForm.resources
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Supplier_Form.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.SupplierForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DatabaseListForm.resources

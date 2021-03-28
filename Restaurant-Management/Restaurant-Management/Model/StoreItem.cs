@@ -23,9 +23,9 @@ namespace Restaurant_Management.Model
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public Nullable<int> CurrentCount { get; set; }
-        public Nullable<int> RequiredCount { get; set; }
+        public decimal Price { get; set; }
+        public int CurrentCount { get; set; }
+        public int RequiredCount { get; set; }
         public Nullable<decimal> Quantity { get; set; }
         public int ItemType_ID { get; set; }
     

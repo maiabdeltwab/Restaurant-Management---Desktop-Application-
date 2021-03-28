@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 namespace Restaurant_Management.ViewModel
 {
     internal class StoreItemTypeVM
-    {  
+    {
         public int ID { get; set; }
 
-        [DisplayName("Store Item Type name")]
+        [DisplayName("Name")]
         [RegularExpression("^[A-Za-z -]{3,}$", ErrorMessage = "Please enter a valid name format")]
-        public string Name { get; set; }      
+        public string Name { get; set; }
     }
 }

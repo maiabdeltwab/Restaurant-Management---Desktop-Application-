@@ -21,8 +21,8 @@ namespace Restaurant_Management
         private void Main_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            UserForm objForm = new UserForm();
-            //UserTypeForm objForm = new UserTypeForm();
+            //SupplierForm objForm = new SupplierForm();
+            DatabaseListForm objForm = new DatabaseListForm();
             objForm.TopLevel = false;
             mainPanel.Controls.Add(objForm);
             objForm.FormBorderStyle = FormBorderStyle.None;
@@ -32,6 +32,11 @@ namespace Restaurant_Management
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
