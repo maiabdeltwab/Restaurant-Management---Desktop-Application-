@@ -27,7 +27,9 @@ namespace Restaurant_Management.ViewModel
         [RegularExpression(@"/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$", ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
 
-        [DisplayName("Type")]
+        [DisplayName("Role")]
         public string TypeName { get; set; }
+
+        public string Password { get; set; }
     }
 }

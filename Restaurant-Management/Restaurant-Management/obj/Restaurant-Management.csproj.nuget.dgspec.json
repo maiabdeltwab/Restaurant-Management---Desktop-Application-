@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {}
+    "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {}
   },
   "projects": {
-    "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {
+    "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+        "projectUniqueName": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
         "projectName": "Restaurant-Management",
-        "projectPath": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
-        "packagesPath": "C:\\Users\\Yomina\\.nuget\\packages\\",
-        "outputPath": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\obj\\",
+        "projectPath": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+        "packagesPath": "C:\\Users\\Mai-AbdEltwab\\.nuget\\packages\\",
+        "outputPath": "G:\\ITI .Net\\Projects\\Project 4 - Desktop application\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Yomina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mai-AbdEltwab\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

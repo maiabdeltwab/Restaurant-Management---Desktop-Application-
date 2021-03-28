@@ -23,6 +23,7 @@ namespace Restaurant_Management.Model
         public int ID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string Phone { get; set; }
     
         public virtual ICollection<ItemShipment> ItemShipments { get; set; }
         public virtual ICollection<SupplierPhone> SupplierPhones { get; set; }

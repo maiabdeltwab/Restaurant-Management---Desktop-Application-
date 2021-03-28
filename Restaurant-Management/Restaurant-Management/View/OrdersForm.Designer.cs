@@ -59,6 +59,7 @@
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderTypeTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.OrderTypeTableAdapter();
             this.customerTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.CustomerTableAdapter();
+            this.gunaImageButton5 = new Guna.UI.WinForms.GunaImageButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.groupBox.SuspendLayout();
@@ -78,7 +79,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 789);
+            this.panel1.Size = new System.Drawing.Size(725, 806);
             this.panel1.TabIndex = 3;
             // 
             // refreshBtn
@@ -101,7 +102,7 @@
             this.refreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshBtn.Image")));
             this.refreshBtn.ImageSize = new System.Drawing.Size(20, 20);
             this.refreshBtn.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.refreshBtn.Location = new System.Drawing.Point(30, 701);
+            this.refreshBtn.Location = new System.Drawing.Point(40, 696);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.refreshBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -110,7 +111,7 @@
             this.refreshBtn.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.refreshBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.refreshBtn.Radius = 2;
-            this.refreshBtn.Size = new System.Drawing.Size(129, 42);
+            this.refreshBtn.Size = new System.Drawing.Size(140, 42);
             this.refreshBtn.TabIndex = 16;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
@@ -120,7 +121,7 @@
             this.rowCount.AutoSize = true;
             this.rowCount.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
-            this.rowCount.Location = new System.Drawing.Point(672, 686);
+            this.rowCount.Location = new System.Drawing.Point(587, 686);
             this.rowCount.Name = "rowCount";
             this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
@@ -139,7 +140,7 @@
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(549, 27);
+            this.searchBtn.Location = new System.Drawing.Point(522, 36);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(66, 35);
@@ -181,7 +182,7 @@
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.Color.White;
-            this.dataGrid.Location = new System.Drawing.Point(30, 95);
+            this.dataGrid.Location = new System.Drawing.Point(40, 95);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
@@ -189,7 +190,7 @@
             this.dataGrid.RowTemplate.Height = 32;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(739, 588);
+            this.dataGrid.Size = new System.Drawing.Size(658, 588);
             this.dataGrid.TabIndex = 1;
             this.dataGrid.TabStop = false;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
@@ -207,7 +208,7 @@
             this.searchTextBox.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.LineColor = System.Drawing.Color.Gainsboro;
-            this.searchTextBox.Location = new System.Drawing.Point(150, 24);
+            this.searchTextBox.Location = new System.Drawing.Point(123, 33);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.SelectedText = "";
@@ -237,12 +238,12 @@
             this.groupBox.Controls.Add(this.IdText);
             this.groupBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.groupBox.Location = new System.Drawing.Point(815, 115);
+            this.groupBox.Location = new System.Drawing.Point(742, 128);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(581, 555);
+            this.groupBox.Size = new System.Drawing.Size(498, 530);
             this.groupBox.TabIndex = 4;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "User Order";
+            this.groupBox.Text = "Customer Order";
             this.groupBox.Enter += new System.EventHandler(this.groupBox_Enter);
             // 
             // ShowButton
@@ -259,7 +260,7 @@
             this.ShowButton.ForeColor = System.Drawing.Color.White;
             this.ShowButton.Image = null;
             this.ShowButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.ShowButton.Location = new System.Drawing.Point(28, 477);
+            this.ShowButton.Location = new System.Drawing.Point(28, 460);
             this.ShowButton.Name = "ShowButton";
             this.ShowButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.ShowButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -267,7 +268,7 @@
             this.ShowButton.OnHoverImage = null;
             this.ShowButton.OnPressedColor = System.Drawing.Color.Black;
             this.ShowButton.Radius = 2;
-            this.ShowButton.Size = new System.Drawing.Size(148, 44);
+            this.ShowButton.Size = new System.Drawing.Size(131, 44);
             this.ShowButton.TabIndex = 19;
             this.ShowButton.Text = "Show details";
             this.ShowButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -289,7 +290,7 @@
             this.CustomerText.Name = "CustomerText";
             this.CustomerText.PasswordChar = '\0';
             this.CustomerText.SelectedText = "";
-            this.CustomerText.Size = new System.Drawing.Size(530, 41);
+            this.CustomerText.Size = new System.Drawing.Size(452, 41);
             this.CustomerText.TabIndex = 18;
             this.CustomerText.Text = "CustomerName";
             // 
@@ -318,7 +319,7 @@
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
             this.deleteBtn.Image = null;
             this.deleteBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.deleteBtn.Location = new System.Drawing.Point(222, 477);
+            this.deleteBtn.Location = new System.Drawing.Point(165, 460);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.deleteBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -390,7 +391,7 @@
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = null;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(477, 477);
+            this.gunaButton1.Location = new System.Drawing.Point(371, 460);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -398,7 +399,7 @@
             this.gunaButton1.OnHoverImage = null;
             this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton1.Radius = 2;
-            this.gunaButton1.Size = new System.Drawing.Size(78, 44);
+            this.gunaButton1.Size = new System.Drawing.Size(106, 44);
             this.gunaButton1.TabIndex = 9;
             this.gunaButton1.Text = "Clear";
             this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -413,7 +414,7 @@
             this.OTypeCombo.FormattingEnabled = true;
             this.OTypeCombo.Location = new System.Drawing.Point(25, 307);
             this.OTypeCombo.Name = "OTypeCombo";
-            this.OTypeCombo.Size = new System.Drawing.Size(530, 36);
+            this.OTypeCombo.Size = new System.Drawing.Size(452, 36);
             this.OTypeCombo.TabIndex = 7;
             this.OTypeCombo.ValueMember = "ID";
             // 
@@ -447,7 +448,7 @@
             this.DateText.Name = "DateText";
             this.DateText.PasswordChar = '\0';
             this.DateText.SelectedText = "";
-            this.DateText.Size = new System.Drawing.Size(530, 41);
+            this.DateText.Size = new System.Drawing.Size(452, 41);
             this.DateText.TabIndex = 5;
             this.DateText.Text = "Date";
             // 
@@ -466,7 +467,7 @@
             this.PriceText.Name = "PriceText";
             this.PriceText.PasswordChar = '\0';
             this.PriceText.SelectedText = "";
-            this.PriceText.Size = new System.Drawing.Size(530, 41);
+            this.PriceText.Size = new System.Drawing.Size(452, 41);
             this.PriceText.TabIndex = 2;
             this.PriceText.Text = "Order Price";
             // 
@@ -484,7 +485,7 @@
             this.IdText.Name = "IdText";
             this.IdText.PasswordChar = '\0';
             this.IdText.SelectedText = "";
-            this.IdText.Size = new System.Drawing.Size(530, 41);
+            this.IdText.Size = new System.Drawing.Size(452, 41);
             this.IdText.TabIndex = 1;
             this.IdText.Text = "ID";
             // 
@@ -501,12 +502,25 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
+            // gunaImageButton5
+            // 
+            this.gunaImageButton5.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton5.Image")));
+            this.gunaImageButton5.ImageSize = new System.Drawing.Size(100, 100);
+            this.gunaImageButton5.Location = new System.Drawing.Point(930, 36);
+            this.gunaImageButton5.Name = "gunaImageButton5";
+            this.gunaImageButton5.OnHoverImage = null;
+            this.gunaImageButton5.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton5.Size = new System.Drawing.Size(126, 89);
+            this.gunaImageButton5.TabIndex = 22;
+            this.gunaImageButton5.Click += new System.EventHandler(this.gunaImageButton5_Click);
+            // 
             // OrdersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1431, 789);
+            this.ClientSize = new System.Drawing.Size(1384, 806);
+            this.Controls.Add(this.gunaImageButton5);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -556,5 +570,6 @@
         private System.Windows.Forms.BindingSource customerBindingSource;
         private Guna.UI.WinForms.GunaTextBox CustomerText;
         private Guna.UI.WinForms.GunaButton ShowButton;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton5;
     }
 }

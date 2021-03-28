@@ -12,6 +12,10 @@ namespace Restaurant_Management.ViewModel
     {
         public int ID { get; set; }
 
+        [DisplayName("Customer")]
+        [Required]
+        public string CustomerName { get; set; }
+
         [DisplayName("Price")]
         [Required]
         public Nullable<decimal> Price { get; set; }
@@ -23,10 +27,6 @@ namespace Restaurant_Management.ViewModel
         [DisplayName("Type")]
         [Required]
         public string OrderType { get; set; }
-
-        [DisplayName("Customer Name")]
-        [Required]
-        public string CustomerName { get; set; }
 
         //public string Menuitem { get; set; }
         //public int? Count { get; set; }

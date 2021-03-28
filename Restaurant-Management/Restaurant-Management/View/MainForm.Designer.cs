@@ -31,6 +31,7 @@ namespace Restaurant_Management
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.orderBtn = new Guna.UI.WinForms.GunaButton();
             this.dbBtn = new Guna.UI.WinForms.GunaButton();
             this.storeBtn = new Guna.UI.WinForms.GunaButton();
@@ -45,6 +46,7 @@ namespace Restaurant_Management
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.bunifuSeparator1);
             this.panel1.Controls.Add(this.orderBtn);
             this.panel1.Controls.Add(this.dbBtn);
             this.panel1.Controls.Add(this.storeBtn);
@@ -57,6 +59,19 @@ namespace Restaurant_Management
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 798);
             this.panel1.TabIndex = 1;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 505);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(254, 43);
+            this.bunifuSeparator1.TabIndex = 13;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
             // 
             // orderBtn
             // 
@@ -73,14 +88,14 @@ namespace Restaurant_Management
             this.orderBtn.Image = ((System.Drawing.Image)(resources.GetObject("orderBtn.Image")));
             this.orderBtn.ImageOffsetX = 30;
             this.orderBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.orderBtn.Location = new System.Drawing.Point(1, 364);
+            this.orderBtn.Location = new System.Drawing.Point(0, 323);
             this.orderBtn.Name = "orderBtn";
             this.orderBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(73)))), ((int)(((byte)(75)))));
             this.orderBtn.OnHoverBorderColor = System.Drawing.Color.Black;
             this.orderBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.orderBtn.OnHoverImage = null;
             this.orderBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.orderBtn.Size = new System.Drawing.Size(253, 71);
+            this.orderBtn.Size = new System.Drawing.Size(253, 54);
             this.orderBtn.TabIndex = 12;
             this.orderBtn.Text = "Order";
             // 
@@ -106,9 +121,10 @@ namespace Restaurant_Management
             this.dbBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.dbBtn.OnHoverImage = null;
             this.dbBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.dbBtn.Size = new System.Drawing.Size(254, 76);
+            this.dbBtn.Size = new System.Drawing.Size(254, 58);
             this.dbBtn.TabIndex = 11;
             this.dbBtn.Text = "Database";
+            this.dbBtn.Click += new System.EventHandler(this.dbBtn_Click);
             // 
             // storeBtn
             // 
@@ -125,16 +141,17 @@ namespace Restaurant_Management
             this.storeBtn.Image = ((System.Drawing.Image)(resources.GetObject("storeBtn.Image")));
             this.storeBtn.ImageOffsetX = 30;
             this.storeBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.storeBtn.Location = new System.Drawing.Point(2, 286);
+            this.storeBtn.Location = new System.Drawing.Point(3, 268);
             this.storeBtn.Name = "storeBtn";
             this.storeBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(73)))), ((int)(((byte)(75)))));
             this.storeBtn.OnHoverBorderColor = System.Drawing.Color.Black;
             this.storeBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.storeBtn.OnHoverImage = null;
             this.storeBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.storeBtn.Size = new System.Drawing.Size(252, 71);
+            this.storeBtn.Size = new System.Drawing.Size(252, 49);
             this.storeBtn.TabIndex = 10;
             this.storeBtn.Text = "Store";
+            this.storeBtn.Click += new System.EventHandler(this.storeBtn_Click);
             // 
             // logoutBtn
             // 
@@ -151,17 +168,18 @@ namespace Restaurant_Management
             this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
             this.logoutBtn.ImageOffsetX = 30;
             this.logoutBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.logoutBtn.Location = new System.Drawing.Point(-2, 578);
+            this.logoutBtn.Location = new System.Drawing.Point(-2, 611);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(73)))), ((int)(((byte)(75)))));
             this.logoutBtn.OnHoverBorderColor = System.Drawing.Color.Black;
             this.logoutBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.logoutBtn.OnHoverImage = null;
             this.logoutBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.logoutBtn.Size = new System.Drawing.Size(256, 71);
+            this.logoutBtn.Size = new System.Drawing.Size(256, 59);
             this.logoutBtn.TabIndex = 9;
             this.logoutBtn.Text = "Logout";
             this.logoutBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // accountBtn
             // 
@@ -178,14 +196,14 @@ namespace Restaurant_Management
             this.accountBtn.Image = ((System.Drawing.Image)(resources.GetObject("accountBtn.Image")));
             this.accountBtn.ImageOffsetX = 30;
             this.accountBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.accountBtn.Location = new System.Drawing.Point(0, 511);
+            this.accountBtn.Location = new System.Drawing.Point(0, 548);
             this.accountBtn.Name = "accountBtn";
             this.accountBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(73)))), ((int)(((byte)(75)))));
             this.accountBtn.OnHoverBorderColor = System.Drawing.Color.Black;
             this.accountBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.accountBtn.OnHoverImage = null;
             this.accountBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.accountBtn.Size = new System.Drawing.Size(254, 68);
+            this.accountBtn.Size = new System.Drawing.Size(254, 56);
             this.accountBtn.TabIndex = 8;
             this.accountBtn.Text = "Account";
             this.accountBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -217,7 +235,7 @@ namespace Restaurant_Management
             this.exitBtn.Image = ((System.Drawing.Image)(resources.GetObject("exitBtn.Image")));
             this.exitBtn.ImageOffsetX = 30;
             this.exitBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.exitBtn.Location = new System.Drawing.Point(0, 642);
+            this.exitBtn.Location = new System.Drawing.Point(0, 676);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.exitBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -278,6 +296,7 @@ namespace Restaurant_Management
         private Guna.UI.WinForms.GunaButton orderBtn;
         private Guna.UI.WinForms.GunaButton dbBtn;
         private Guna.UI.WinForms.GunaButton storeBtn;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
     }
 }
 

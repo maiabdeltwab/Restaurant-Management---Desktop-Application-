@@ -29,6 +29,7 @@ namespace Restaurant_Management.View
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.UserType' table. You can move, or remove it, as needed.
 
             dataGrid.DataSource = controller.ViewAll();
+            dataGrid.Columns["ID"].Width = 250;
 
             IdText.Enabled = false;
             ClearData();

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Restaurant_Management.View
 {
-    public partial class ItrmShipmentForm : Form
+    public partial class ItemShipmentForm : Form
     {
         private readonly ItemShipmentController controller = new ItemShipmentController();
         private readonly RestaurantEntities context = ItemShipmentController.context;
@@ -22,9 +22,7 @@ namespace Restaurant_Management.View
         private readonly Supplier supplier = null;
         private readonly StoreItem storeItem = null;
 
-
-        private readonly Regex count = new Regex("^[0-9]+$");     
-        public ItrmShipmentForm(Supplier supplier = null , StoreItem storeItem = null)
+        public ItemShipmentForm(Supplier supplier = null, StoreItem storeItem = null)
         {
             InitializeComponent();
 
@@ -42,30 +40,32 @@ namespace Restaurant_Management.View
             IdText.Enabled = false;
             ClearData();
 
-            if (supplier != null && storeItem!=null)
+            if (supplier != null && storeItem != null)
             {
-                dataGrid.DataSource = controller.ViewshipmentDetails(supplier,storeItem);
-                UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(supplier.Name);
-                comboBox1.SelectedIndex = comboBox1.FindStringExact(storeItem.Name);
+                dataGrid.DataSource = controller.ViewshipmentDetails(supplier, storeItem);
+                suppliersCombo.SelectedIndex = suppliersCombo.FindStringExact(supplier.Name);
+                storeItemCombo.SelectedIndex = storeItemCombo.FindStringExact(storeItem.Name);
 
                 searchTextBox.Text = supplier.Name;
             }
             else if (storeItem != null)
             {
                 dataGrid.DataSource = controller.ViewshipmentstoreItem(storeItem);
-                comboBox1.SelectedIndex = comboBox1.FindStringExact(storeItem.Name);
+                storeItemCombo.SelectedIndex = storeItemCombo.FindStringExact(storeItem.Name);
                 searchTextBox.Text = storeItem.Name;
             }
-            else if (supplier!=null)
+            else if (supplier != null)
             {
                 dataGrid.DataSource = controller.Viewshipmentsupplier(supplier);
-                UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(supplier.Name);
+                suppliersCombo.SelectedIndex = suppliersCombo.FindStringExact(supplier.Name);
                 searchTextBox.Text = supplier.Name;
             }
             else
             {
                 dataGrid.DataSource = controller.ViewAll();
             }
+
+            dataGrid.Columns["ID"].Width = 50;
         }
 
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
@@ -161,21 +161,25 @@ namespace Restaurant_Management.View
         {
             dataGrid.ClearSelection();
 
-            CountText.Text = "Count";
+            CountText.Text = "Enter count";
             IdText.Text = "ID";
-            UTypeCombo.SelectedIndex = -1;
-            comboBox1.SelectedIndex = -1;
-            UTypeCombo.Text = "Select a supplier";
-            comboBox1.Text = "Select a store item";
+            suppliersCombo.SelectedIndex = -1;
+            storeItemCombo.SelectedIndex = -1;
+            suppliersCombo.Text = "Select a supplier";
+            storeItemCombo.Text = "Select a store item";
             saveBtn.Text = "Create";
             groupBox.Text = "Create shipment";
             deleteBtn.Visible = false;
+
+            StoreItemLbl.Text = "Store Item";
+            StoreItemLbl.ForeColor = Color.Black;
+
+            CountText.Enabled = true;
         }
 
         public void ClearDefaults()
         {
-            DefaultText(CountText, "Count", true);
-
+            DefaultText(CountText, "Enter count", true);
         }
 
         private void SelectRow()
@@ -187,13 +191,22 @@ namespace Restaurant_Management.View
                 IdText.Text = row.Cells["ID"].Value.ToString();
                 dateTimePicker1.Text = row.Cells["ArrivalTime"].Value.ToString();
                 dateTimePicker2.Text = row.Cells["ExperiedTime"].Value.ToString();
-                if(row.Cells["Count"].Value!=null)
-                CountText.Text = row.Cells["Count"].Value.ToString();
+                if (row.Cells["Count"].Value != null)
+                    CountText.Text = row.Cells["Count"].Value.ToString();
 
-                string type = row.Cells["Supplier_Name"].Value.ToString();
-                UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
+                try
+                {
+                    string supplier = row.Cells["Supplier_Name"].Value.ToString();
+                    suppliersCombo.SelectedIndex = suppliersCombo.FindStringExact(supplier);
+                }
+                catch
+                {
+                    suppliersCombo.SelectedIndex = -1;
+                }
+
                 string item = row.Cells["StoreItem_Name"].Value.ToString();
-                comboBox1.SelectedIndex = comboBox1.FindStringExact(item);
+                storeItemCombo.SelectedIndex = storeItemCombo.FindStringExact(item);
+                CountText.Enabled = false;
                 saveBtn.Text = "Update";
             }
         }
@@ -207,11 +220,13 @@ namespace Restaurant_Management.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             ItemShipment shipment = new ItemShipment();
+
             ClearDefaults();
-            getDate(shipment);
 
             if (DataValidation())
             {
+                getDate(shipment);
+
                 if (saveBtn.Text == "Create")
                 {
                     bool flag = controller.Insert(shipment);
@@ -233,7 +248,7 @@ namespace Restaurant_Management.View
 
                     if (flag)
                     {
-                        MessageBox.Show(null, "Shipment  updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(null, "Shipment updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //refresh table
                         dataGrid.DataSource = controller.ViewAll();
                     }
@@ -247,49 +262,35 @@ namespace Restaurant_Management.View
 
         private void getDate(ItemShipment shipment)
         {
-            shipment.ArrivalTime =dateTimePicker1.Value.Date;
+            shipment.ArrivalTime = dateTimePicker1.Value.Date;
             shipment.ExperiedTime = dateTimePicker2.Value.Date;
-            shipment.StoreItem = context.StoreItems.Find(comboBox1.SelectedValue);
-            shipment.Supplier = context.Suppliers.Find(UTypeCombo.SelectedValue);
+            shipment.StoreItem = context.StoreItems.Find(storeItemCombo.SelectedValue);
+            shipment.Supplier = context.Suppliers.Find(suppliersCombo.SelectedValue);
             shipment.Count = int.Parse(CountText.Text);
         }
 
         private bool DataValidation()
         {
-            bool flag = validateCount();              
+            bool flag = validateStoreItem() && validateCount();
 
             return flag;
         }
 
-        private void LNameText_TextChanged(object sender, EventArgs e)
+        private bool validateStoreItem()
         {
-        }
+            int selected = storeItemCombo.SelectedIndex;
 
-        
-
-        private void formText_Enter(object sender, EventArgs e)
-        {
-            dynamic textBox = sender;
-
-            if (textBox.Name == "EmailText")
+            if (selected == -1)
             {
-                DefaultText(textBox, "Enter email", true);
+                StoreItemLbl.Text = "Select Item";
+                StoreItemLbl.ForeColor = Color.Red;
+                return false;
             }
-            else if (textBox.Name == "FNameText")
+            else
             {
-                DefaultText(textBox, "Enter first name", true);
-            }
-            else if (textBox.Name == "LNameText")
-            {
-                DefaultText(textBox, "Enter last name", true);
-            }
-            else if (textBox.Name == "PasswordText")
-            {
-                DefaultText(textBox, "Enter password", true);
-            }
-            else if (textBox.Name == "UsernameText")
-            {
-                DefaultText(textBox, "Enter username", true);
+                StoreItemLbl.Text = "Store Item";
+                StoreItemLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
@@ -308,9 +309,9 @@ namespace Restaurant_Management.View
         {
             string input = CountText.Text.Trim();
 
-            if (input != "Count" && !count.IsMatch(input))
+            if (input != "Enter count" && !Validation.isInteger(input))
             {
-                CountLbl.Text = "Invalid count";
+                CountLbl.Text = "count must be an integer";
                 CountLbl.ForeColor = Color.Red;
                 return false;
             }
@@ -321,25 +322,6 @@ namespace Restaurant_Management.View
                 return true;
             }
         }
-
-        private void FNameText_TextChanged(object sender, EventArgs e)
-        {
-         
-        }
-
-        
-
-        private void EmailText_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        
-
-        private void PasswordText_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-     
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
@@ -355,39 +337,9 @@ namespace Restaurant_Management.View
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private bool validateUserType()
+        private void CountText_Enter(object sender, EventArgs e)
         {
-            int selected = UTypeCombo.SelectedIndex;
-            int selctedItem = comboBox1.SelectedIndex;
-            if (selected == -1)
-            {
-                SupplierLbl.Text = "Select supplier";
-                SupplierLbl.ForeColor = Color.Red;
-                return false;
-            }
-            else
-            {
-                SupplierLbl.Text = "Supplier";
-                SupplierLbl.ForeColor = Color.Black;
-                return true;
-            }
-            if (selctedItem == -1)
-            {
-                StoreItemLabel1.Text = "Select item";
-                StoreItemLabel1.ForeColor = Color.Red;
-                return false;
-            }
-            else
-            {
-                StoreItemLabel1.Text = "item";
-                StoreItemLabel1.ForeColor = Color.Black;
-                return true;
-            }
-        }
-
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            DefaultText(CountText, "Enter count", true);
         }
     }
 }
