@@ -70,6 +70,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ItemShipmentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MenuItemController.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="View\DatabaseListForm.Designer.cs">
       <DependentUpon>DatabaseListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ItemShipmentVM.cs" />
     <Compile Include="View\StoreItemTypesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +166,12 @@
     </Compile>
     <Compile Include="View\StoreItemForm.Designer.cs">
       <DependentUpon>StoreItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItrmShipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ItrmShipmentForm.Designer.cs">
+      <DependentUpon>ItrmShipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserForm.cs">
       <SubType>Form</SubType>
@@ -286,6 +294,9 @@
     </Compile>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ItrmShipmentForm.resx">
+      <DependentUpon>ItrmShipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
