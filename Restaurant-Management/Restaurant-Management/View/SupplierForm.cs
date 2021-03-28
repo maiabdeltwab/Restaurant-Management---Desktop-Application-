@@ -13,22 +13,21 @@ using System.Windows.Forms;
 
 namespace Restaurant_Management.View
 {
-    public partial class Supplier_Form : Form
+    public partial class SupplierForm : Form
     {
         private readonly SupplierController controller = new SupplierController();
         private readonly RestaurantEntities context = SupplierController.context;
 
-        public Supplier_Form()
+        public SupplierForm()
         {
             InitializeComponent();
         }
 
         private void Supplier_Form_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'restaurantManagementDataSet.Supplier' table. You can move, or remove it, as needed.
-            this.supplierTableAdapter.Fill(this.restaurantManagementDataSet.Supplier);
             dataGrid.DataSource = controller.ViewAll();
-            // UTypeCombo.SelectedIndex = -1;
+            dataGrid.Columns["ID"].Width = 70;
+
             IdText.Enabled = false;
             ClearData();
         }
@@ -81,7 +80,7 @@ namespace Restaurant_Management.View
         {
             if (dataGrid.SelectedRows.Count != 0)
             {
-                groupBox.Text = "Create Supplier";
+                groupBox.Text = "Update Supplier";
                 deleteBtn.Visible = true;
                 SelectRow();
             }
@@ -125,12 +124,21 @@ namespace Restaurant_Management.View
         private void ClearData()
         {
             dataGrid.ClearSelection();
-            SupNameText.Text = "Enter Supplier Name";
+
+            SupNameText.Text = "Enter name";
             EmailText.Text = "Enter email";
+            phoneText.Text = "Enter phone";
             IdText.Text = "ID";
             saveBtn.Text = "Create";
             groupBox.Text = "Create Supplier";
             deleteBtn.Visible = false;
+        }
+
+        private void ClearDefault()
+        {
+            DefaultText(SupNameText, "Enter name", true);
+            DefaultText(phoneText, "Enter phone", true);
+            DefaultText(EmailText, "Enter email", true);
         }
 
         private void SelectRow()
@@ -140,8 +148,10 @@ namespace Restaurant_Management.View
                 var row = dataGrid.SelectedRows[0];
 
                 IdText.Text = row.Cells["ID"].Value.ToString();
-                SupNameText.Text = row.Cells["SupName"].Value.ToString();
+                SupNameText.Text = row.Cells["Name"].Value.ToString();
                 EmailText.Text = row.Cells["Email"].Value.ToString();
+                phoneText.Text = row.Cells["Phone"].Value.ToString();
+
                 saveBtn.Text = "Update";
             }
         }
@@ -155,42 +165,55 @@ namespace Restaurant_Management.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             Supplier supplier = new Supplier();
-            getDate(supplier);
+            ClearDefault();
 
-            if (saveBtn.Text == "Create")
+            if (ValidateData())
             {
-                bool flag = controller.Insert(supplier);
+                getDate(supplier);
 
-                if (flag)
+                if (saveBtn.Text == "Create")
                 {
-                    MessageBox.Show(null, "User inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
+                    bool flag = controller.Insert(supplier);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Supplier inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    supplier.ID = int.Parse(IdText.Text);
+
+                    bool flag = controller.Update(supplier);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Supplier updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
-            {
-                supplier.ID = int.Parse(IdText.Text);
+                MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
-                bool flag = controller.Update(supplier);
-
-                if (flag)
-                {
-                    MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
-                }
-                else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        private bool ValidateData()
+        {
+            return ValidateName() && ValidateEmail() && ValidatePhone();
         }
 
         private void getDate(Supplier supplier)
         {
             supplier.Name = SupNameText.Text;
             supplier.Email = EmailText.Text;
+            supplier.Phone = phoneText.Text;
         }
 
         private void formText_Enter(object sender, EventArgs e)
@@ -199,53 +222,66 @@ namespace Restaurant_Management.View
 
             if (textBox.Name == "SupNameText")
             {
-                DefaultText(textBox, "Enter Supplier Name", true);
+                DefaultText(textBox, "Enter name", true);
             }
             else if (textBox.Name == "EmailText")
             {
-                DefaultText(textBox, "Enter Email", true);
+                DefaultText(textBox, "Enter email", true);
+            }
+            else if (textBox.Name == "phoneText")
+            {
+                DefaultText(textBox, "Enter phone", true);
             }
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            //refresh table
             dataGrid.DataSource = controller.ViewAll();
         }
 
-        private void UsernameText_TextChanged(object sender, EventArgs e)
+        private void NameText_TextChanged(object sender, EventArgs e)
         {
-            Regex usernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$");
+            ValidateName();
+        }
 
+        private bool ValidateName()
+        {
             string input = SupNameText.Text.Trim();
 
-            if (input != "Enter username" && !usernameReg.IsMatch(input))
+            if (input != "Enter name" && !Validation.IsName(input))
             {
-                UsernameLbl.Text = "Invalid Name";
-                UsernameLbl.ForeColor = Color.Red;
+                nameLbl.Text = "Invalid Name";
+                nameLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
-                UsernameLbl.Text = "Supplier Name";
-                UsernameLbl.ForeColor = Color.Black;
+                nameLbl.Text = "Supplier Name";
+                nameLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
         private void EmailText_TextChanged(object sender, EventArgs e)
         {
-            Regex emailReg = new Regex("^[\\w\\-\\.\\+]+\\@[a-zA-Z0-9\\.\\-]+\\.[a-zA-z0-9]{2,4}$");
+            ValidateEmail();
+        }
 
+        private bool ValidateEmail()
+        {
             string input = EmailText.Text.Trim();
 
-            if (input != "Enter email" && !emailReg.IsMatch(input))
+            if (input != "Enter email" && !Validation.IsEmail(input))
             {
                 EmailLbl.Text = "Invalid Email";
                 EmailLbl.ForeColor = Color.Red;
+                return false;
             }
             else
             {
                 EmailLbl.Text = "Email";
                 EmailLbl.ForeColor = Color.Black;
+                return true;
             }
         }
 
@@ -255,7 +291,7 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "Supplier deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }
@@ -263,13 +299,43 @@ namespace Restaurant_Management.View
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void groupBox_Enter(object sender, EventArgs e)
-        {
-        }
-
         private void dataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             rowCount.Text = $"Results: {dataGrid.Rows.Count} rows";
+        }
+
+        private void phoneText_TextChanged(object sender, EventArgs e)
+        {
+            ValidatePhone();
+        }
+
+        private bool ValidatePhone()
+        {
+            string input = phoneText.Text.Trim();
+
+            if (input != "Enter phone" && !Validation.IsPhone(input))
+            {
+                phoneLbl.Text = "Invalid phone number";
+                phoneLbl.ForeColor = Color.Red;
+                return false;
+            }
+            else
+            {
+                phoneLbl.Text = "Phone";
+                phoneLbl.ForeColor = Color.Black;
+                return true;
+            }
+        }
+
+        private void dataGrid_DataBindingComplete_1(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            ClearData();
+        }
+
+        private void searchTextBox_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                search(sender, e);
         }
     }
 }

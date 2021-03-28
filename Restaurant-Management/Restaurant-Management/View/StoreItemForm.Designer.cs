@@ -37,7 +37,6 @@ namespace Restaurant_Management.View
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchTextBox = new Guna.UI.WinForms.GunaLineTextBox();
-            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantManagementDataSet = new Restaurant_Management.RestaurantManagementDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,9 +45,9 @@ namespace Restaurant_Management.View
             this.searchBtn = new Bunifu.Framework.UI.BunifuTileButton();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
             this.deleteBtn = new Guna.UI.WinForms.GunaButton();
             this.ITypeLbl = new Guna.UI.WinForms.GunaLabel();
-            this.QuantityLbl = new Guna.UI.WinForms.GunaLabel();
             this.PriceLbl = new Guna.UI.WinForms.GunaLabel();
             this.RequiredAmountLbl = new Guna.UI.WinForms.GunaLabel();
             this.CurrentAmountLbl = new Guna.UI.WinForms.GunaLabel();
@@ -57,24 +56,20 @@ namespace Restaurant_Management.View
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.saveBtn = new Guna.UI.WinForms.GunaButton();
             this.ITypeCombo = new System.Windows.Forms.ComboBox();
-            this.userTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.QuantityText = new Guna.UI.WinForms.GunaTextBox();
+            this.storeItemTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PriceText = new Guna.UI.WinForms.GunaTextBox();
-            this.ItemnameText = new Guna.UI.WinForms.GunaTextBox();
+            this.NameText = new Guna.UI.WinForms.GunaTextBox();
             this.RequiredAmountText = new Guna.UI.WinForms.GunaTextBox();
             this.CurrentAmountText = new Guna.UI.WinForms.GunaTextBox();
             this.IdText = new Guna.UI.WinForms.GunaTextBox();
-            this.usersTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.UsersTableAdapter();
-            this.itemTypeTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.StoreItemTypeTableAdapter();
-            this.storeItemTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.StoreItemTableAdapter();
-            this.tableAdapterManager = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.TableAdapterManager();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
+            this.storeItemTypeTableAdapter = new Restaurant_Management.RestaurantManagementDataSetTableAdapters.StoreItemTypeTableAdapter();
+            this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeItemTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTextBox
@@ -86,7 +81,7 @@ namespace Restaurant_Management.View
             this.searchTextBox.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.LineColor = System.Drawing.Color.Gainsboro;
-            this.searchTextBox.Location = new System.Drawing.Point(150, 24);
+            this.searchTextBox.Location = new System.Drawing.Point(125, 35);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.SelectedText = "";
@@ -98,12 +93,6 @@ namespace Restaurant_Management.View
             this.searchTextBox.Enter += new System.EventHandler(this.searchTextBox_Enter);
             this.searchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchTextBox_KeyPress);
             this.searchTextBox.Leave += new System.EventHandler(this.searchTextBox_Leave);
-            // 
-            // itemsBindingSource
-            // 
-            this.itemsBindingSource.DataMember = "Users";
-            this.itemsBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
-            this.itemsBindingSource.CurrentChanged += new System.EventHandler(this.usersBindingSource_CurrentChanged);
             // 
             // restaurantManagementDataSetBindingSource
             // 
@@ -125,7 +114,7 @@ namespace Restaurant_Management.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 728);
+            this.panel1.Size = new System.Drawing.Size(711, 762);
             this.panel1.TabIndex = 1;
             // 
             // refreshBtn
@@ -148,7 +137,7 @@ namespace Restaurant_Management.View
             this.refreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshBtn.Image")));
             this.refreshBtn.ImageSize = new System.Drawing.Size(20, 20);
             this.refreshBtn.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.refreshBtn.Location = new System.Drawing.Point(30, 701);
+            this.refreshBtn.Location = new System.Drawing.Point(30, 693);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.refreshBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -157,8 +146,8 @@ namespace Restaurant_Management.View
             this.refreshBtn.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.refreshBtn.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.refreshBtn.Radius = 2;
-            this.refreshBtn.Size = new System.Drawing.Size(129, 42);
-            this.refreshBtn.TabIndex = 16;
+            this.refreshBtn.Size = new System.Drawing.Size(134, 42);
+            this.refreshBtn.TabIndex = 11;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
@@ -167,7 +156,7 @@ namespace Restaurant_Management.View
             this.rowCount.AutoSize = true;
             this.rowCount.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rowCount.ForeColor = System.Drawing.Color.Gray;
-            this.rowCount.Location = new System.Drawing.Point(672, 686);
+            this.rowCount.Location = new System.Drawing.Point(584, 686);
             this.rowCount.Name = "rowCount";
             this.rowCount.Size = new System.Drawing.Size(94, 23);
             this.rowCount.TabIndex = 0;
@@ -186,11 +175,11 @@ namespace Restaurant_Management.View
             this.searchBtn.ImageZoom = 50;
             this.searchBtn.LabelPosition = 0;
             this.searchBtn.LabelText = "";
-            this.searchBtn.Location = new System.Drawing.Point(549, 27);
+            this.searchBtn.Location = new System.Drawing.Point(524, 38);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(66, 35);
-            this.searchBtn.TabIndex = 10;
+            this.searchBtn.TabIndex = 2;
             this.searchBtn.Click += new System.EventHandler(this.search);
             this.searchBtn.MouseEnter += new System.EventHandler(this.searchBtn_active);
             this.searchBtn.MouseLeave += new System.EventHandler(this.searchBtn_disactive);
@@ -236,11 +225,10 @@ namespace Restaurant_Management.View
             this.dataGrid.RowTemplate.Height = 32;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(739, 588);
+            this.dataGrid.Size = new System.Drawing.Size(668, 588);
             this.dataGrid.TabIndex = 1;
             this.dataGrid.TabStop = false;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             this.dataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGrid_rowCountChange);
             this.dataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGrid_rowCountChange);
@@ -249,9 +237,9 @@ namespace Restaurant_Management.View
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.gunaImageButton1);
             this.groupBox.Controls.Add(this.deleteBtn);
             this.groupBox.Controls.Add(this.ITypeLbl);
-            this.groupBox.Controls.Add(this.QuantityLbl);
             this.groupBox.Controls.Add(this.PriceLbl);
             this.groupBox.Controls.Add(this.RequiredAmountLbl);
             this.groupBox.Controls.Add(this.CurrentAmountLbl);
@@ -260,20 +248,31 @@ namespace Restaurant_Management.View
             this.groupBox.Controls.Add(this.gunaButton1);
             this.groupBox.Controls.Add(this.saveBtn);
             this.groupBox.Controls.Add(this.ITypeCombo);
-            this.groupBox.Controls.Add(this.QuantityText);
             this.groupBox.Controls.Add(this.PriceText);
-            this.groupBox.Controls.Add(this.ItemnameText);
+            this.groupBox.Controls.Add(this.NameText);
             this.groupBox.Controls.Add(this.RequiredAmountText);
             this.groupBox.Controls.Add(this.CurrentAmountText);
             this.groupBox.Controls.Add(this.IdText);
             this.groupBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.groupBox.Location = new System.Drawing.Point(870, 95);
+            this.groupBox.Location = new System.Drawing.Point(726, 117);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(581, 588);
-            this.groupBox.TabIndex = 2;
+            this.groupBox.Size = new System.Drawing.Size(515, 553);
+            this.groupBox.TabIndex = 20;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create item";
+            // 
+            // gunaImageButton1
+            // 
+            this.gunaImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
+            this.gunaImageButton1.ImageSize = new System.Drawing.Size(100, 100);
+            this.gunaImageButton1.Location = new System.Drawing.Point(216, -70);
+            this.gunaImageButton1.Name = "gunaImageButton1";
+            this.gunaImageButton1.OnHoverImage = null;
+            this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton1.Size = new System.Drawing.Size(70, 35);
+            this.gunaImageButton1.TabIndex = 18;
             // 
             // deleteBtn
             // 
@@ -289,7 +288,7 @@ namespace Restaurant_Management.View
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
             this.deleteBtn.Image = null;
             this.deleteBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.deleteBtn.Location = new System.Drawing.Point(127, 513);
+            this.deleteBtn.Location = new System.Drawing.Point(130, 489);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.deleteBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -298,7 +297,7 @@ namespace Restaurant_Management.View
             this.deleteBtn.OnPressedColor = System.Drawing.Color.Black;
             this.deleteBtn.Radius = 2;
             this.deleteBtn.Size = new System.Drawing.Size(96, 44);
-            this.deleteBtn.TabIndex = 15;
+            this.deleteBtn.TabIndex = 9;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
@@ -308,29 +307,18 @@ namespace Restaurant_Management.View
             this.ITypeLbl.AutoSize = true;
             this.ITypeLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ITypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.ITypeLbl.Location = new System.Drawing.Point(24, 419);
+            this.ITypeLbl.Location = new System.Drawing.Point(24, 409);
             this.ITypeLbl.Name = "ITypeLbl";
-            this.ITypeLbl.Size = new System.Drawing.Size(84, 23);
+            this.ITypeLbl.Size = new System.Drawing.Size(46, 23);
             this.ITypeLbl.TabIndex = 14;
-            this.ITypeLbl.Text = "Item Role";
-            // 
-            // QuantityLbl
-            // 
-            this.QuantityLbl.AutoSize = true;
-            this.QuantityLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuantityLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.QuantityLbl.Location = new System.Drawing.Point(23, 347);
-            this.QuantityLbl.Name = "QuantityLbl";
-            this.QuantityLbl.Size = new System.Drawing.Size(77, 23);
-            this.QuantityLbl.TabIndex = 13;
-            this.QuantityLbl.Text = "Quantity";
+            this.ITypeLbl.Text = "Type";
             // 
             // PriceLbl
             // 
             this.PriceLbl.AutoSize = true;
             this.PriceLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.PriceLbl.Location = new System.Drawing.Point(26, 199);
+            this.PriceLbl.Location = new System.Drawing.Point(23, 188);
             this.PriceLbl.Name = "PriceLbl";
             this.PriceLbl.Size = new System.Drawing.Size(47, 23);
             this.PriceLbl.TabIndex = 12;
@@ -341,7 +329,7 @@ namespace Restaurant_Management.View
             this.RequiredAmountLbl.AutoSize = true;
             this.RequiredAmountLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RequiredAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.RequiredAmountLbl.Location = new System.Drawing.Point(294, 274);
+            this.RequiredAmountLbl.Location = new System.Drawing.Point(24, 336);
             this.RequiredAmountLbl.Name = "RequiredAmountLbl";
             this.RequiredAmountLbl.Size = new System.Drawing.Size(146, 23);
             this.RequiredAmountLbl.TabIndex = 11;
@@ -352,7 +340,7 @@ namespace Restaurant_Management.View
             this.CurrentAmountLbl.AutoSize = true;
             this.CurrentAmountLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.CurrentAmountLbl.Location = new System.Drawing.Point(22, 274);
+            this.CurrentAmountLbl.Location = new System.Drawing.Point(22, 262);
             this.CurrentAmountLbl.Name = "CurrentAmountLbl";
             this.CurrentAmountLbl.Size = new System.Drawing.Size(135, 23);
             this.CurrentAmountLbl.TabIndex = 10;
@@ -363,19 +351,18 @@ namespace Restaurant_Management.View
             this.ItemnameLbl.AutoSize = true;
             this.ItemnameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemnameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.ItemnameLbl.Location = new System.Drawing.Point(24, 125);
+            this.ItemnameLbl.Location = new System.Drawing.Point(24, 115);
             this.ItemnameLbl.Name = "ItemnameLbl";
-            this.ItemnameLbl.Size = new System.Drawing.Size(88, 23);
+            this.ItemnameLbl.Size = new System.Drawing.Size(56, 23);
             this.ItemnameLbl.TabIndex = 9;
-            this.ItemnameLbl.Text = "Itemname";
-            this.ItemnameLbl.Click += new System.EventHandler(this.ItemnameLbl_Click);
+            this.ItemnameLbl.Text = "Name";
             // 
             // IdLbl
             // 
             this.IdLbl.AutoSize = true;
             this.IdLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.IdLbl.Location = new System.Drawing.Point(23, 53);
+            this.IdLbl.Location = new System.Drawing.Point(23, 43);
             this.IdLbl.Name = "IdLbl";
             this.IdLbl.Size = new System.Drawing.Size(27, 23);
             this.IdLbl.TabIndex = 3;
@@ -395,7 +382,7 @@ namespace Restaurant_Management.View
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = null;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(477, 513);
+            this.gunaButton1.Location = new System.Drawing.Point(401, 489);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(193)))), ((int)(((byte)(52)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -403,8 +390,8 @@ namespace Restaurant_Management.View
             this.gunaButton1.OnHoverImage = null;
             this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton1.Radius = 2;
-            this.gunaButton1.Size = new System.Drawing.Size(78, 44);
-            this.gunaButton1.TabIndex = 9;
+            this.gunaButton1.Size = new System.Drawing.Size(94, 44);
+            this.gunaButton1.TabIndex = 10;
             this.gunaButton1.Text = "Clear";
             this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
@@ -423,7 +410,7 @@ namespace Restaurant_Management.View
             this.saveBtn.ForeColor = System.Drawing.Color.White;
             this.saveBtn.Image = null;
             this.saveBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.saveBtn.Location = new System.Drawing.Point(25, 513);
+            this.saveBtn.Location = new System.Drawing.Point(28, 489);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(10)))), ((int)(((byte)(63)))));
             this.saveBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -439,41 +426,20 @@ namespace Restaurant_Management.View
             // 
             // ITypeCombo
             // 
-            this.ITypeCombo.DataSource = this.userTypeBindingSource;
-            this.ITypeCombo.DisplayMember = "name";
+            this.ITypeCombo.DataSource = this.storeItemTypeBindingSource;
+            this.ITypeCombo.DisplayMember = "Name";
             this.ITypeCombo.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ITypeCombo.FormattingEnabled = true;
-            this.ITypeCombo.Location = new System.Drawing.Point(25, 442);
+            this.ITypeCombo.Location = new System.Drawing.Point(26, 434);
             this.ITypeCombo.Name = "ITypeCombo";
-            this.ITypeCombo.Size = new System.Drawing.Size(530, 36);
+            this.ITypeCombo.Size = new System.Drawing.Size(470, 36);
             this.ITypeCombo.TabIndex = 7;
             this.ITypeCombo.ValueMember = "ID";
-            this.ITypeCombo.SelectedIndexChanged += new System.EventHandler(this.ITypeCombo_SelectedIndexChanged);
             // 
-            // userTypeBindingSource
+            // storeItemTypeBindingSource
             // 
-            this.userTypeBindingSource.DataMember = "UserType";
-            this.userTypeBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
-            // 
-            // QuantityText
-            // 
-            this.QuantityText.BaseColor = System.Drawing.Color.White;
-            this.QuantityText.BorderColor = System.Drawing.Color.Silver;
-            this.QuantityText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.QuantityText.FocusedBaseColor = System.Drawing.Color.White;
-            this.QuantityText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
-            this.QuantityText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.QuantityText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.QuantityText.ForeColor = System.Drawing.Color.Black;
-            this.QuantityText.Location = new System.Drawing.Point(25, 369);
-            this.QuantityText.Name = "QuantityText";
-            this.QuantityText.PasswordChar = '\0';
-            this.QuantityText.SelectedText = "";
-            this.QuantityText.Size = new System.Drawing.Size(530, 41);
-            this.QuantityText.TabIndex = 5;
-            this.QuantityText.Text = "Enter Quantity";
-            this.QuantityText.TextChanged += new System.EventHandler(this.QuantityText_TextChanged);
-            this.QuantityText.Enter += new System.EventHandler(this.formText_Enter);
+            this.storeItemTypeBindingSource.DataMember = "StoreItemType";
+            this.storeItemTypeBindingSource.DataSource = this.restaurantManagementDataSetBindingSource;
             // 
             // PriceText
             // 
@@ -485,35 +451,35 @@ namespace Restaurant_Management.View
             this.PriceText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.PriceText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.PriceText.ForeColor = System.Drawing.Color.Black;
-            this.PriceText.Location = new System.Drawing.Point(27, 221);
+            this.PriceText.Location = new System.Drawing.Point(27, 211);
             this.PriceText.Name = "PriceText";
             this.PriceText.PasswordChar = '\0';
             this.PriceText.SelectedText = "";
-            this.PriceText.Size = new System.Drawing.Size(530, 41);
-            this.PriceText.TabIndex = 5;
+            this.PriceText.Size = new System.Drawing.Size(470, 41);
+            this.PriceText.TabIndex = 4;
             this.PriceText.Text = "Enter price";
             this.PriceText.TextChanged += new System.EventHandler(this.PriceText_TextChanged);
             this.PriceText.Enter += new System.EventHandler(this.formText_Enter);
             // 
-            // ItemnameText
+            // NameText
             // 
-            this.ItemnameText.BaseColor = System.Drawing.Color.White;
-            this.ItemnameText.BorderColor = System.Drawing.Color.Silver;
-            this.ItemnameText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ItemnameText.FocusedBaseColor = System.Drawing.Color.White;
-            this.ItemnameText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
-            this.ItemnameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
-            this.ItemnameText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ItemnameText.ForeColor = System.Drawing.Color.Black;
-            this.ItemnameText.Location = new System.Drawing.Point(25, 149);
-            this.ItemnameText.Name = "ItemnameText";
-            this.ItemnameText.PasswordChar = '\0';
-            this.ItemnameText.SelectedText = "";
-            this.ItemnameText.Size = new System.Drawing.Size(530, 41);
-            this.ItemnameText.TabIndex = 2;
-            this.ItemnameText.Text = "Enter itemname";
-            this.ItemnameText.TextChanged += new System.EventHandler(this.UsernameText_TextChanged);
-            this.ItemnameText.Enter += new System.EventHandler(this.formText_Enter);
+            this.NameText.BaseColor = System.Drawing.Color.White;
+            this.NameText.BorderColor = System.Drawing.Color.Silver;
+            this.NameText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NameText.FocusedBaseColor = System.Drawing.Color.White;
+            this.NameText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(179)))), ((int)(((byte)(1)))));
+            this.NameText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
+            this.NameText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.NameText.ForeColor = System.Drawing.Color.Black;
+            this.NameText.Location = new System.Drawing.Point(25, 139);
+            this.NameText.Name = "NameText";
+            this.NameText.PasswordChar = '\0';
+            this.NameText.SelectedText = "";
+            this.NameText.Size = new System.Drawing.Size(470, 41);
+            this.NameText.TabIndex = 3;
+            this.NameText.Text = "Enter name";
+            this.NameText.TextChanged += new System.EventHandler(this.NameText_TextChanged);
+            this.NameText.Enter += new System.EventHandler(this.formText_Enter);
             // 
             // RequiredAmountText
             // 
@@ -525,14 +491,14 @@ namespace Restaurant_Management.View
             this.RequiredAmountText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.RequiredAmountText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.RequiredAmountText.ForeColor = System.Drawing.Color.Black;
-            this.RequiredAmountText.Location = new System.Drawing.Point(298, 296);
+            this.RequiredAmountText.Location = new System.Drawing.Point(28, 362);
             this.RequiredAmountText.Name = "RequiredAmountText";
             this.RequiredAmountText.PasswordChar = '\0';
             this.RequiredAmountText.SelectedText = "";
-            this.RequiredAmountText.Size = new System.Drawing.Size(257, 41);
-            this.RequiredAmountText.TabIndex = 4;
+            this.RequiredAmountText.Size = new System.Drawing.Size(467, 41);
+            this.RequiredAmountText.TabIndex = 6;
             this.RequiredAmountText.Text = "Enter Required Amount";
-            this.RequiredAmountText.TextChanged += new System.EventHandler(this.LNameText_TextChanged);
+            this.RequiredAmountText.TextChanged += new System.EventHandler(this.RequiredAmountText_TextChanged);
             this.RequiredAmountText.Enter += new System.EventHandler(this.formText_Enter);
             // 
             // CurrentAmountText
@@ -545,14 +511,13 @@ namespace Restaurant_Management.View
             this.CurrentAmountText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.CurrentAmountText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.CurrentAmountText.ForeColor = System.Drawing.Color.Black;
-            this.CurrentAmountText.Location = new System.Drawing.Point(25, 296);
+            this.CurrentAmountText.Location = new System.Drawing.Point(25, 284);
             this.CurrentAmountText.Name = "CurrentAmountText";
             this.CurrentAmountText.PasswordChar = '\0';
             this.CurrentAmountText.SelectedText = "";
-            this.CurrentAmountText.Size = new System.Drawing.Size(254, 41);
-            this.CurrentAmountText.TabIndex = 3;
+            this.CurrentAmountText.Size = new System.Drawing.Size(470, 41);
+            this.CurrentAmountText.TabIndex = 5;
             this.CurrentAmountText.Text = "Enter Current Amount";
-            this.CurrentAmountText.TextChanged += new System.EventHandler(this.FNameText_TextChanged);
             this.CurrentAmountText.Enter += new System.EventHandler(this.formText_Enter);
             // 
             // IdText
@@ -565,51 +530,30 @@ namespace Restaurant_Management.View
             this.IdText.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(7)))), ((int)(((byte)(47)))));
             this.IdText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.IdText.ForeColor = System.Drawing.Color.Black;
-            this.IdText.Location = new System.Drawing.Point(25, 76);
+            this.IdText.Location = new System.Drawing.Point(25, 66);
             this.IdText.Name = "IdText";
             this.IdText.PasswordChar = '\0';
             this.IdText.SelectedText = "";
-            this.IdText.Size = new System.Drawing.Size(530, 41);
+            this.IdText.Size = new System.Drawing.Size(470, 41);
             this.IdText.TabIndex = 1;
             this.IdText.Text = "ID";
-            this.IdText.TextChanged += new System.EventHandler(this.IdText_TextChanged);
             this.IdText.Enter += new System.EventHandler(this.formText_Enter);
             // 
-            // usersTableAdapter
+            // storeItemTypeTableAdapter
             // 
-            this.usersTableAdapter.ClearBeforeFill = true;
+            this.storeItemTypeTableAdapter.ClearBeforeFill = true;
             // 
-            // itemTypeTableAdapter
+            // gunaImageButton2
             // 
-            this.itemTypeTableAdapter.ClearBeforeFill = true;
-            // 
-            // storeItemTableAdapter
-            // 
-            this.storeItemTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CustomerTableAdapter = null;
-            this.tableAdapterManager.FoodIngredientsTableAdapter = null;
-            this.tableAdapterManager.ItemShipmentTableAdapter = null;
-            this.tableAdapterManager.MenuItemTableAdapter = null;
-            this.tableAdapterManager.MenuTableAdapter = null;
-            this.tableAdapterManager.OrderItemsTableAdapter = null;
-            this.tableAdapterManager.OrdersTableAdapter = null;
-            this.tableAdapterManager.OrderTypeTableAdapter = null;
-            this.tableAdapterManager.RestaurantConsumptionTableAdapter = null;
-            this.tableAdapterManager.ScreenTableAdapter = null;
-            this.tableAdapterManager.StoreConsumptionTableAdapter = null;
-            this.tableAdapterManager.StoreItemTableAdapter = this.storeItemTableAdapter;
-            this.tableAdapterManager.StoreItemTypeTableAdapter = null;
-            this.tableAdapterManager.SupplierPhoneTableAdapter = null;
-            this.tableAdapterManager.SupplierTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Restaurant_Management.RestaurantManagementDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserPhoneTableAdapter = null;
-            this.tableAdapterManager.UserPrivilegesTableAdapter = null;
-            this.tableAdapterManager.UsersTableAdapter = null;
-            this.tableAdapterManager.UserTypeTableAdapter = null;
+            this.gunaImageButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
+            this.gunaImageButton2.ImageSize = new System.Drawing.Size(100, 100);
+            this.gunaImageButton2.Location = new System.Drawing.Point(908, 32);
+            this.gunaImageButton2.Name = "gunaImageButton2";
+            this.gunaImageButton2.OnHoverImage = null;
+            this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton2.Size = new System.Drawing.Size(121, 90);
+            this.gunaImageButton2.TabIndex = 19;
             // 
             // StoreItemForm
             // 
@@ -617,7 +561,8 @@ namespace Restaurant_Management.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1468, 762);
+            this.Controls.Add(this.gunaImageButton2);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -626,7 +571,6 @@ namespace Restaurant_Management.View
             this.Name = "StoreItemForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.StoreItemForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -634,7 +578,7 @@ namespace Restaurant_Management.View
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeItemTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -656,8 +600,6 @@ namespace Restaurant_Management.View
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private RestaurantManagementDataSet restaurantManagementDataSet;
         private System.Windows.Forms.BindingSource restaurantManagementDataSetBindingSource;
-        private System.Windows.Forms.BindingSource itemsBindingSource;
-        private RestaurantManagementDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGrid;
         private BunifuTileButton searchBtn;
@@ -666,12 +608,10 @@ namespace Restaurant_Management.View
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.ComboBox ITypeCombo;
         private Guna.UI.WinForms.GunaTextBox PriceText;
-        private Guna.UI.WinForms.GunaTextBox ItemnameText;
+        private Guna.UI.WinForms.GunaTextBox NameText;
         private Guna.UI.WinForms.GunaTextBox RequiredAmountText;
         private Guna.UI.WinForms.GunaTextBox CurrentAmountText;
         private Guna.UI.WinForms.GunaTextBox IdText;
-        private System.Windows.Forms.BindingSource userTypeBindingSource;
-        private RestaurantManagementDataSetTableAdapters.StoreItemTypeTableAdapter itemTypeTableAdapter;
         private Guna.UI.WinForms.GunaButton saveBtn;
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaLabel ITypeLbl;
@@ -682,9 +622,9 @@ namespace Restaurant_Management.View
         private Guna.UI.WinForms.GunaLabel IdLbl;
         private Guna.UI.WinForms.GunaAdvenceButton refreshBtn;
         private Guna.UI.WinForms.GunaButton deleteBtn;
-        private Guna.UI.WinForms.GunaLabel QuantityLbl;
-        private Guna.UI.WinForms.GunaTextBox QuantityText;
-        private RestaurantManagementDataSetTableAdapters.StoreItemTableAdapter storeItemTableAdapter;
-        private RestaurantManagementDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource storeItemTypeBindingSource;
+        private RestaurantManagementDataSetTableAdapters.StoreItemTypeTableAdapter storeItemTypeTableAdapter;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton1;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton2;
     }
 }

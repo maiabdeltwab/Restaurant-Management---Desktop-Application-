@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.Model;
+﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,9 +15,17 @@ namespace Restaurant_Management
 
         public static string ImagePath { get; set; }
 
+        private static RestaurantEntities context = SupplierController.context;
+
         static App()
         {
             GetImagesPath();
+
+            var login = context.SaveLogins.FirstOrDefault();
+            if (login != null)
+                UserLogin = context.Users.Find(login.userId);
+            else
+                UserLogin = null;
         }
 
         private static void GetImagesPath()

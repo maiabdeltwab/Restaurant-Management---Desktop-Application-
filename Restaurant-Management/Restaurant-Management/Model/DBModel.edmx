@@ -118,9 +118,9 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="CurrentCount" Type="int" />
-          <Property Name="RequiredCount" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrentCount" Type="int" Nullable="false" />
+          <Property Name="RequiredCount" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="decimal" Precision="18" Scale="0" />
           <Property Name="ItemType_ID" Type="int" Nullable="false" />
         </EntityType>
@@ -138,6 +138,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="SupplierPhone">
           <Key>
@@ -625,9 +626,9 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CurrentCount" Type="Int32" />
-          <Property Name="RequiredCount" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrentCount" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCount" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ItemType_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FoodIngredients" Relationship="Self.store_item_id_FK" FromRole="StoreItem" ToRole="FoodIngredients" />
@@ -652,6 +653,7 @@
           <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ItemShipments" Relationship="Self.Suppliers_item_shipment_fk" FromRole="Supplier" ToRole="ItemShipment" />
           <NavigationProperty Name="SupplierPhones" Relationship="Self.Supplier_phone_FK" FromRole="Supplier" ToRole="SupplierPhone" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SupplierPhone">
           <Key>
@@ -1169,6 +1171,7 @@
           <EntitySetMapping Name="Suppliers">
             <EntityTypeMapping TypeName="RestaurantManagementModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

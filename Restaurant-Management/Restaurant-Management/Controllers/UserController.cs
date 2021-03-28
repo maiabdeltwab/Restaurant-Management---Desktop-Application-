@@ -35,6 +35,7 @@ namespace Restaurant_Management.Controllers
                         Username = u.Username,
                         Email = u.Email,
                         TypeName = u.UserType.Name,
+                        Password = u.Password
                     }).ToList();
         }
 
@@ -49,6 +50,7 @@ namespace Restaurant_Management.Controllers
                              Username = u.Username,
                              Email = u.Email,
                              TypeName = u.UserType.Name,
+                             Password = u.Password
                          }).ToList();
 
             return users;
@@ -58,27 +60,17 @@ namespace Restaurant_Management.Controllers
         {
             List<UserVM> users = new List<UserVM>();
 
-            users.AddRange((from u in context.Users
-                            where (u.FristName.Contains(searchTxt)
-                            || u.LastName.Contains(searchTxt)
-                            || u.Username.Contains(searchTxt)
-                            || u.UserType.Name.Contains(searchTxt)
-                            || u.Email.Contains(searchTxt))
-                            select new UserVM
-                            {
-                                ID = u.ID,
-                                FristName = u.FristName,
-                                LastName = u.LastName,
-                                Username = u.Username,
-                                Email = u.Email,
-                                TypeName = u.UserType.Name,
-                            }).ToList());
-
             try
             {
-                int id = int.Parse(searchTxt);
+                int.TryParse(searchTxt, out int id);
+
                 users.AddRange((from u in context.Users
-                                where u.ID == id
+                                where (u.FristName.Contains(searchTxt)
+                                || u.LastName.Contains(searchTxt)
+                                || u.Username.Contains(searchTxt)
+                                || u.UserType.Name.Contains(searchTxt)
+                                || u.Email.Contains(searchTxt)
+                                || u.ID == id)
                                 select new UserVM
                                 {
                                     ID = u.ID,
@@ -87,6 +79,7 @@ namespace Restaurant_Management.Controllers
                                     Username = u.Username,
                                     Email = u.Email,
                                     TypeName = u.UserType.Name,
+                                    Password = u.Password
                                 }).ToList());
             }
             catch { }
@@ -162,7 +155,45 @@ namespace Restaurant_Management.Controllers
                 {
                     user.Password = null;
                 }
+                else
+                {
+                    user.FristName = user1.FristName;
+                    user.LastName = user1.LastName;
+                    user.Email = user1.Email;
+                    user.Username = user1.Username;
+                    user.ID = user1.ID;
+                    user.UserType_id = user1.UserType_id;
+                }
+
                 return user;
+            }
+        }
+
+        public void Logout()
+        {
+            try
+            {
+                context.SaveLogins.Remove(context.SaveLogins.FirstOrDefault());
+                context.SaveChanges();
+            }
+            catch { }
+        }
+
+        public void KeepLogin(User user)
+        {
+            if (user == null)
+            {
+                try
+                {
+                    context.SaveLogins.Remove(context.SaveLogins.FirstOrDefault());
+                    context.SaveChanges();
+                }
+                catch { }
+            }
+            else
+            {
+                context.SaveLogins.Add(new SaveLogin { userId = user.ID, keepLogin = 1 });
+                context.SaveChanges();
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Restaurant_Management.View;
+﻿using Restaurant_Management.Controllers;
+using Restaurant_Management.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,8 +22,7 @@ namespace Restaurant_Management
         private void Main_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            UserForm objForm = new UserForm();
-            //UserTypeForm objForm = new UserTypeForm();
+            DatabaseListForm objForm = new DatabaseListForm();
             objForm.TopLevel = false;
             mainPanel.Controls.Add(objForm);
             objForm.FormBorderStyle = FormBorderStyle.None;
@@ -32,6 +32,44 @@ namespace Restaurant_Management
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dbBtn_Click(object sender, EventArgs e)
+        {
+            DatabaseListForm objForm = new DatabaseListForm();
+            objForm.TopLevel = false;
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(objForm);
+            objForm.FormBorderStyle = FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
+
+        private void storeBtn_Click(object sender, EventArgs e)
+        {
+            UserTypeForm objForm = new UserTypeForm();
+            objForm.TopLevel = false;
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(objForm);
+            objForm.FormBorderStyle = FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            UserController control = new UserController();
+            control.Logout();
+            App.UserLogin = null;
+
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
         }
     }
 }

@@ -18,6 +18,8 @@ namespace Restaurant_Management.View
         public MenuForm()
         {
             InitializeComponent();
+
+            dataGrid.Columns["ID"].Width = 200;
         }
 
         private readonly MenuController controller = new MenuController();
@@ -34,7 +36,7 @@ namespace Restaurant_Management.View
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.Menu' table. You can move, or remove it, as needed.
             this.menuTableAdapter.Fill(this.restaurantManagementDataSet.Menu);
             dataGrid.DataSource = controller.ViewAll();
-            //UTypeCombo.SelectedIndex = -1;
+
             IdText.Enabled = false;
             ClearData();
         }
@@ -87,14 +89,20 @@ namespace Restaurant_Management.View
         {
             if (dataGrid.SelectedRows.Count != 0)
             {
-                groupBox.Text = "Update Menu";
+                groupBox.Text = "Update menu category";
+
                 deleteBtn.Visible = true;
+                itemBtn.Visible = true;
+
                 SelectRow();
             }
             else
             {
-                groupBox.Text = "Create Menu";
+                groupBox.Text = "Create menu category";
+
                 deleteBtn.Visible = false;
+                itemBtn.Visible = false;
+
                 ClearData();
             }
         }
@@ -132,11 +140,11 @@ namespace Restaurant_Management.View
         {
             dataGrid.ClearSelection();
 
-            UsernameText.Text = "Enter Menu Name";
+            nameText.Text = "Enter category name";
             IdText.Text = "ID";
-            //UTypeCombo.SelectedIndex = -1;
+
             saveBtn.Text = "Create";
-            groupBox.Text = "Create Menu";
+            groupBox.Text = "Create menu category";
             deleteBtn.Visible = false;
         }
 
@@ -146,8 +154,8 @@ namespace Restaurant_Management.View
             {
                 var row = dataGrid.SelectedRows[0];
                 IdText.Text = row.Cells["ID"].Value.ToString();
-                UsernameText.Text = row.Cells["Names"].Value.ToString();
-                //UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
+                nameText.Text = row.Cells["Names"].Value.ToString();
+
                 saveBtn.Text = "Update";
             }
         }
@@ -160,71 +168,51 @@ namespace Restaurant_Management.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            if (nameText.Text == "Enter category name")
+                nameText.Text = "";
+
             Menu menu = new Menu();
             getDate(menu);
 
-            if (saveBtn.Text == "Create")
+            if (Validation.IsName(menu.Name))
             {
-                bool flag = controller.Insert(menu);
-
-                if (flag)
+                if (saveBtn.Text == "Create")
                 {
-                    MessageBox.Show(null, "User inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
+                    bool flag = controller.Insert(menu);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Category inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    menu.ID = int.Parse(IdText.Text);
+
+                    bool flag = controller.Update(menu);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Category updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
-            {
-                menu.ID = int.Parse(IdText.Text);
-
-                bool flag = controller.Update(menu);
-
-                if (flag)
-                {
-                    MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
-                }
-                else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void getDate(Menu menu)
         {
-            menu.Name = UsernameText.Text;
-
-            //user.UserType = context.UserTypes.Find(UTypeCombo.SelectedValue);
+            menu.Name = nameText.Text.Trim();
         }
-
-        //private void formText_Enter(object sender, EventArgs e)
-        //{
-        //    dynamic textBox = sender;
-
-        //    if (textBox.Name == "EmailText")
-        //    {
-        //        DefaultText(textBox, "Enter email", true);
-        //    }
-        //    else if (textBox.Name == "FNameText")
-        //    {
-        //        DefaultText(textBox, "Enter first name", true);
-        //    }
-        //    else if (textBox.Name == "LNameText")
-        //    {
-        //        DefaultText(textBox, "Enter last name", true);
-        //    }
-        //    else if (textBox.Name == "PasswordText")
-        //    {
-        //        DefaultText(textBox, "Enter password", true);
-        //    }
-        //    else if (textBox.Name == "UsernameText")
-        //    {
-        //        DefaultText(textBox, "Enter Menu name", true);
-        //    }
-        //}
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
@@ -238,12 +226,48 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "Category deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }
             else
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void nameText_TextChanged(object sender, EventArgs e)
+        {
+            string input = nameText.Text.Trim();
+
+            if (input != "Enter category name" && !Validation.IsName(input))
+            {
+                NameLbl.Text = "Invalid name";
+                NameLbl.ForeColor = Color.Red;
+            }
+            else
+            {
+                NameLbl.Text = "Name";
+                NameLbl.ForeColor = Color.Black;
+            }
+        }
+
+        private void nameText_Enter(object sender, EventArgs e)
+        {
+            if (nameText.Text == "Enter category name")
+                DefaultText(sender, "Enter category name", true);
+        }
+
+        private void itemssBtn_Click(object sender, EventArgs e)
+        {
+            Menu menuType = controller.GetMenuType(int.Parse(IdText.Text));
+            MenuItemForm menuItemForm = new MenuItemForm(menuType)
+            {
+                TopLevel = false
+            };
+            this.Controls.Clear();
+            this.Controls.Add(menuItemForm);
+            menuItemForm.FormBorderStyle = FormBorderStyle.None;
+            menuItemForm.Dock = DockStyle.Fill;
+            menuItemForm.Show();
         }
     }
 }

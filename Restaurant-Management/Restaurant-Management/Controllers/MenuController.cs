@@ -34,19 +34,13 @@ namespace Restaurant_Management.Controllers
         {
             List<MenuVM> menus = new List<MenuVM>();
 
-            menus.AddRange((from M in context.Menus
-                            where (M.Name.Contains(searchTxt))
-                            select new MenuVM
-                            {
-                                ID = M.ID,
-                                Name = M.Name
-                            }).ToList());
-
             try
             {
-                int id = int.Parse(searchTxt);
+                int.TryParse(searchTxt, out int id);
+
                 menus.AddRange((from M in context.Menus
-                                where M.ID == id
+                                where (M.Name.Contains(searchTxt)
+                                || M.ID == id)
                                 select new MenuVM
                                 {
                                     ID = M.ID,
@@ -103,6 +97,11 @@ namespace Restaurant_Management.Controllers
                 Console.WriteLine(ex.Message);
                 return false;
             }
+        }
+
+        public Menu GetMenuType(int id)
+        {
+            return context.Menus.Find(id);
         }
     }
 }

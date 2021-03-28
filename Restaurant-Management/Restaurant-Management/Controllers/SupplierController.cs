@@ -19,12 +19,13 @@ namespace Restaurant_Management.Controllers
 
         public List<SupplierVM> ViewAll()
         {
-            var suppliers = (from u in context.Suppliers
+            var suppliers = (from s in context.Suppliers
                              select new SupplierVM
                              {
-                                 ID = u.ID,
-                                 Name = u.Name,
-                                 Email = u.Email,
+                                 ID = s.ID,
+                                 Name = s.Name,
+                                 Email = s.Email,
+                                 Phone = s.Phone
                              }).ToList();
 
             return suppliers;
@@ -34,26 +35,21 @@ namespace Restaurant_Management.Controllers
         {
             List<SupplierVM> suppliers = new List<SupplierVM>();
 
-            suppliers.AddRange((from u in context.Suppliers
-                                where (u.Name.Contains(searchTxt)
-                                || u.Email.Contains(searchTxt))
-                                select new SupplierVM
-                                {
-                                    ID = u.ID,
-                                    Name = u.Name,
-                                    Email = u.Email
-                                }).ToList());
-
             try
             {
-                int id = int.Parse(searchTxt);
-                suppliers.AddRange((from u in context.Suppliers
-                                    where u.ID == id
+                int.TryParse(searchTxt, out int id);
+
+                suppliers.AddRange((from s in context.Suppliers
+                                    where (s.Name.Contains(searchTxt)
+                                    || s.Email.Contains(searchTxt)
+                                    || s.Phone.Contains(searchTxt)
+                                    || s.ID == id)
                                     select new SupplierVM
                                     {
-                                        ID = u.ID,
-                                        Name = u.Name,
-                                        Email = u.Email
+                                        ID = s.ID,
+                                        Name = s.Name,
+                                        Email = s.Email,
+                                        Phone = s.Phone
                                     }).ToList());
             }
             catch { }
@@ -80,9 +76,9 @@ namespace Restaurant_Management.Controllers
             {
                 Supplier editedSuppllier = context.Suppliers.Find(supplier.ID);
 
-                editedSuppllier.ID = supplier.ID;
                 editedSuppllier.Name = supplier.Name;
                 editedSuppllier.Email = supplier.Email;
+                editedSuppllier.Phone = supplier.Phone;
                 context.SaveChanges();
 
                 return true;

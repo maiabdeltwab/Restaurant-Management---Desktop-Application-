@@ -25,21 +25,26 @@ namespace Restaurant_Management.View
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            //this.userTypeTableAdapter.Fill(this.restaurantManagementDataSet.UserType);
-
             dataGrid.DataSource = controller.ViewAll();
+            dataGrid.AllowUserToOrderColumns = true;
 
-            //UTypeCombo.SelectedIndex = -1;
+            dataGrid.Columns["ID"].Width = 100;
+
             IdText.Enabled = false;
             ClearData();
         }
 
-        private void IdLbl_Click(object sender, EventArgs e)
+        private void ClearData()
         {
-        }
+            dataGrid.ClearSelection();
 
-        private void UsernameLbl_Click(object sender, EventArgs e)
-        {
+            NameText.Text = "Enter customer name";
+            PhoneText.Text = "Enter phone number";
+            AddressText.Text = "Enter address";
+            IdText.Text = "ID";
+            saveBtn.Text = "Create";
+            groupBox.Text = "Create Customer";
+            deleteBtn.Visible = false;
         }
 
         private void dataGrid_rowCountChange(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -52,10 +57,6 @@ namespace Restaurant_Management.View
             rowCount.Text = $"Results: {dataGrid.Rows.Count} rows";
         }
 
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
         private void dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectRow();
@@ -65,13 +66,13 @@ namespace Restaurant_Management.View
         {
             if (dataGrid.SelectedRows.Count != 0)
             {
-                groupBox.Text = "Update user";
+                groupBox.Text = "Update customer";
                 deleteBtn.Visible = true;
                 SelectRow();
             }
             else
             {
-                groupBox.Text = "Create user";
+                groupBox.Text = "Create customer";
                 deleteBtn.Visible = false;
                 ClearData();
             }
@@ -83,58 +84,60 @@ namespace Restaurant_Management.View
             {
                 var row = dataGrid.SelectedRows[0];
                 IdText.Text = row.Cells["ID"].Value.ToString();
-                CustomernameText.Text = row.Cells["Name"].Value.ToString();
+                NameText.Text = row.Cells["Name"].Value.ToString();
                 PhoneText.Text = row.Cells["Phone"].Value.ToString();
                 AddressText.Text = row.Cells["Address"].Value.ToString();
-                //EmailText.Text = row.Cells["Email"].Value.ToString();
-                //FNameText.Text = row.Cells["FristName"].Value.ToString();
-                //LNameText.Text = row.Cells["LastName"].Value.ToString();
-
-                //string type = row.Cells["TypeName"].Value.ToString();
-                //UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
 
                 saveBtn.Text = "Update";
             }
         }
 
-        private void ClearData()
+        private void formText_Enter(object sender, EventArgs e)
         {
-            dataGrid.ClearSelection();
+            dynamic textBox = sender;
 
-            CustomernameText.Text = "Enter Customer name";
-            PhoneText.Text = "Enter phone number";
-            AddressText.Text = "Enter Adrress";
-            IdText.Text = "ID";
-            saveBtn.Text = "Create";
-            groupBox.Text = "Create Customer";
-            deleteBtn.Visible = false;
+            if (textBox.Name == "NameText")
+            {
+                DefaultText(textBox, "Enter customer name", true);
+            }
+            else if (textBox.Name == "PhoneText")
+            {
+                DefaultText(textBox, "Enter phone number", true);
+            }
+            else if (textBox.Name == "AddressText")
+            {
+                DefaultText(textBox, "Enter address", true);
+            }
+        }
+
+        public void ClearDefaults()
+        {
+            DefaultText(NameText, "Enter customer name", true);
+            DefaultText(PhoneText, "Enter phone number", true);
+            DefaultText(AddressText, "Enter address", true);
         }
 
         private void CustomernameText_TextChanged(object sender, EventArgs e)
         {
-            Regex CustomernameReg = new Regex("^([a-z0-9]|[-._](?![-._])){3,}$");
+            string input = NameText.Text.Trim();
 
-            string input = CustomernameText.Text.Trim();
-
-            if (input != "Enter Customer name" && !CustomernameReg.IsMatch(input))
+            if (input != "Enter customer name" && !Validation.IsName(input))
             {
-                CustomernameLbl.Text = "Invalid Customername";
+                CustomernameLbl.Text = "Invalid name";
                 CustomernameLbl.ForeColor = Color.Red;
             }
             else
             {
-                CustomernameLbl.Text = "Customername";
+                CustomernameLbl.Text = "Name";
                 CustomernameLbl.ForeColor = Color.Black;
             }
         }
 
         private void PhoneText_TextChanged(object sender, EventArgs e)
         {
-            Regex PhoneReg = new Regex("^[0-9]{11}$");
-
             string input = PhoneText.Text.Trim();
 
-            if (input != "Enter phone number" && !PhoneReg.IsMatch(input))
+            if (input != "Enter phone number" && !Validation.IsPhone(input))
             {
                 PhoneLbl.Text = "Invalid Phone Number";
                 PhoneLbl.ForeColor = Color.Red;
@@ -146,24 +149,6 @@ namespace Restaurant_Management.View
             }
         }
 
-        private void formText_Enter(object sender, EventArgs e)
-        {
-            dynamic textBox = sender;
-
-            if (textBox.Name == "CustomernameText")
-            {
-                DefaultText(textBox, "Enter Customer name", true);
-            }
-            else if (textBox.Name == "PhoneText")
-            {
-                DefaultText(textBox, "Enter phone number", true);
-            }
-            else if(textBox.Name=="AddressText")
-            {
-                DefaultText(textBox, "Enter Address", true);
-            }
-        }
-
         private void PhoneLbl_Click(object sender, EventArgs e)
         {
         }
@@ -171,43 +156,48 @@ namespace Restaurant_Management.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer();
+            ClearDefaults();
             getDate(customer);
 
-            if (saveBtn.Text == "Create")
+            if (Validation.IsName(customer.Name) && Validation.IsPhone(customer.Phone))
             {
-                bool flag = controller.Insert(customer);
-
-                if (flag)
+                if (saveBtn.Text == "Create")
                 {
-                    MessageBox.Show(null, "Customer inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
+                    bool flag = controller.Insert(customer);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Customer inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    customer.ID = int.Parse(IdText.Text);
+
+                    bool flag = controller.Update(customer);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Customer updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
-            {
-                customer.ID = int.Parse(IdText.Text);
-
-                bool flag = controller.Update(customer);
-
-                if (flag)
-                {
-                    MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
-                }
-                else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show(null, "Please check your input", "Invalid data", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void getDate(Customer customer)
         {
-            customer.Name = CustomernameText.Text;
-            customer.Phone = PhoneText.Text;
-            customer.Address = AddressText.Text;
+            customer.Name = NameText.Text.Trim();
+            customer.Phone = PhoneText.Text.Trim();
+            customer.Address = AddressText.Text.Trim();
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -230,7 +220,7 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "Customer deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }
@@ -292,10 +282,6 @@ namespace Restaurant_Management.View
                 search(sender, e);
         }
 
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void search(object sender, EventArgs e)
         {
             string search = searchTextBox.Text;
@@ -305,32 +291,9 @@ namespace Restaurant_Management.View
                 dataGrid.DataSource = controller.Search(search);
         }
 
-        private void gunaLineTextBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void AddressText_TextChanged(object sender, EventArgs e)
-        {
-            //string input = CustomernameText.Text.Trim();
-            //if (input != "Enter Customer name" )
-            //{
-            //    AddresLbl.Text = "Invalid Address";
-            //    AddresLbl.ForeColor = Color.Red;
-            //}
-            //else
-            //{
-            //    AddresLbl.Text = "Address";
-            //    AddresLbl.ForeColor = Color.Black;
-            //}
-        }
-
         private void gunaAdvenceButton1_Click(object sender, EventArgs e)
         {
             dataGrid.DataSource = controller.ViewAll();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
         }
     }
 }

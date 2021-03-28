@@ -20,35 +20,12 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuForm.resources
-G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Supplier_Form.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe.config
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.pdb
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.dll
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemTypesForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.CustomerForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Supplier_Form.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.LoginForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Main.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserTypeForm.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.GenerateResource.cache
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CoreCompileInputs.cache
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CopyComplete
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuitemSlider.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csprojAssemblyReference.cache
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.UserControl1.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.UserControl2.resources
-C:\Users\Elamen Soft\Documents\GitHub\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.Menu_Namess.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.SupplierForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DatabaseListForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.ItemShipmentForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.RoleScreensForm.resources
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.xml
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.xml
+G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.SelectedItemsForm.resources

@@ -8,25 +8,27 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.ViewModel
 {
-    class OrderVM
+    internal class OrderVM
     {
         public int ID { get; set; }
+
+        [DisplayName("Customer")]
+        [Required]
+        public string CustomerName { get; set; }
+
         [DisplayName("Price")]
         [Required]
         public Nullable<decimal> Price { get; set; }
+
         [DisplayName("Date")]
         [Required]
-
         public Nullable<System.DateTime> Date { get; set; }
+
         [DisplayName("Type")]
         [Required]
         public string OrderType { get; set; }
-        [DisplayName("Customer Name")]
-        [Required]
-        public string CustomerName { get; set; }
+
         //public string Menuitem { get; set; }
         //public int? Count { get; set; }
-
-
     }
 }

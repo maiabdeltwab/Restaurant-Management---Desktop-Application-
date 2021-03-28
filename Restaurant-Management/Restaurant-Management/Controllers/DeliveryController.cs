@@ -23,6 +23,7 @@ namespace Restaurant_Management.Controllers
                                  where p.Phone == searchTxt
                                  select new CustomerVM
                                  {
+                                     ID = p.ID,
                                      Name = p.Name,
                                      Address = p.Address
                                  }).ToList();
@@ -35,20 +36,49 @@ namespace Restaurant_Management.Controllers
             throw new NotImplementedException();
         }
 
-        public bool Insert(Customer user)
+        public bool Insert(Customer customer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                context.Customers.Add(customer);
+
+                context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
+
 
         public List<CustomerVM> Search(string searchTxt)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Customer user)
+        public bool Update(Customer customer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Customer editedcustomer = context.Customers.Find(customer.ID);
+
+                //editedcustomer.ID = customer.ID;
+                editedcustomer.Name = customer.Name;
+                //editedcustomer.Phone = customer.Phone;
+                editedcustomer.Address = customer.Address;
+                context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
 
         public List<CustomerVM> ViewAll()
         {

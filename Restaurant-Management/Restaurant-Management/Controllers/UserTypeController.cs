@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Screen = Restaurant_Management.Model.Screen;
 
 namespace Restaurant_Management.Controllers
 {
@@ -114,6 +115,38 @@ namespace Restaurant_Management.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public List<Screen> GetRoleScreens(UserType role)
+        {
+            List<Screen> screens = new List<Screen>();
+            foreach (var prv in role.UserPrivileges)
+            {
+                screens.Add(prv.Screen);
+            }
+            return screens;
+        }
+
+        public bool AssignScreens(List<Screen> screens, UserType role)
+        {
+            try
+            {
+                foreach (var screen in screens)
+                {
+                    context.UserPrivileges.Add(new UserPrivilege
+                    {
+                        UserType_id = role.ID,
+                        Screen_id = screen.ID
+                    });
+                }
+
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
                 return false;
             }
         }

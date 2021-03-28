@@ -36,25 +36,16 @@ namespace Restaurant_Management.Controllers
         {
             List<MenuItemVM> menuItems = new List<MenuItemVM>();
 
-            menuItems.AddRange((from u in context.MenuItems
-                                where (u.Price.ToString().Contains(searchTxt)
-                                || u.Name.Contains(searchTxt)
-                                || u.Describtion.Contains(searchTxt)
-                                || u.Menu.Name.Contains(searchTxt))
-                                select new MenuItemVM
-                                {
-                                    ID = u.ID,
-                                    Name = u.Name,
-                                    Price = u.Price,
-                                    Describtion = u.Describtion,
-                                    MenuName = u.Menu.Name
-                                }).ToList());
-
             try
             {
-                int id = int.Parse(searchTxt);
+                int.TryParse(searchTxt, out int id);
+
                 menuItems.AddRange((from u in context.MenuItems
-                                    where u.ID == id
+                                    where (u.Price.ToString().Contains(searchTxt)
+                                    || u.Name.Contains(searchTxt)
+                                    || u.Describtion.Contains(searchTxt)
+                                    || u.Menu.Name.Contains(searchTxt)
+                                    || u.ID == id)
                                     select new MenuItemVM
                                     {
                                         ID = u.ID,
@@ -66,6 +57,20 @@ namespace Restaurant_Management.Controllers
             }
             catch { }
             return menuItems;
+        }
+
+        public List<MenuItemVM> ViewItemsMenu(Menu menu)
+        {
+            return (from i in context.MenuItems
+                    where i.Menu_id == menu.ID
+                    select new MenuItemVM
+                    {
+                        ID = i.ID,
+                        Name = i.Name,
+                        Price = i.Price,
+                        Describtion = i.Describtion,
+                        MenuName = i.Menu.Name
+                    }).ToList();
         }
 
         public bool Delete(int id)

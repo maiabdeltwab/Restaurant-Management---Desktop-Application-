@@ -17,11 +17,12 @@ namespace Restaurant_Management.View
     {
         private UserTypeController controller = new UserTypeController();
         private readonly RestaurantEntities context = UserController.context;
-        private Regex nameReg = new Regex("^[A-Za-z -]{3,}$");
 
         public UserTypeForm()
         {
             InitializeComponent();
+
+            dataGrid.Columns[0].Width = 150;
         }
 
         private void UserTypeForm_Load(object sender, EventArgs e)
@@ -99,6 +100,7 @@ namespace Restaurant_Management.View
                 groupBox.Text = "Update user type";
                 deleteBtn.Visible = true;
                 usersBtn.Visible = true;
+                screensBtn.Visible = true;
                 SelectRow();
             }
             else
@@ -106,6 +108,7 @@ namespace Restaurant_Management.View
                 groupBox.Text = "Create user type";
                 deleteBtn.Visible = false;
                 usersBtn.Visible = false;
+                screensBtn.Visible = false;
                 ClearData();
             }
         }
@@ -270,7 +273,7 @@ namespace Restaurant_Management.View
         private bool validateName()
         {
             string input = NameText.Text.Trim();
-            if (!nameReg.IsMatch(input))
+            if (!Validation.IsName(input))
             {
                 NameLbl.Text = "Invalid Name";
                 NameLbl.ForeColor = Color.Red;
@@ -294,6 +297,23 @@ namespace Restaurant_Management.View
             this.Controls.Clear();
             this.Controls.Add(userForm);
             userForm.Show();
+        }
+
+        private void screensBtn_Click(object sender, EventArgs e)
+        {
+            UserType userType = new UserType();
+            getDate(userType);
+
+            RoleScreensForm objForm = new RoleScreensForm(userType)
+            {
+                TopLevel = false
+            };
+
+            this.Controls.Clear();
+            this.Controls.Add(objForm);
+            objForm.FormBorderStyle = FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
         }
     }
 }

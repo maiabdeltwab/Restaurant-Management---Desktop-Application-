@@ -50,6 +50,10 @@ namespace Restaurant_Management.View
             {
                 dataGrid.DataSource = controller.ViewAll();
             }
+
+            dataGrid.Columns["ID"].Width = 50;
+            dataGrid.Columns["Email"].Width = 150;
+            dataGrid.Columns["Password"].Visible = false;
         }
 
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
@@ -157,6 +161,9 @@ namespace Restaurant_Management.View
             saveBtn.Text = "Create";
             groupBox.Text = "Create user";
             deleteBtn.Visible = false;
+
+            UTypeLbl.Text = "User Role";
+            UTypeLbl.ForeColor = Color.Black;
         }
 
         public void ClearDefaults()
@@ -179,6 +186,7 @@ namespace Restaurant_Management.View
                 EmailText.Text = row.Cells["Email"].Value.ToString();
                 FNameText.Text = row.Cells["FristName"].Value.ToString();
                 LNameText.Text = row.Cells["LastName"].Value.ToString();
+                PasswordText.Text = row.Cells["Password"].Value.ToString();
 
                 string type = row.Cells["TypeName"].Value.ToString();
                 UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
@@ -236,12 +244,12 @@ namespace Restaurant_Management.View
 
         private void getDate(User user)
         {
-            user.Username = UsernameText.Text;
-            user.FristName = FNameText.Text;
-            user.LastName = LNameText.Text;
-            user.Email = EmailText.Text;
+            user.Username = UsernameText.Text.Trim();
+            user.FristName = FNameText.Text.Trim();
+            user.LastName = LNameText.Text.Trim();
+            user.Email = EmailText.Text.Trim();
             user.UserType = context.UserTypes.Find(UTypeCombo.SelectedValue);
-            user.Password = PasswordText.Text;
+            user.Password = PasswordText.Text.Trim();
         }
 
         private bool DataValidation()
@@ -425,6 +433,12 @@ namespace Restaurant_Management.View
                 UTypeLbl.ForeColor = Color.Black;
                 return true;
             }
+        }
+
+        private void viewPassCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            PasswordText.UseSystemPasswordChar = (viewPassCheck.Checked) ? true : false;
+            PasswordText.PasswordChar = (viewPassCheck.Checked) ? '●' : '\0';
         }
     }
 }

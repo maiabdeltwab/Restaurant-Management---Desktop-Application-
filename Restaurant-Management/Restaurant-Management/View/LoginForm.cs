@@ -54,6 +54,11 @@ namespace Restaurant_Management.View
                 {
                     App.UserLogin = user;
 
+                    if (rememberCheck.Checked)
+                        Controller.KeepLogin(user);
+                    else
+                        Controller.KeepLogin(null);
+
                     Main mainForm = new Main();
                     mainForm.Show();
                     this.Hide();

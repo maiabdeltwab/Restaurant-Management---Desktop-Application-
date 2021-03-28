@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Menu = Restaurant_Management.Model.Menu;
 using MenuItem = Restaurant_Management.Model.MenuItem;
 
 namespace Restaurant_Management.View
@@ -17,10 +18,13 @@ namespace Restaurant_Management.View
     {
         private readonly MenuItemController controller = new MenuItemController();
         private readonly RestaurantEntities context = MenuItemController.context;
+        private readonly Menu menu;
 
-        public MenuItemForm()
+        public MenuItemForm(Menu menu = null)
         {
             InitializeComponent();
+
+            this.menu = menu;
         }
 
         private void MenuItem_Form_Load(object sender, EventArgs e)
@@ -29,10 +33,27 @@ namespace Restaurant_Management.View
             this.menuItemTableAdapter.Fill(this.restaurantManagementDataSet.MenuItem);
             this.menuTableAdapter1.Fill(this.restaurantManagementDataSet.Menu);
             dataGrid.DataSource = controller.ViewAll();
-            UTypeCombo.ValueMember = "ID";
-            UTypeCombo.SelectedIndex = -1;
+
+            dataGrid.Columns["ID"].Width = 100;
+            dataGrid.Columns["Name"].Width = 180;
+            dataGrid.Columns["MenuName"].Width = 150;
+            dataGrid.Columns["Describtion"].Visible = false;
+
+            MenuTypeCombo.ValueMember = "ID";
             IdText.Enabled = false;
             ClearData();
+
+            if (menu != null)
+            {
+                dataGrid.DataSource = controller.ViewItemsMenu(menu);
+                MenuTypeCombo.SelectedIndex = MenuTypeCombo.FindStringExact(menu.Name);
+                searchTextBox.Text = menu.Name;
+            }
+            else
+            {
+                dataGrid.DataSource = controller.ViewAll();
+                MenuTypeCombo.SelectedIndex = -1;
+            }
         }
 
         private void DefaultText(dynamic textBox, string defaultText, bool remove)
@@ -127,14 +148,40 @@ namespace Restaurant_Management.View
         private void ClearData()
         {
             dataGrid.ClearSelection();
-            NameText.Text = "Enter Item Name";
-            PriceText.Text = "Enter The Item price";
-            UTypeCombo.SelectedIndex = -1;
+            NameText.Text = "Enter Name";
+            PriceText.Text = "Enter price";
+            MenuTypeCombo.SelectedIndex = -1;
+            MenuTypeCombo.Text = "Choose menu category";
             IdText.Text = "ID";
-            Descriptiontext.Text = "Enter Description";
+            Descriptiontext.Text = "Enter description for this item";
             saveBtn.Text = "Create";
             groupBox.Text = "Create Menu Item";
             deleteBtn.Visible = false;
+        }
+
+        public void ClearDefaults()
+        {
+            DefaultText(NameText, "Enter Name", true);
+            DefaultText(PriceText, "Enter price", true);
+            DefaultText(Descriptiontext, "Enter description for this item", true);
+        }
+
+        private void formText_Enter(object sender, EventArgs e)
+        {
+            dynamic textBox = sender;
+
+            if (textBox.Name == "NameText")
+            {
+                DefaultText(textBox, "Enter Name", true);
+            }
+            else if (textBox.Name == "PriceText")
+            {
+                DefaultText(textBox, "Enter price", true);
+            }
+            else if (textBox.Name == "Descriptiontext")
+            {
+                DefaultText(textBox, "Enter description for this item", true);
+            }
         }
 
         private void SelectRow()
@@ -147,7 +194,7 @@ namespace Restaurant_Management.View
                 PriceText.Text = row.Cells["Price"].Value.ToString();
                 Descriptiontext.Text = row.Cells["Describtion"].Value.ToString();
                 string type = row.Cells["MenuName"].Value.ToString();
-                UTypeCombo.SelectedIndex = UTypeCombo.FindStringExact(type);
+                MenuTypeCombo.SelectedIndex = MenuTypeCombo.FindStringExact(type);
                 saveBtn.Text = "Update";
             }
         }
@@ -161,36 +208,43 @@ namespace Restaurant_Management.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             MenuItem menuItem = new MenuItem();
-            getDate(menuItem);
+            ClearDefaults();
 
-            if (saveBtn.Text == "Create")
+            if (DataValidation())
             {
-                bool flag = controller.Insert(menuItem);
+                getDate(menuItem);
 
-                if (flag)
+                if (saveBtn.Text == "Create")
                 {
-                    MessageBox.Show(null, "User inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
+                    bool flag = controller.Insert(menuItem);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Item has been added to menu successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something wen wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    menuItem.ID = int.Parse(IdText.Text);
+
+                    bool flag = controller.Update(menuItem);
+
+                    if (flag)
+                    {
+                        MessageBox.Show(null, "Menu item updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh table
+                        dataGrid.DataSource = controller.ViewAll();
+                    }
+                    else
+                        MessageBox.Show(null, "Something wen wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
-            {
-                menuItem.ID = int.Parse(IdText.Text);
-
-                bool flag = controller.Update(menuItem);
-
-                if (flag)
-                {
-                    MessageBox.Show(null, "User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh table
-                    dataGrid.DataSource = controller.ViewAll();
-                }
-                else
-                    MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show(null, "Please check your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void getDate(MenuItem menuItem)
@@ -198,25 +252,14 @@ namespace Restaurant_Management.View
             menuItem.Name = NameText.Text;
             menuItem.Price = decimal.Parse(PriceText.Text);
             menuItem.Describtion = Descriptiontext.Text;
-            menuItem.Menu = context.Menus.Find(UTypeCombo.SelectedValue);
+            menuItem.Menu = context.Menus.Find(MenuTypeCombo.SelectedValue);
         }
 
-        private void formText_Enter(object sender, EventArgs e)
+        private bool DataValidation()
         {
-            dynamic textBox = sender;
+            bool flag = ValidateMenuType() && ValidateName() && ValidatePrice();
 
-            if (textBox.Name == "NameText")
-            {
-                DefaultText(textBox, "Enter Item Name", true);
-            }
-            else if (textBox.Name == "PriceText")
-            {
-                DefaultText(textBox, "Enter item price", true);
-            }
-            else if (textBox.Name == "Descriptiontext")
-            {
-                DefaultText(textBox, "Enter Description", true);
-            }
+            return flag;
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -231,7 +274,7 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "Menu item deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }
@@ -241,6 +284,82 @@ namespace Restaurant_Management.View
 
         private void dataGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
+        }
+
+        private void NameText_TextChanged(object sender, EventArgs e)
+        {
+            ValidateName();
+        }
+
+        private bool ValidateName()
+        {
+            string input = NameText.Text.Trim();
+
+            if (input != "Enter category name" && !Validation.IsName(input))
+            {
+                NameLbl.Text = "Invalid name";
+                NameLbl.ForeColor = Color.Red;
+                return false;
+            }
+            else
+            {
+                NameLbl.Text = "Name";
+                NameLbl.ForeColor = Color.Black;
+                return true;
+            }
+        }
+
+        private void PriceText_TextChanged(object sender, EventArgs e)
+        {
+            ValidatePrice();
+        }
+
+        private bool ValidatePrice()
+        {
+            string input = PriceText.Text.Trim();
+
+            try
+            {
+                if (input != "Enter price")
+                    decimal.Parse(input);
+
+                PriceLbl.Text = "Price";
+                PriceLbl.ForeColor = Color.Black;
+                return true;
+            }
+            catch
+            {
+                PriceLbl.Text = "Price must be a decimal number";
+                PriceLbl.ForeColor = Color.Red;
+                return false;
+            }
+        }
+
+        private bool ValidateMenuType()
+        {
+            int selected = MenuTypeCombo.SelectedIndex;
+
+            if (selected == -1)
+            {
+                MenuLbl.Text = "Select menu categories";
+                MenuLbl.ForeColor = Color.Red;
+                return false;
+            }
+            else
+            {
+                MenuLbl.Text = "Menu categories";
+                MenuLbl.ForeColor = Color.Black;
+                return true;
+            }
+        }
+
+        private void MenuTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MenuLbl.Text == "Select menu categories" && MenuTypeCombo.SelectedIndex != -1)
+            {
+                MenuLbl.Text = "Menu categories";
+                MenuLbl.ForeColor = Color.Black;
+            }
         }
     }
 }

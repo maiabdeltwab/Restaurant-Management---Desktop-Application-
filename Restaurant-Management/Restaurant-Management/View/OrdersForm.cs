@@ -26,8 +26,9 @@ namespace Restaurant_Management.View
         {
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.OrderType' table. You can move, or remove it, as needed.
             this.orderTypeTableAdapter.Fill(this.restaurantManagementDataSet.OrderType);
-            //this.customerTableAdapter.Fill(this.restaurantManagementDataSet.Customer);
+
             dataGrid.DataSource = controller.ViewAll();
+            dataGrid.Columns["ID"].Width = 100;
 
             OTypeCombo.SelectedIndex = -1;
             IdText.Enabled = false;
@@ -214,10 +215,6 @@ namespace Restaurant_Management.View
             //}
         }
 
-        private void groupBox_Enter(object sender, EventArgs e)
-        {
-        }
-
         private void saveBtn_Click(object sender, EventArgs e)
         {
         }
@@ -228,12 +225,21 @@ namespace Restaurant_Management.View
 
             if (controller.Delete(id))
             {
-                MessageBox.Show(null, "User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(null, "Order deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //refresh table
                 dataGrid.DataSource = controller.ViewAll();
             }
             else
                 MessageBox.Show(null, "Something went wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void gunaImageButton5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void groupBox_Enter(object sender, EventArgs e)
+        {
+
         }
 
         //private void saveBtn_Click(object sender, EventArgs e)
