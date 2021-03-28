@@ -29,6 +29,12 @@ namespace Restaurant_Management.View
         {
             // TODO: This line of code loads data into the 'restaurantManagementDataSet.Menu' table. You can move, or remove it, as needed.
             this.menuTableAdapter.Fill(this.restaurantManagementDataSet.Menu);
+            // TODO: This line of code loads data into the 'restaurantManagementDataSet.Menu' table. You can move, or remove it, as needed.
+            this.menuTableAdapter.Fill(this.restaurantManagementDataSet.Menu);
+            // TODO: This line of code loads data into the 'restaurantManagementDataSet.Menu' table. You can move, or remove it, as needed.
+            this.menuTableAdapter.Fill(this.restaurantManagementDataSet.Menu);
+            // TODO: This line of code loads data into the 'restaurantManagementDataSet.Menu' table. You can move, or remove it, as needed.
+            this.menuTableAdapter.Fill(this.restaurantManagementDataSet.Menu);
             dataGrid.DataSource = controller.ViewAll();
 
             IdText.Enabled = false;
