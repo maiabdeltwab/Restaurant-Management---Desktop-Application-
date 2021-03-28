@@ -104,20 +104,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yomina\\.nuget\\packages\\": {}
+    "C:\\Users\\Abraam Samir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+      "projectUniqueName": "E:\\Information technology institute\\new project\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
       "projectName": "Restaurant-Management",
-      "projectPath": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
-      "packagesPath": "C:\\Users\\Yomina\\.nuget\\packages\\",
-      "outputPath": "D:\\iti\\MINIA\\ResturantInventory - Copy\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\obj\\",
+      "projectPath": "E:\\Information technology institute\\new project\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+      "packagesPath": "C:\\Users\\Abraam Samir\\.nuget\\packages\\",
+      "outputPath": "E:\\Information technology institute\\new project\\Restaurant-Management-Desktop\\Restaurant-Management\\Restaurant-Management\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Yomina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Abraam Samir\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -125,7 +125,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net472": {

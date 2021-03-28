@@ -24,3 +24,31 @@ G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Deskt
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.SupplierForm.resources
 G:\ITI .Net\Projects\Project 4 - Desktop application\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DatabaseListForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csprojAssemblyReference.cache
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DatabaseListForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemTypesForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.StoreItemForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.CustomerForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.DeliveryForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrderItemsForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.OrdersForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.MenuItemForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.SupplierForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.LoginForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.ItrmShipmentForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Main.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.UserTypeForm.resources
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.GenerateResource.cache
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CoreCompileInputs.cache
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.exe
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.pdb
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe.config
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.exe
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\Restaurant-Management.pdb
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.SqlServer.dll
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\bin\Debug\EntityFramework.dll
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant-Management.csproj.CopyComplete
+E:\Information technology institute\new project\Restaurant-Management-Desktop\Restaurant-Management\Restaurant-Management\obj\Debug\Restaurant_Management.View.SelectedItemsForm.resources

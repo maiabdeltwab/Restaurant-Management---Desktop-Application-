@@ -155,6 +155,12 @@
       <DependentUpon>DatabaseListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ItemShipmentVM.cs" />
+    <Compile Include="View\SelectedItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SelectedItemsForm.Designer.cs">
+      <DependentUpon>SelectedItemsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StoreItemTypesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,7 +186,6 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -258,6 +263,9 @@
     <Compile Include="ViewModel\UserVM.cs" />
     <EmbeddedResource Include="View\DatabaseListForm.resx">
       <DependentUpon>DatabaseListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SelectedItemsForm.resx">
+      <DependentUpon>SelectedItemsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StoreItemTypesForm.resx">
       <DependentUpon>StoreItemTypesForm.cs</DependentUpon>

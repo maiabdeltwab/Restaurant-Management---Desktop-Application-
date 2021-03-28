@@ -67,18 +67,18 @@ namespace Restaurant_Management.Controllers
         }
         public List<ItemShipmentVM> ViewAll()
         {
-            var shipment = (from u in context.ItemShipments
-                         select new ItemShipmentVM
-                         {
-                             ID = u.ID,
-                             ArrivalTime = u.ArrivalTime,
-                             ExperiedTime = u.ExperiedTime,
-                             Count = u.Count,
-                             StoreItem_Name = u.StoreItem.Name,
-                             Supplier_Name = u.Supplier.Name,
-                         }).ToList();
+            //var shipment = (from u in context.ItemShipments
+            //             select new ItemShipmentVM
+            //             {
+            //                 ID = u.ID,
+            //                 ArrivalTime = u.ArrivalTime,
+            //                 ExperiedTime = u.ExperiedTime,
+            //                 Count = u.Count,
+            //                 StoreItem_Name = u.StoreItem.Name,
+            //                 Supplier_Name = u.Supplier.Name,
+            //             }).ToList();
 
-            return shipment;
+            return null;
         }
 
         public List<ItemShipmentVM> Search(string searchTxt)
